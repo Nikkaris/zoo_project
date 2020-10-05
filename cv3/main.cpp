@@ -12,6 +12,22 @@ public:
         m_cenaZaDen = cenaZaDen;
         m_vydelanoKc = vydelanoKc;
     }
+
+    float getPujcovne(int pocetDni){
+        return m_cenaZaDen * pocetDni;
+    }
+
+    void evidujZapujcku(float najetoKm, int pocetDni){
+        m_najetoKm += najetoKm;
+        m_vydelanoKc += getPujcovne(pocetDni);
+    }
+
+    void printInfo(){
+        cout << "Najeto KM: " << m_najetoKm << endl;
+        cout << "Cena za den: " << m_cenaZaDen << endl;
+        cout << "Vydelano Kc: " << m_vydelanoKc << endl;
+    }
+
 };
 
 int main() {
