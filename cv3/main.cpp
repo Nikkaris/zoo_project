@@ -18,6 +18,7 @@ public:
     }
 
     void evidujZapujcku(float najetoKm, int pocetDni){
+        upravPujcovne(najetoKm);
         m_najetoKm += najetoKm;
         m_vydelanoKc += getPujcovne(pocetDni);
     }
@@ -28,6 +29,11 @@ public:
         cout << "Vydelano Kc: " << m_vydelanoKc << endl;
     }
 
+private:
+    void upravPujcovne(float najetoKm){
+        if (najetoKm >= 10000)
+            m_cenaZaDen = m_cenaZaDen * 0.9;
+    }
 };
 
 int main() {
