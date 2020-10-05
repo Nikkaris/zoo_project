@@ -32,6 +32,8 @@ public:
 
 int main() {
     Auto* audi = new Auto(10000, 500, 0);
+    audi->evidujZapujcku(1000,3);
+    audi->printInfo();
 
     delete audi;
     return 0;
