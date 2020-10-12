@@ -48,3 +48,4 @@ Thumbs.db
 *.mov
 *.wmv
 cv3/cmake-build-debug
+cv4/cmake-build-debug
