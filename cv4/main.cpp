@@ -20,15 +20,37 @@ class ElectricCar{
     float m_availableAh;
     float m_carMaxCurrent;
 public:
-    ElectricCar(float maxAh, float availableAh, float carMaxCurrent){
+    void checkMaxAh(float maxAh){
         if (maxAh <= 0){
             ErrorLogger::addError("ElectricCar: maxAh must be > 0");
             m_maxAh = 1;
         } else {
             m_maxAh = maxAh;
         }
-        m_availableAh = availableAh;
-        m_carMaxCurrent = carMaxCurrent;
+    }
+
+    void checkAvailableAh(float availableAh){
+        if (availableAh <= 0){
+            ErrorLogger::addError("ElectricCar: availableAh must be > 0");
+            m_availableAh = 1;
+        } else {
+            m_availableAh = availableAh;
+        }
+    }
+
+    void checkCarMaxCurrent(float carMaxCurrent){
+        if (carMaxCurrent <= 0){
+            ErrorLogger::addError("ElectricCar: carMaxCurrent must be > 0");
+            m_carMaxCurrent= 1;
+        } else {
+            m_carMaxCurrent = carMaxCurrent;
+        }
+    }
+
+    ElectricCar(float maxAh, float availableAh, float carMaxCurrent){
+        checkMaxAh(maxAh);
+        checkAvailableAh(availableAh);
+        checkCarMaxCurrent(carMaxCurrent);
     }
 
     float getCarMaxCurrent(){
