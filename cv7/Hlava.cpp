@@ -6,6 +6,7 @@
 
 Hlava::Hlava(int silaUtoku){
     m_silaUtoku = silaUtoku;
+    m_zivoty = 100;
 }
 
 int Hlava::getSilaUtoku(){

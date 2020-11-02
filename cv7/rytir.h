@@ -10,6 +10,7 @@
 #include "Napoj.h"
 #include "Zbran.h"
 #include "Brneni.h"
+#include "Drak.h"
 
 class Rytir{
     int m_zivoty;
@@ -20,7 +21,7 @@ class Rytir{
     std::vector<Napoj*> m_napoje;
 public:
     Rytir(int zivoty, int obrana, int silaUtoku, Zbran* zbran, Brneni* brneni);
-    //void Zautoc(Drak* protivnik);
+    void Zautoc(Drak* protivnik);
     void seberNapoj(Napoj* napoj);
     void vypijPosledniNapoj();
     void zahodPosledniNapoj();
