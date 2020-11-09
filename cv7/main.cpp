@@ -22,5 +22,6 @@ int main() {
     delete drak;
     delete mec;
     delete platove;
+    delete smallHP;
     return 0;
 }
