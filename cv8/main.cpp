@@ -13,7 +13,14 @@ int main() {
     sklad01->ulozKontejner(k03, 0, 2);
     sklad01->ulozKontejner(k04, 0, 3);
     sklad01->ulozKontejner(k04, 0, 5);
-    sklad01->vypisObsahSkladu();
+    sklad01->ulozKontejner(k03, 2, 2);
+   // sklad01->vypisObsahSkladu();
+
+    std::cout << &sklad01->m_patra.at(0) << std::endl;
+    std::cout << &sklad01->m_patra.at(1) << std::endl;
+    std::cout << &sklad01->m_patra.at(2) << std::endl;
+    std::cout << &sklad01->m_patra.at(3) << std::endl;
+    std::cout << &sklad01->m_patra.at(4) << std::endl;
 
     delete k01;
     delete k02;

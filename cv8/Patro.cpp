@@ -33,9 +33,8 @@ void Patro::odeberKontejner(int pozice){
 void Patro::vypisObsahPatra(){
     for (int i = 0; i < m_pozice.size(); i++){
         if (m_pozice.at(i) != nullptr){
-            std::cout << "Pozice " << i << ": ";
+            std::cout << "  Pozice " << i << ": ";
             m_pozice.at(i)->vypisObsah();
-            std::cout << std::endl;
         }
     }
 }

@@ -9,6 +9,7 @@
 #include <vector>
 
 class Sklad {
+public:
     std::vector<Patro*> m_patra;
 public:
     Sklad(int pocetPater);
