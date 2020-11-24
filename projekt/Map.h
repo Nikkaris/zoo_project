@@ -8,7 +8,7 @@
 #include <vector>
 #include "Location.h"
 
-enum direction {noDirection = -1, North = 0, East = 1, South = 2, West = 3};
+enum direction {noDirection = -1};
 
 class Map {
     std::vector<Location*> m_locations;
@@ -18,9 +18,14 @@ public:
     void createMap();
     int getCurrentLocationIndex();
     std::vector<Location*> getLocations();
+    tileCoordinates getTileCoordinates();
     void printLocationInfo();
     void printSideLocations();
     void switchLocation(char playerOption);
+    void printMap();
+    void printLocation();
+    void printTileSides();
+    ~Map();
 };
 
 

@@ -5,18 +5,39 @@
 #ifndef PROJEKT_LOCATION_H
 #define PROJEKT_LOCATION_H
 
-#include <iostream>
-#include <array>
+#include <vector>
+#include "ForestTile.h"
+#include "TownTile.h"
 
-typedef std::array<int, 4> TsideLocation;
+const int locationSize = 3;
+
+enum class LocationType{
+    Forest, Town
+};
+
+struct sideLocations{
+    int north, east, south, west;
+};
+
+struct tileCoordinates{
+    int x, y;
+};
 
 class Location {
     std::string m_name;
-    TsideLocation m_sideLocations;
+    sideLocations m_sideLocations;
+    std::vector<std::vector<Tile*>> m_tiles;
+    tileCoordinates m_currentTileCoor;
+
+    void createTiles(LocationType locationType);
 public:
-    Location(std::string name, TsideLocation sideLocations);
-    TsideLocation getSideLocations();
+    Location(std::string name, LocationType locationType, sideLocations sideLocations);
+    sideLocations getSideLocations();
+    tileCoordinates getCurrentCoor();
     void printInfo();
+    void printTiles();
+    void printTileSides();
+    void moveTile(char playerOption);
 };
 
 

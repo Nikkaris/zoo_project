@@ -13,8 +13,12 @@ class Game {
     Hero* m_hero;
 public:
     Game(Map* map, Hero* hero);
+    char getPlayerInput();
     void printMenu();
-    void whatToDo(char option);
+    void whatToDo();
+    void whatToDo2();
+    void locationPrintMenu();
+    ~Game();
 };
 
 
