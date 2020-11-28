@@ -37,16 +37,16 @@ void Map::printLocationInfo(){
 void Map::printSideLocations(){
     sideLocations sides = m_locations.at(m_currentLocationIndex)->getSideLocations();
     if (sides.north >= 0){
-        std::cout << "(N)orth - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
+        std::cout << "(N)orth - " << m_locations.at(sides.north)->getLocationName() << std::endl;
     }
     if (sides.east >= 0) {
-        std::cout << "(E)ast - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
+        std::cout << "(E)ast - " << m_locations.at(sides.east)->getLocationName() << std::endl;
     }
     if (sides.south >= 0) {
-        std::cout << "(S)outh - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
+        std::cout << "(S)outh - " << m_locations.at(sides.south)->getLocationName() << std::endl;
     }
     if (sides.west >= 0) {
-        std::cout << "(W)est - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
+        std::cout << "(W)est - " << m_locations.at(sides.west)->getLocationName() << std::endl;
     }
     char playerOption;
     std::cin >> playerOption;
