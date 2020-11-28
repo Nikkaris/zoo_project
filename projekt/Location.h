@@ -30,6 +30,7 @@ class Location {
     tileCoordinates m_currentTileCoor;
 
     void createTiles(LocationType locationType);
+    void createHostileTile();
 public:
     Location(std::string name, LocationType locationType, sideLocations sideLocations);
     sideLocations getSideLocations();
@@ -38,6 +39,7 @@ public:
     void printTiles();
     void printTileSides();
     void moveTile(char playerOption);
+    std::string getLocationName();
 };
 
 

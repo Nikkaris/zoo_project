@@ -10,6 +10,7 @@ Location::Location(std::string name, LocationType locationType , sideLocations s
     m_currentTileCoor.x = 0;
     m_currentTileCoor.y = 0;
     createTiles(locationType);
+    createHostileTile();
 }
 
 void Location::createTiles(LocationType locationType){
@@ -24,6 +25,12 @@ void Location::createTiles(LocationType locationType){
         }
     }
     m_tiles = tiles;
+}
+
+void Location::createHostileTile(){
+    m_tiles.at(1).at(2)->setEnemy(new Enemy(3));
+    m_tiles.at(0).at(1)->setEnemy(new Enemy(1));
+    m_tiles.at(2).at(0)->setEnemy(new Enemy(2));
 }
 
 sideLocations Location::getSideLocations(){
@@ -79,4 +86,8 @@ void Location::moveTile(char playerOption){
     } else if (playerOption == 'L'){
         m_currentTileCoor.y--;
     }
+}
+
+std::string Location::getLocationName(){
+    return m_name;
 }

@@ -22,7 +22,6 @@ public:
     void printLocationInfo();
     void printSideLocations();
     void switchLocation(char playerOption);
-    void printMap();
     void printLocation();
     void printTileSides();
     ~Map();

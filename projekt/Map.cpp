@@ -37,16 +37,16 @@ void Map::printLocationInfo(){
 void Map::printSideLocations(){
     sideLocations sides = m_locations.at(m_currentLocationIndex)->getSideLocations();
     if (sides.north >= 0){
-        std::cout << "(N)orth" << std::endl;
+        std::cout << "(N)orth - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
     }
     if (sides.east >= 0) {
-        std::cout << "(E)ast" << std::endl;
+        std::cout << "(E)ast - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
     }
     if (sides.south >= 0) {
-        std::cout << "(S)outh" << std::endl;
+        std::cout << "(S)outh - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
     }
     if (sides.west >= 0) {
-        std::cout << "(W)est" << std::endl;
+        std::cout << "(W)est - " << m_locations.at(m_currentLocationIndex)->getLocationName() << std::endl;
     }
     char playerOption;
     std::cin >> playerOption;
@@ -63,31 +63,6 @@ void Map::switchLocation(char playerOption){
         m_currentLocationIndex = sides.south;
     } else if (playerOption == 'W'){
         m_currentLocationIndex = sides.west;
-    }
-}
-
-void Map::printMap(){
-    sideLocations side = m_locations.at(m_currentLocationIndex)->getSideLocations();
-    if (side.north >= 0) {
-        std::cout << "  N" << std::endl;
-    } else {
-        std::cout << "  X" << std::endl;
-    }
-    if (side.west >= 0) {
-        std::cout << "W ";
-    } else {
-        std::cout << "X ";
-    }
-    std::cout << char(219);
-    if (side.east >= 0) {
-        std::cout << " E" << std::endl;
-    } else {
-        std::cout << " X" << std::endl;
-    }
-    if (side.south >= 0) {
-        std::cout << "  S" << std::endl;
-    } else {
-        std::cout << "  X" << std::endl;
     }
 }
 

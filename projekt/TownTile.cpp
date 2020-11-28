@@ -10,7 +10,6 @@ TownTile::TownTile(){
 
 void TownTile::printTile(){
     std::cout << "__";
-    //Tile::printEnemy("/\\");
-    std::cout << "__";
+    Tile::printCharacter("/\\");
     std::cout << "__";
 }

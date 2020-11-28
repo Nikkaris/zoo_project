@@ -10,7 +10,6 @@ ForestTile::ForestTile(){
 
 void ForestTile::printTile(){
     std::cout << "/\\";
-    //Tile::printEnemy("/\\");
-    std::cout << "/\\";
+    Tile::printCharacter("/\\");
     std::cout << "/\\";
 }

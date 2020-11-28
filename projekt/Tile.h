@@ -6,12 +6,16 @@
 #define MAIN_CPP_TILE_H
 
 #include <iostream>
+#include "Enemy.h"
 
 class Tile {
+    Enemy* m_enemy;
 public:
     Tile();
     virtual void printTile() = 0;
     virtual ~Tile();
+    void printCharacter(std::string tileSymbol);
+    void setEnemy(Enemy* enemy);
 };
 
 
