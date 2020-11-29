@@ -10,7 +10,7 @@
 class TownTile: public Tile {
 public:
     TownTile();
-    void printTile();
+    void printTile(bool hero);
 };
 
 

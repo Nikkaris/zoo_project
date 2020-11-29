@@ -46,9 +46,13 @@ void Location::printInfo(){
 }
 
 void Location::printTiles(){
-    for (auto row:m_tiles){ // auto = std::vector<Tile*>
-        for (auto tile:row){
-            tile->printTile();
+    bool hero = false;
+    for (int i = 0; i < m_tiles.size(); i++){ // auto = std::vector<Tile*>
+        for (int j = 0; j < m_tiles.at(0).size(); j++){
+            if (m_currentTileCoor.x == i and m_currentTileCoor.y == j)
+                hero = true;
+            m_tiles.at(i).at(j)->printTile(hero);
+            hero = false;
             std::cout << " ";
         }
         std::cout << std::endl;
@@ -56,8 +60,6 @@ void Location::printTiles(){
 }
 
 void Location::printTileSides(){
-    std::cout << "X: " << m_currentTileCoor.x + 1 << std::endl;
-    std::cout << "Y: " << m_currentTileCoor.y + 1 << std::endl;
     if (m_currentTileCoor.x > 0){
         std::cout << "You can go (U)p" << std::endl;
     }

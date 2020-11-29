@@ -8,8 +8,8 @@ TownTile::TownTile(){
 
 }
 
-void TownTile::printTile(){
+void TownTile::printTile(bool hero){
     std::cout << "__";
-    Tile::printCharacter("/\\");
+    Tile::printCharacter("__", hero);
     std::cout << "__";
 }

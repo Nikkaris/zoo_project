@@ -8,11 +8,13 @@ Tile::Tile(){
     m_enemy = nullptr;
 }
 
-void Tile::printCharacter(std::string tileSymbol) {
+void Tile::printCharacter(std::string tileSymbol, bool hero) {
     if(m_enemy != nullptr){
         std::cout << "E" << m_enemy->getEnemyLevel();
-    } else {
+    } else if (!hero){
         std::cout << tileSymbol;
+    } else {
+        std::cout << "**";
     }
 }
 

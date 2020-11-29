@@ -26,7 +26,7 @@ std::vector<Location*> Map::getLocations(){
 }
 
 tileCoordinates Map::getTileCoordinates(){
-    m_locations.at(m_currentLocationIndex)->getCurrentCoor();
+   return m_locations.at(m_currentLocationIndex)->getCurrentCoor();
 }
 
 void Map::printLocationInfo(){
