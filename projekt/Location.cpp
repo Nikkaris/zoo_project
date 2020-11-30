@@ -93,3 +93,7 @@ void Location::moveTile(char playerOption){
 std::string Location::getLocationName(){
     return m_name;
 }
+
+Enemy* Location::getEnemy(){
+    return m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->getEnemy();
+}

@@ -19,7 +19,11 @@ void Tile::printCharacter(std::string tileSymbol, bool hero) {
 }
 
 void Tile::setEnemy(Enemy* enemy){
-   m_enemy = enemy;
+    m_enemy = enemy;
+}
+
+Enemy* Tile::getEnemy(){
+    return m_enemy;
 }
 
 Tile::~Tile(){

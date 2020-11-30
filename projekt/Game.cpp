@@ -34,8 +34,11 @@ void Game::whatToDo(){
 }
 
 void Game::whatToDo2(){
-    if (getPlayerInput()  == '1'){
+    char playerInput = getPlayerInput();
+    if (playerInput == '1'){
         m_map->printTileSides();
+    } else if (playerInput == '2'){
+        std::cout << "Utocim" << "\n";
     }
 }
 
@@ -43,7 +46,11 @@ void Game::locationPrintMenu(){
     tileCoordinates coor = m_map->getTileCoordinates();
     while (coor.x < locationSize-1 or coor.y < locationSize-1) {
         m_map->printLocation();
-        std::cout << "What do you want to do?\n     1. Move on tile\n";
+        std::cout << "What do you want to do? \n";
+        std::cout << "\t 1. Move on tile \n";
+        if (m_map->getEnemy() != nullptr){
+            std::cout << "\t 2. Attack Enemy \n";
+        }
         whatToDo2();
         coor = m_map->getTileCoordinates();
     }

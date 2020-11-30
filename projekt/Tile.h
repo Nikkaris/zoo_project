@@ -16,6 +16,7 @@ public:
     virtual ~Tile();
     void printCharacter(std::string tileSymbol, bool hero);
     void setEnemy(Enemy* enemy);
+    Enemy* getEnemy();
 };
 
 

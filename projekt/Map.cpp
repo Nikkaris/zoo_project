@@ -74,6 +74,10 @@ void Map::printTileSides(){
     m_locations.at(m_currentLocationIndex)->printTileSides();
 }
 
+Enemy* Map::getEnemy(){
+   return m_locations.at(m_currentLocationIndex)->getEnemy();
+}
+
 Map::~Map(){
     for (auto &location:m_locations){
         delete location;

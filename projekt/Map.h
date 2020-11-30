@@ -24,6 +24,7 @@ public:
     void switchLocation(char playerOption);
     void printLocation();
     void printTileSides();
+    Enemy* getEnemy();
     ~Map();
 };
 
