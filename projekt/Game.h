@@ -18,6 +18,7 @@ public:
     void whatToDo();
     void whatToDo2();
     void locationPrintMenu();
+    void playerCreation();
     ~Game();
 };
 
