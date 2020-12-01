@@ -9,9 +9,16 @@
 
 class Hero {
     std::string m_name;
+    int m_strenght;
+    int m_agility;
+    int m_charisma;
 public:
-    Hero(std::string name);
+    Hero();
     void printInfo();
+    void setAttributeStrenght(int numberOfAttribute);
+    void setAttributeAgility(int numberOfAttribute);
+    void setAttributeCharisma(int numberOfAttribute);
+    void setHeroName(std::string name);
 };
 
 

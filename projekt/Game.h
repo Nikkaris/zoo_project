@@ -14,6 +14,7 @@ class Game {
 public:
     Game(Map* map, Hero* hero);
     char getPlayerInput();
+    int getPlayerInputIntenger(int min, int max, std::string text);
     void printMenu();
     void whatToDo();
     void whatToDo2();

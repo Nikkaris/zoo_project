@@ -7,48 +7,60 @@
 Game::Game(Map* map, Hero* hero){
     m_map = map;
     m_hero = hero;
-    //playerCreation();
+    playerCreation();
     printMenu();
 }
 
 
 void Game::playerCreation() {
+    //proměné
+    std::string newName = "";
+    int dialogOption = 0;
+
+    //prolog
     std::cout << std::endl;
-    std::cout << "Come here you dumbo, lets play a game. You seems new here lets start with your stats." << std::endl;
+    std::cout << "You! You finally  awake? Come here you dumbo, lets play a game. You seems new here lets start with your stats." << std::endl;
     std::cout << "I will ask you a few questions, they are gonna have big impact on your playstyle. I meant on your life. Choose wisely!" << std::endl;
+    std::cout << std::endl;
+
+    //new name setting
+    std::cout << "What is your name?" << std::endl;
+    std::cin >> newName;
+    m_hero->setHeroName(newName);
+
+    //first attribute setting
     std::cout << std::endl;
     std::cout << "How are you feeling?" << std::endl;
     std::cout << "1. I am feeling stronger like never before" << std::endl;
-    std::cout << "2. I love running nothing is better than chasing some golbins around forest." << std::endl;
+    std::cout << "2. I love running, nothing is better than chasing some golbins around forest." << std::endl;
     std::cout << "3. I would say, that I love to speak to people all day long" << std::endl;
 
-
-    /*
-
-     char dialogOpton = getPlayerInput();
-
-     if (dialogOption >= '1' && dialogOption <= '3') {
-        if(dialogOption == '1') {
-            std::cout << "You are the strong one, huh? I see that you muslces are nearly huge as mine!" << std::endl;
-        } else if (dialogOption == '2') {
-            std::cout << "You are the agile one, huh? I see that you are feeling confident. Still i would beat you in sprint!" << std::endl;
-        } else {
-            std::cout << "You are the charismatic one, huh? I see that you are very talkative, but please, stop talking... Really!" << std::endl;
-        }
+    dialogOption = getPlayerInputIntenger(1, 3, "That is not an option. I did not ask if you are feeling special today...");
+    if(dialogOption == 1) {
+        std::cout << "You are the strong one, huh? I see that you muslces are nearly huge as mine!" << std::endl;
+        m_hero->setAttributeStrenght(1);
+    } else if (dialogOption == 2) {
+        std::cout << "You are the agile one, huh? I see that you are feeling confident. Still i would beat you in sprint!" << std::endl;
+        m_hero->setAttributeAgility(1);
     } else {
-        std::cout << "That is not an option. I do not care if you are feeling special today..." << std::endl;
+        std::cout << "You are the charismatic one, huh? I see that you are very talkative, but please, stop talking... Really!" << std::endl;
+        m_hero->setAttributeCharisma(1);
+    }
 
-    }*/
+    m_hero->printInfo();
 }
 
 
 
-
-
-
-
-
-
+int Game::getPlayerInputIntenger(int min, int max, std::string errorText) {
+    int playerInput;
+    std::cin >> playerInput;
+    while (playerInput < min || playerInput > max) {
+        std::cout << errorText << std::endl;
+        std::cin >> playerInput;
+    }
+    return playerInput;
+}
 
 char Game::getPlayerInput(){
     char playerInput;
