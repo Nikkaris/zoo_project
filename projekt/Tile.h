@@ -12,9 +12,9 @@ class Tile {
     Enemy* m_enemy;
 public:
     Tile();
-    virtual void printTile(bool hero) = 0;
+    virtual void printTile(bool printHero) = 0;
     virtual ~Tile();
-    void printCharacter(std::string tileSymbol, bool hero);
+    void printCharacter(std::string tileSymbol, bool printHero);
     void setEnemy(Enemy* enemy);
     Enemy* getEnemy();
 };

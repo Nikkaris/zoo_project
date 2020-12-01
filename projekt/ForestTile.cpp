@@ -8,8 +8,8 @@ ForestTile::ForestTile(){
 
 }
 
-void ForestTile::printTile(bool hero){
+void ForestTile::printTile(bool printHero){
     std::cout << "/\\";
-    Tile::printCharacter("/\\", hero);
+    Tile::printCharacter("/\\", printHero);
     std::cout << "/\\";
 }

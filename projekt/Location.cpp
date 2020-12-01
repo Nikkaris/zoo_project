@@ -46,13 +46,13 @@ void Location::printInfo(){
 }
 
 void Location::printTiles(){
-    bool hero = false;
+    bool printHero = false;
     for (int i = 0; i < m_tiles.size(); i++){ // auto = std::vector<Tile*>
         for (int j = 0; j < m_tiles.at(0).size(); j++){
             if (m_currentTileCoor.x == i and m_currentTileCoor.y == j)
-                hero = true;
-            m_tiles.at(i).at(j)->printTile(hero);
-            hero = false;
+                printHero = true;
+            m_tiles.at(i).at(j)->printTile(printHero);
+            printHero = false;
             std::cout << " ";
         }
         std::cout << std::endl;
