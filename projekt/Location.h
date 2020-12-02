@@ -11,10 +11,6 @@
 
 const int locationSize = 3;
 
-enum class LocationType{
-    Forest, Town
-};
-
 struct sideLocations{
     int north, east, south, west;
 };
@@ -29,12 +25,13 @@ class Location {
     std::vector<std::vector<Tile*>> m_tiles;
     tileCoordinates m_currentTileCoor;
 
-    void createTiles(LocationType locationType);
-    void createHostileTile();
 public:
-    Location(std::string name, LocationType locationType, sideLocations sideLocations);
+    Location(std::string name);
     sideLocations getSideLocations();
     tileCoordinates getCurrentCoor();
+    void setTiles(std::vector<std::vector<Tile*>> tiles);
+    void setSideLocations(sideLocations sides);
+    void resetTileCoordinates();
     void printInfo();
     void printTiles();
     void printTileSides();
