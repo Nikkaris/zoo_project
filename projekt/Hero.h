@@ -19,6 +19,10 @@ public:
     void setAttributeAgility(int numberOfAttribute);
     void setAttributeCharisma(int numberOfAttribute);
     void setHeroName(std::string name);
+    int getHeroStrenght();
+    int getHeroAgility();
+    int getHeroCharisma();
+    void setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma);
 };
 
 

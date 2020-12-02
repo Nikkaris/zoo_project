@@ -33,3 +33,21 @@ void Hero::setAttributeCharisma(int numberOfAttribute){
 void Hero::setHeroName(std::string name){
    m_name = name;
 }
+
+int Hero::getHeroStrenght(){
+    return m_strenght;
+}
+
+int Hero::getHeroAgility(){
+    return m_agility;
+}
+
+int Hero::getHeroCharisma(){
+    return m_charisma;
+}
+
+void Hero::setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma){
+    m_strenght += bonusStrenght;
+    m_agility += bonusAgility;
+    m_charisma += bonusCharisma;
+}
