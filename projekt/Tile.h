@@ -9,13 +9,13 @@
 #include "Enemy.h"
 
 class Tile {
+protected:
     Enemy* m_enemy;
 public:
     Tile();
     virtual void printTile(bool printHero) = 0;
     virtual ~Tile();
     void printCharacter(std::string tileSymbol, bool printHero);
-    void setEnemy(Enemy* enemy);
     Enemy* getEnemy();
 };
 

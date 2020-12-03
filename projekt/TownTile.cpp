@@ -4,8 +4,11 @@
 
 #include "TownTile.h"
 
-TownTile::TownTile(){
+TownTile::TownTile(Enemy* enemy){
+    m_enemy = enemy;
+}
 
+TownTile::TownTile(){
 }
 
 void TownTile::printTile(bool printHero){

@@ -4,8 +4,11 @@
 
 #include "ForestTile.h"
 
-ForestTile::ForestTile(){
+ForestTile::ForestTile(Enemy* enemy){
+    m_enemy = enemy;
+}
 
+ForestTile::ForestTile(){
 }
 
 void ForestTile::printTile(bool printHero){

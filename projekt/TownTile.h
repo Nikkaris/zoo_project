@@ -9,6 +9,7 @@
 
 class TownTile: public Tile {
 public:
+    TownTile(Enemy* enemy);
     TownTile();
     void printTile(bool printHero);
 };

@@ -8,7 +8,6 @@
 
 class Enemy {
     int m_level;
-
 public:
     Enemy(int level);
     int getEnemyLevel();

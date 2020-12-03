@@ -7,8 +7,7 @@
 
 #include <vector>
 #include "Location.h"
-
-enum direction {noDirection = -1};
+#include "LocationDirector.h"
 
 class Map {
     std::vector<Location*> m_locations;

@@ -4,33 +4,10 @@
 
 #include "Location.h"
 
-Location::Location(std::string name, LocationType locationType , sideLocations sideLocations){
+Location::Location(std::string name) {
     m_name = name;
-    m_sideLocations = sideLocations;
     m_currentTileCoor.x = 0;
     m_currentTileCoor.y = 0;
-    createTiles(locationType);
-    createHostileTile();
-}
-
-void Location::createTiles(LocationType locationType){
-    std::vector<Tile*> row(locationSize);
-    std::vector<std::vector<Tile*>> tiles(locationSize, row);
-    for (int i = 0; i < tiles.size(); i++){
-        for (int j = 0; j < tiles.at(i).size(); j++){
-            if (locationType == LocationType::Forest)
-                tiles.at(i).at(j) = new ForestTile();
-            if (locationType == LocationType::Town)
-                tiles.at(i).at(j) = new TownTile();
-        }
-    }
-    m_tiles = tiles;
-}
-
-void Location::createHostileTile(){
-    m_tiles.at(1).at(2)->setEnemy(new Enemy(3));
-    m_tiles.at(0).at(1)->setEnemy(new Enemy(1));
-    m_tiles.at(2).at(0)->setEnemy(new Enemy(2));
 }
 
 sideLocations Location::getSideLocations(){
@@ -39,6 +16,19 @@ sideLocations Location::getSideLocations(){
 
 tileCoordinates Location::getCurrentCoor(){
     return m_currentTileCoor;
+}
+
+void Location::setTiles(std::vector<std::vector<Tile*>> tiles){
+    m_tiles = tiles;
+}
+
+void Location::setSideLocations(sideLocations sides){
+    m_sideLocations = sides;
+}
+
+void Location::resetTileCoordinates(){
+    m_currentTileCoor.x = 0;
+    m_currentTileCoor.y = 0;
 }
 
 void Location::printInfo(){
