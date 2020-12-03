@@ -51,3 +51,70 @@ void Hero::setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCh
     m_agility += bonusAgility;
     m_charisma += bonusCharisma;
 }
+
+int Hero::getPlayerDialogInput(int min, int max, std::string errorText) {
+    int playerInput;
+    std::cin >> playerInput;
+    while (playerInput < min || playerInput > max) {
+        std::cout << errorText << std::endl;
+        std::cin >> playerInput;
+    }
+    return playerInput;
+}
+
+//first dialogues
+
+void Hero::createHero() {
+    std::string newName;
+    int dialogOption;
+
+    //setting name
+    std::cout << "Tell me, what is your name?" << std::endl;
+    std::cin >> newName;
+    setHeroName(newName);
+    std::cout << std::endl;
+    std::cout << "Did you say " << m_name << "? What a wonderful name!" << std::endl;
+
+    //setting starting attributes
+    std::cout << std::endl;
+    std::cout << "I got a few questions for you." << std::endl;
+    std::cout << "Where are you from?" << std::endl;
+    std::cout << std::endl;
+    std::cout << "1. I am from North, i do not know why but I have everything blurred..." << std::endl;
+    std::cout << "2. I am from West, i do not know why but I have everything blurred..." << std::endl;
+    std::cout << "3. I am from East, i do not know why but I have everything blurred..." << std::endl;
+
+    dialogOption = getPlayerDialogInput(1, 3, "That is not answering my question");
+
+    if(dialogOption == 1) {
+        std::cout << "Oh, so you are norseman. You seemed to me kinda muscular..." << std::endl;
+        setAttributeStrenght(1);
+    } else if (dialogOption == 2) {
+        std::cout << "Oh, so you are from West. Western people are very agile and good in sneaking..." << std::endl;
+        setAttributeAgility(1);
+    } else if (dialogOption == 3){
+        std::cout << "Oh, so you are from East. Eastern people are talkative." << std::endl;
+        setAttributeCharisma(1);
+    }
+
+    std::cout << std::endl;
+    std::cout << "I see that you are trying to remember. What is your proffesion?" << std::endl;
+    std::cout << std::endl;
+    std::cout << "1. I am travelling merchant. I used to have a lot of friends in many towns" << std::endl;
+    std::cout << "2. I think that I was a royal guard" << std::endl;
+    std::cout << "3. I do not like to admit, but i was thief. People hired and I accepted..." << std::endl;
+
+    dialogOption = getPlayerDialogInput(1, 3, "That is not answering my question");
+
+    if(dialogOption == 1) {
+        std::cout << "That is what I thought" << std::endl;
+        setAttributeCharisma(2);
+    } else if (dialogOption == 2) {
+        std::cout << "That would explain that crest on your armor." << std::endl;
+        setAttributeStrenght(2);
+    } else if (dialogOption == 3) {
+        std::cout << "Cape and leather armor, that explain a lot, but do not worry I do not judge you." << std::endl;
+        std::cout << "Living in this world is harder than before..." << std::endl;
+        setAttributeAgility(2);
+    }
+}

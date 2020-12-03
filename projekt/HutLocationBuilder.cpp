@@ -8,7 +8,7 @@ HutTileBuilder::HutTileBuilder(){
 }
 
 void HutTileBuilder::createLocation(){
-    m_location = new Location("Hut");
+    m_location = new Location("The Old Mans Hut");
     std::vector<std::vector<Tile*>> tiles;
 
     std::vector<Tile*> row1, row2, row3;

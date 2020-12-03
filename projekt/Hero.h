@@ -23,6 +23,8 @@ public:
     int getHeroAgility();
     int getHeroCharisma();
     void setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma);
+    int getPlayerDialogInput(int min, int max, std::string text);
+    void createHero();
 };
 
 

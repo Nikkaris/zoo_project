@@ -7,19 +7,20 @@
 
 #include "Map.h"
 #include "Hero.h"
+#include "StoryTeller.h"
 
 class Game {
     Map* m_map;
     Hero* m_hero;
+    StoryTeller* m_story;
 public:
-    Game(Map* map, Hero* hero);
+    Game(Map* map, Hero* hero, StoryTeller* story);
     char getPlayerInput();
-    int getPlayerInputIntenger(int min, int max, std::string text);
     void printMenu();
     void whatToDo();
     void whatToDo2();
     void locationPrintMenu();
-    void playerCreation();
+    void printProlog();
     ~Game();
 };
 

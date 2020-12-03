@@ -8,7 +8,7 @@ ForestLocationBuilder::ForestLocationBuilder(){
 }
 
 void ForestLocationBuilder::createLocation(){
-    m_location = new Location("Forest");
+    m_location = new Location("Whispering Woods");
     std::vector<std::vector<Tile*>> tiles;
 
     std::vector<Tile*> row1, row2, row3;
