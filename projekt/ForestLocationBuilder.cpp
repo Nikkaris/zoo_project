@@ -11,17 +11,15 @@ void ForestLocationBuilder::createLocation(){
     m_location = new Location("Forest");
     std::vector<std::vector<Tile*>> tiles;
 
-    std::vector<Tile*> row1;
+    std::vector<Tile*> row1, row2, row3;
     row1.push_back(new ForestTile());
     row1.push_back(new ForestTile(new Enemy(2)));
     row1.push_back(new ForestTile());
 
-    std::vector<Tile*> row2;
     row2.push_back(new ForestTile(new Enemy(1)));
     row2.push_back(new ForestTile());
     row2.push_back(new ForestTile(new Enemy(2)));
 
-    std::vector<Tile*> row3;
     row3.push_back(new ForestTile());
     row3.push_back(new ForestTile());
     row3.push_back(new ForestTile());
@@ -33,6 +31,6 @@ void ForestLocationBuilder::createLocation(){
 }
 
 void ForestLocationBuilder::createSideLocations(){
-    //UP, RIGHT, DOWN, LEFT
-    m_location->setSideLocations({noDirection, noDirection, 1, noDirection});
+    //north, east, south, west;
+    m_location->setSideLocations({noDirection, 2, noDirection, 0});
 }

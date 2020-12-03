@@ -16,7 +16,9 @@ void Map::createMap(){
     m_locations.push_back(new Location("Forli", LocationType::Forest,{noDirection, 0, noDirection, noDirection}));
     m_locations.push_back(new Location("Rome", LocationType::Forest,{noDirection, 1, noDirection, noDirection}));
     */
-    LocationDirector* director = new LocationDirector(new ForestLocationBuilder);
+    LocationDirector* director = new LocationDirector(new HutTileBuilder);
+    m_locations.push_back(director->createLocation());
+    director->setLocationBuilder(new ForestLocationBuilder);
     m_locations.push_back(director->createLocation());
     director->setLocationBuilder(new TownLocationBuilder);
     m_locations.push_back(director->createLocation());
@@ -32,6 +34,10 @@ std::vector<Location*> Map::getLocations(){
 
 tileCoordinates Map::getTileCoordinates(){
    return m_locations.at(m_currentLocationIndex)->getCurrentCoor();
+}
+
+void Map::setTileCoordinatesToExit(){
+    m_locations.at(m_currentLocationIndex)->setTileCoordinatesToExit();
 }
 
 void Map::printLocationInfo(){

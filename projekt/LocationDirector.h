@@ -7,6 +7,7 @@
 
 #include "ForestLocationBuilder.h"
 #include "TownLocationBuilder.h"
+#include "HutLocationBuilder.h"
 
 class LocationDirector {
     LocationBuilder* m_builder;

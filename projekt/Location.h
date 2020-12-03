@@ -8,6 +8,7 @@
 #include <vector>
 #include "ForestTile.h"
 #include "TownTile.h"
+#include "HutTile.h"
 
 const int locationSize = 3;
 
@@ -31,6 +32,7 @@ public:
     tileCoordinates getCurrentCoor();
     void setTiles(std::vector<std::vector<Tile*>> tiles);
     void setSideLocations(sideLocations sides);
+    void setTileCoordinatesToExit();
     void resetTileCoordinates();
     void printInfo();
     void printTiles();

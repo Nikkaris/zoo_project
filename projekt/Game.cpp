@@ -120,6 +120,8 @@ void Game::whatToDo2(){
         m_map->printTileSides();
     } else if (playerInput == '2'){
         std::cout << "Utocim" << "\n";
+    } else if (playerInput == '3') {
+        m_map->setTileCoordinatesToExit();
     }
 }
 
@@ -132,6 +134,7 @@ void Game::locationPrintMenu(){
         if (m_map->getEnemy() != nullptr){
             std::cout << "\t 2. Attack Enemy \n";
         }
+        std::cout << "\t 3. exit \n";
         whatToDo2();
         coor = m_map->getTileCoordinates();
     }

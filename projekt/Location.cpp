@@ -26,6 +26,11 @@ void Location::setSideLocations(sideLocations sides){
     m_sideLocations = sides;
 }
 
+void Location::setTileCoordinatesToExit(){
+    m_currentTileCoor.x = m_tiles.size()-1;
+    m_currentTileCoor.y = m_tiles.size()-1;
+}
+
 void Location::resetTileCoordinates(){
     m_currentTileCoor.x = 0;
     m_currentTileCoor.y = 0;

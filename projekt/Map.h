@@ -18,6 +18,7 @@ public:
     int getCurrentLocationIndex();
     std::vector<Location*> getLocations();
     tileCoordinates getTileCoordinates();
+    void setTileCoordinatesToExit();
     void printLocationInfo();
     void printSideLocations();
     void switchLocation(char playerOption);
