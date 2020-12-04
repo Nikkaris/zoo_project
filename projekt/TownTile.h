@@ -9,8 +9,9 @@
 
 class TownTile: public Tile {
 public:
-    TownTile(Enemy* enemy);
     TownTile();
+    TownTile(Enemy* enemy);
+    TownTile(Chest* chest);
     void printTile(bool printHero);
 };
 

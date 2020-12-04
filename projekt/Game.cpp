@@ -12,19 +12,11 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
     printMenu();
 }
 
-
 void Game::printProlog() {
     m_story->printChapter(1);
-
     m_hero->createHero();
-
-
-
-
     //m_hero->printInfo();
 }
-
-
 
 char Game::getPlayerInput(){
     char playerInput;
@@ -68,6 +60,9 @@ void Game::locationPrintMenu(){
         std::cout << "\t 1. Move on tile \n";
         if (m_map->getEnemy() != nullptr){
             std::cout << "\t 2. Attack Enemy \n";
+        }
+        if (m_map->getChest() != nullptr){
+            std::cout << "\t 2. Open chest \n";
         }
         std::cout << "\t 3. exit \n";
         whatToDo2();

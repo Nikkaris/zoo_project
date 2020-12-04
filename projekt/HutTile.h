@@ -9,8 +9,9 @@
 
 class HutTile: public Tile {
 public:
-    HutTile(Enemy* enemy);
     HutTile();
+    HutTile(Enemy* enemy);
+    HutTile(Chest* chest);
     void printTile(bool printHero);
 };
 

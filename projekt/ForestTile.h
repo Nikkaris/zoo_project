@@ -9,8 +9,9 @@
 
 class ForestTile: public Tile {
 public:
-    ForestTile(Enemy* enemy);
     ForestTile();
+    ForestTile(Enemy* enemy);
+    ForestTile(Chest* chest);
     void printTile(bool printHero);
 };
 

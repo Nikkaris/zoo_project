@@ -4,11 +4,13 @@
 
 #include "HutTile.h"
 
-HutTile::HutTile(Enemy* enemy){
-    m_enemy = enemy;
+HutTile::HutTile(): Tile(){
 }
 
-HutTile::HutTile(){
+HutTile::HutTile(Enemy* enemy): Tile(enemy){
+}
+
+HutTile::HutTile(Chest* chest): Tile(chest){
 }
 
 void HutTile::printTile(bool printHero){

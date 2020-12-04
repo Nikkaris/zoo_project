@@ -40,6 +40,7 @@ public:
     void moveTile(char playerOption);
     std::string getLocationName();
     Enemy* getEnemy();
+    Chest* getChest();
 };
 
 

@@ -10,12 +10,6 @@ Map::Map(){
 }
 
 void Map::createMap(){
-    //UP, RIGHT, DOWN, LEFT
-    /*m_locations.push_back(new Location("Florency",LocationType::Forest,{noDirection, noDirection, 1, 2}));
-    m_locations.push_back(new Location("Venecia", LocationType::Town,{0, noDirection, noDirection, 3}));
-    m_locations.push_back(new Location("Forli", LocationType::Forest,{noDirection, 0, noDirection, noDirection}));
-    m_locations.push_back(new Location("Rome", LocationType::Forest,{noDirection, 1, noDirection, noDirection}));
-    */
     LocationDirector* director = new LocationDirector(new HutTileBuilder);
     m_locations.push_back(director->createLocation());
     director->setLocationBuilder(new ForestLocationBuilder);
@@ -87,7 +81,11 @@ void Map::printTileSides(){
 }
 
 Enemy* Map::getEnemy(){
-   return m_locations.at(m_currentLocationIndex)->getEnemy();
+    return m_locations.at(m_currentLocationIndex)->getEnemy();
+}
+
+Chest* Map::getChest(){
+    return m_locations.at(m_currentLocationIndex)->getChest();
 }
 
 Map::~Map(){

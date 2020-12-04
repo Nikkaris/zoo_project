@@ -92,3 +92,7 @@ std::string Location::getLocationName(){
 Enemy* Location::getEnemy(){
     return m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->getEnemy();
 }
+
+Chest* Location::getChest(){
+    return m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->getChest();
+}
