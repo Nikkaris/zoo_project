@@ -8,7 +8,7 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
     m_map = map;
     m_hero = hero;
     m_story = story;
-    printProlog();
+    //printProlog();
     printMenu();
 }
 

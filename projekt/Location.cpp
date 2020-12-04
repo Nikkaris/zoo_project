@@ -67,13 +67,14 @@ void Location::printTileSides(){
     if (m_currentTileCoor.y > 0){
         std::cout << "You can go (L)eft" << std::endl;
     }
+    moveTile();
+}
+
+void Location::moveTile(){
     std::cout << std::endl;
     char playerOption;
     std::cin >> playerOption;
-    moveTile(playerOption);
-}
 
-void Location::moveTile(char playerOption){
     if (playerOption == 'U'){
         m_currentTileCoor.x--;
     } else if (playerOption == 'R'){

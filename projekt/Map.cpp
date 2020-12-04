@@ -53,13 +53,14 @@ void Map::printSideLocations(){
     if (sides.west >= 0) {
         std::cout << "(W)est - " << m_locations.at(sides.west)->getLocationName() << std::endl;
     }
-    char playerOption;
-    std::cin >> playerOption;
-    switchLocation(playerOption);
+    switchLocation();
 }
 
-void Map::switchLocation(char playerOption){
+void Map::switchLocation(){
+    char playerOption;
+    std::cin >> playerOption;
     sideLocations sides = m_locations.at(m_currentLocationIndex)->getSideLocations();
+
     if (playerOption == 'N'){
         m_currentLocationIndex = sides.north;
     } else if (playerOption == 'E'){

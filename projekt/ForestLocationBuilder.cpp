@@ -14,14 +14,14 @@ void ForestLocationBuilder::createLocation(){
     std::vector<Tile*> row1, row2, row3;
     row1.push_back(new ForestTile());
     row1.push_back(new ForestTile(new Enemy(2)));
-    row1.push_back(new ForestTile());
+    row1.push_back(new ForestTile(new Chest(new Armor("armor", 5))));
 
     row2.push_back(new ForestTile(new Enemy(1)));
     row2.push_back(new ForestTile());
     row2.push_back(new ForestTile(new Enemy(2)));
 
     row3.push_back(new ForestTile());
-    row3.push_back(new ForestTile());
+    row3.push_back(new ForestTile(new Chest(new Potion("small HP potion", 20))));
     row3.push_back(new ForestTile());
 
     tiles.push_back(row1);

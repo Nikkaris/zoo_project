@@ -1,0 +1,13 @@
+//
+// Created by nikol on 04.12.2020.
+//
+
+#include "Armor.h"
+
+Armor::Armor(std::string name, int armorBonus): Item(name, "armor"){
+    m_armorBonus = armorBonus;
+}
+
+int Armor::getArmorBonus(){
+    return m_armorBonus;
+}

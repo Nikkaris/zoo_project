@@ -37,7 +37,7 @@ public:
     void printInfo();
     void printTiles();
     void printTileSides();
-    void moveTile(char playerOption);
+    void moveTile();
     std::string getLocationName();
     Enemy* getEnemy();
     Chest* getChest();

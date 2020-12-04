@@ -6,12 +6,20 @@
 #define MAIN_CPP_CHEST_H
 
 #include "Weapon.h"
+#include "Armor.h"
+#include "Potion.h"
 
 class Chest {
     Weapon* m_weapon;
+    Armor* m_armor;
+    Potion* m_potion;
 public:
     Chest(Weapon* weapon);
+    Chest(Armor* armor);
+    Chest(Potion* potion);
     Weapon* getWeapon();
+    Armor* getArmor();
+    Potion* getPotion();
 };
 
 

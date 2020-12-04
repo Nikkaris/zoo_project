@@ -21,7 +21,7 @@ public:
     void setTileCoordinatesToExit();
     void printLocationInfo();
     void printSideLocations();
-    void switchLocation(char playerOption);
+    void switchLocation();
     void printLocation();
     void printTileSides();
     Enemy* getEnemy();
