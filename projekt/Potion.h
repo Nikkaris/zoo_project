@@ -12,6 +12,7 @@ class Potion: public Item {
 public:
     Potion(std::string name, int healthBonus);
     int getHealthBonus();
+    void printInfo();
 };
 
 

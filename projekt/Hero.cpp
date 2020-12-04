@@ -8,6 +8,7 @@ Hero::Hero(){
     m_agility = 1;
     m_strenght = 1;
     m_charisma = 1;
+    m_name = "looool";
 }
 
 void Hero::printInfo(){
@@ -34,6 +35,22 @@ void Hero::setHeroName(std::string name){
    m_name = name;
 }
 
+void Hero::takeWeapon(Weapon* weapon){
+    m_weapons.push_back(weapon);
+}
+
+void Hero::takeArmor(Armor* armor){
+    m_armors.push_back(armor);
+}
+
+void Hero::takePotion(Potion* potion){
+    m_potions.push_back(potion);
+}
+
+std::string Hero::getHeroName(){
+    return m_name;
+}
+
 int Hero::getHeroStrenght(){
     return m_strenght;
 }
@@ -44,6 +61,40 @@ int Hero::getHeroAgility(){
 
 int Hero::getHeroCharisma(){
     return m_charisma;
+}
+
+void Hero::printInventory(){
+    int itemCounter = 0;
+    std::cout << "+-------------------------+\n";
+    std::cout << "Weapons:\n";
+    for (auto weapon:m_weapons){
+        if (weapon != nullptr){
+            itemCounter++;
+            std::cout << itemCounter << ".";
+            weapon->printInfo();
+        }
+    }
+    itemCounter = 0;
+    std::cout << "+-------------------------+\n";
+    std::cout << "Armors:\n";
+    for (auto armor:m_armors){
+        if (armor != nullptr){
+            itemCounter++;
+            std::cout << itemCounter << ".";
+            armor->printInfo();
+        }
+    }
+    itemCounter = 0;
+    std::cout << "+-------------------------+\n";
+    std::cout << "Potions:\n";
+    for (auto potion:m_potions){
+        if (potion != nullptr){
+            itemCounter++;
+            std::cout << itemCounter << ".";
+            potion->printInfo();
+        }
+    }
+    std::cout << "+-------------------------+\n";
 }
 
 void Hero::setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma){

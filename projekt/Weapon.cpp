@@ -11,3 +11,8 @@ Weapon::Weapon(std::string name, int damageBonus): Item(name, "weapon"){
 int Weapon::getDamageBonus(){
     return m_damageBonus;
 }
+
+void Weapon::printInfo(){
+    std::cout << "\tName: " << m_name << "\n";
+    std::cout << "\tDamage: " << m_damageBonus << "\n";
+}

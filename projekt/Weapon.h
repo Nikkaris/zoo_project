@@ -12,6 +12,7 @@ class Weapon: public Item {
 public:
     Weapon(std::string name, int damageBonus);
     int getDamageBonus();
+    void printInfo();
 };
 
 

@@ -39,6 +39,11 @@ Chest* Tile::getChest(){
     return m_chest;
 }
 
+void Tile::removeChest(){
+    delete m_chest;
+    m_chest = nullptr;
+}
+
 Tile::~Tile(){
 
 }

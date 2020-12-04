@@ -41,6 +41,7 @@ public:
     std::string getLocationName();
     Enemy* getEnemy();
     Chest* getChest();
+    void removeChest();
 };
 
 

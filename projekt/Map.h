@@ -26,6 +26,7 @@ public:
     void printTileSides();
     Enemy* getEnemy();
     Chest* getChest();
+    void removeChest();
     ~Map();
 };
 

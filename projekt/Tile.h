@@ -22,6 +22,7 @@ public:
     void printCharacter(std::string tileSymbol, bool printHero);
     Enemy* getEnemy();
     Chest* getChest();
+    void removeChest();
 };
 
 

@@ -18,8 +18,9 @@ public:
     char getPlayerInput();
     void printMenu();
     void whatToDo();
-    void whatToDo2();
     void locationPrintMenu();
+    void whatToDo2();
+    void inspectChest();
     void printProlog();
     ~Game();
 };

@@ -89,6 +89,10 @@ Chest* Map::getChest(){
     return m_locations.at(m_currentLocationIndex)->getChest();
 }
 
+void Map::removeChest(){
+    m_locations.at(m_currentLocationIndex)->removeChest();
+}
+
 Map::~Map(){
     for (auto &location:m_locations){
         delete location;

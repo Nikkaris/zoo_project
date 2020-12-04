@@ -97,3 +97,7 @@ Enemy* Location::getEnemy(){
 Chest* Location::getChest(){
     return m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->getChest();
 }
+
+void Location::removeChest(){
+    m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->removeChest();
+}

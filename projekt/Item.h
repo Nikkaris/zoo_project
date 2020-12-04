@@ -13,6 +13,8 @@ protected:
     std::string m_itemType;
 public:
     Item(std::string name, std::string itemType);
+    std::string getItemType();
+    virtual void printInfo() = 0;
 };
 
 
