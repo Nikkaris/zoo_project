@@ -23,7 +23,7 @@ class Hero {
 public:
     Hero();
     void printInfo();
-    void setAttributeStrenght(int numberOfAttribute);
+    void setAttributeStrength(int numberOfAttribute);
     void setAttributeAgility(int numberOfAttribute);
     void setAttributeCharisma(int numberOfAttribute);
     void setHeroName(std::string name);

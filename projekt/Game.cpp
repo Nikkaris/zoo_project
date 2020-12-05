@@ -15,7 +15,7 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
 void Game::printProlog() {
     m_story->printChapter(1);
     m_hero->createHero();
-    //m_hero->printInfo();
+    m_hero->printInfo();
 }
 
 char Game::getPlayerInput(){
