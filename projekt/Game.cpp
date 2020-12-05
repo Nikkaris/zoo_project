@@ -88,7 +88,7 @@ void Game::inspectChest(){
     item->printInfo();
     std::cout << "Would you like to take it?\n\t1. Yes\n\t2. No\n";
     if (getPlayerInput() == '1'){
-        std::cout << m_hero->getHeroName() << " is taking item from chest...\n";
+        std::cout << m_hero->getHeroName() << " is taking " << item->getName() << " from chest...\n";
         if (item->getItemType() == "weapon"){
             m_hero->takeWeapon(m_map->getChest()->getWeapon());
         } else if (item->getItemType() == "armor"){

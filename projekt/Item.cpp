@@ -12,3 +12,7 @@ Item::Item(std::string name, std::string itemType){
 std::string Item::getItemType(){
     return m_itemType;
 }
+
+std::string Item::getName(){
+    return m_name;
+}

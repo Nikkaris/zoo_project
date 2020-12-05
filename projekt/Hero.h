@@ -35,6 +35,9 @@ public:
     int getHeroAgility();
     int getHeroCharisma();
     void printInventory();
+    void printInventoryWeapons();
+    void printInventoryArmors();
+    void printInventoryPotions();
     void setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma);
     int getPlayerDialogInput(int min, int max, std::string text);
     void createHero();

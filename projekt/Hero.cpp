@@ -64,37 +64,40 @@ int Hero::getHeroCharisma(){
 }
 
 void Hero::printInventory(){
+    std::cout << "+-------------------------+\n";
+    std::cout << "Weapons\n";
+    printInventoryWeapons();
+    std::cout << "+-------------------------+\n";
+    std::cout << "Armors\n";
+    printInventoryArmors();
+    std::cout << "+-------------------------+\n";
+    std::cout << "Potions\n";
+    printInventoryPotions();
+    std::cout << "+-------------------------+\n";
+}
+
+void Hero::printInventoryWeapons(){
     int itemCounter = 0;
-    std::cout << "+-------------------------+\n";
-    std::cout << "Weapons:\n";
     for (auto weapon:m_weapons){
-        if (weapon != nullptr){
-            itemCounter++;
-            std::cout << itemCounter << ".";
-            weapon->printInfo();
-        }
+        std::cout << ++itemCounter << ".";
+        weapon->printInfo();
     }
-    itemCounter = 0;
-    std::cout << "+-------------------------+\n";
-    std::cout << "Armors:\n";
+}
+
+void Hero::printInventoryArmors(){
+    int itemCounter = 0;
     for (auto armor:m_armors){
-        if (armor != nullptr){
-            itemCounter++;
-            std::cout << itemCounter << ".";
-            armor->printInfo();
-        }
+        std::cout << ++itemCounter << ".";
+        armor->printInfo();
     }
-    itemCounter = 0;
-    std::cout << "+-------------------------+\n";
-    std::cout << "Potions:\n";
+}
+
+void Hero::printInventoryPotions(){
+    int itemCounter = 0;
     for (auto potion:m_potions){
-        if (potion != nullptr){
-            itemCounter++;
-            std::cout << itemCounter << ".";
-            potion->printInfo();
-        }
+        std::cout << ++itemCounter << ".";
+        potion->printInfo();
     }
-    std::cout << "+-------------------------+\n";
 }
 
 void Hero::setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma){
