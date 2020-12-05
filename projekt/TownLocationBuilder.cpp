@@ -9,6 +9,7 @@ TownLocationBuilder::TownLocationBuilder(){
 
 void TownLocationBuilder::createLocation(){
     m_location = new Location("Town");
+    m_location->setLocationSize(3);
     std::vector<std::vector<Tile*>> tiles;
 
     std::vector<Tile*> row1, row2, row3;

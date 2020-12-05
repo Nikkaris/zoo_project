@@ -106,8 +106,8 @@ void Hero::setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCh
     m_charisma += bonusCharisma;
 }
 
-int Hero::getPlayerDialogInput(int min, int max, std::string errorText) {
-    int playerInput;
+int Hero::getPlayerDialogInput(char min, char max, std::string errorText) {
+    char playerInput;
     std::cin >> playerInput;
     while (playerInput < min || playerInput > max) {
         std::cout << errorText << std::endl;
@@ -138,7 +138,7 @@ void Hero::createHero() {
     std::cout << "2. I am from West, i do not know why but I have everything blurred..." << std::endl;
     std::cout << "3. I am from East, i do not know why but I have everything blurred..." << std::endl;
 
-    dialogOption = getPlayerDialogInput(1, 3, "That is not answering my question");
+    dialogOption = getPlayerDialogInput('1', '3', "That is not answering my question");
 
     if(dialogOption == 1) {
         std::cout << "Oh, so you are norseman. You seemed to me kinda muscular..." << std::endl;
@@ -158,7 +158,7 @@ void Hero::createHero() {
     std::cout << "2. I think that I was a royal guard" << std::endl;
     std::cout << "3. I do not like to admit, but i was thief. People hired and I accepted..." << std::endl;
 
-    dialogOption = getPlayerDialogInput(1, 3, "That is not answering my question");
+    dialogOption = getPlayerDialogInput('1', '3', "That is not answering my question");
 
     if(dialogOption == 1) {
         std::cout << "That is what I thought. That would explain your personality and temperament." << std::endl;
@@ -181,7 +181,7 @@ void Hero::createHero() {
     std::cout << "2. I hate fights, I always considered myself as peaceful being, even in this cruel world." << std::endl;
     std::cout << "3. I love the adrenaline in my blood, I would use my full strength to crush my enemy.." << std::endl;
 
-    dialogOption = getPlayerDialogInput(1, 3, "That is not answering my question");
+    dialogOption = getPlayerDialogInput('1', '3', "That is not answering my question");
 
     if(dialogOption == 1) {
         std::cout << "I agree, when you catch your enemy off-guard. It makes your fight a lot easier." << std::endl;

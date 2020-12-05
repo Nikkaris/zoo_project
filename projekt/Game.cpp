@@ -43,7 +43,8 @@ void Game::whatToDo(){
 
 void Game::locationPrintMenu(){
     tileCoordinates coor = m_map->getTileCoordinates();
-    while (coor.x < locationSize-1 or coor.y < locationSize-1) {
+    Location* currentLocation = m_map->getCurrentLocation();
+    while (coor.x < currentLocation->getLocationSize()-1 or coor.y < currentLocation->getLocationSize()-1) {
         m_map->printLocation();
         std::cout << "What do you want to do? \n";
         std::cout << "\t 1. Move on tile \n";

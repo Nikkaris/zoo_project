@@ -39,7 +39,7 @@ public:
     void printInventoryArmors();
     void printInventoryPotions();
     void setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma);
-    int getPlayerDialogInput(int min, int max, std::string text);
+    int getPlayerDialogInput(char min, char max, std::string text);
     void createHero();
 };
 

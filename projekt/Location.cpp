@@ -31,6 +31,10 @@ void Location::setTileCoordinatesToExit(){
     m_currentTileCoor.y = m_tiles.size()-1;
 }
 
+void Location::setLocationSize(int size){
+    m_locationSize = size;
+}
+
 void Location::resetTileCoordinates(){
     m_currentTileCoor.x = 0;
     m_currentTileCoor.y = 0;
@@ -88,6 +92,10 @@ void Location::moveTile(){
 
 std::string Location::getLocationName(){
     return m_name;
+}
+
+int Location::getLocationSize(){
+    return m_locationSize;
 }
 
 Enemy* Location::getEnemy(){

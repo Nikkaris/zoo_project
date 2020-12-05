@@ -10,8 +10,6 @@
 #include "TownTile.h"
 #include "HutTile.h"
 
-const int locationSize = 3;
-
 struct sideLocations{
     int north, east, south, west;
 };
@@ -25,7 +23,7 @@ class Location {
     sideLocations m_sideLocations;
     std::vector<std::vector<Tile*>> m_tiles;
     tileCoordinates m_currentTileCoor;
-
+    int m_locationSize;
 public:
     Location(std::string name);
     sideLocations getSideLocations();
@@ -33,12 +31,14 @@ public:
     void setTiles(std::vector<std::vector<Tile*>> tiles);
     void setSideLocations(sideLocations sides);
     void setTileCoordinatesToExit();
+    void setLocationSize(int size);
     void resetTileCoordinates();
     void printInfo();
     void printTiles();
     void printTileSides();
     void moveTile();
     std::string getLocationName();
+    int getLocationSize();
     Enemy* getEnemy();
     Chest* getChest();
     void removeChest();
