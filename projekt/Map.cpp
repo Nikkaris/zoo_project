@@ -10,11 +10,21 @@ Map::Map(){
 }
 
 void Map::createMap(){
-    LocationDirector* director = new LocationDirector(new HutTileBuilder);
+    LocationDirector* director = new LocationDirector(new HutLocationBuilder);
     m_locations.push_back(director->createLocation());
     director->setLocationBuilder(new ForestLocationBuilder);
     m_locations.push_back(director->createLocation());
     director->setLocationBuilder(new TownLocationBuilder);
+    m_locations.push_back(director->createLocation());
+    director->setLocationBuilder(new BogLocationBuilder);
+    m_locations.push_back(director->createLocation());
+    director->setLocationBuilder(new WoodsLocationBuilder);
+    m_locations.push_back(director->createLocation());
+    director->setLocationBuilder(new CavernLocationBuilder);
+    m_locations.push_back(director->createLocation());
+    director->setLocationBuilder(new TombLocationBuilder);
+    m_locations.push_back(director->createLocation());
+    director->setLocationBuilder(new NecroLocationBuilder);
     m_locations.push_back(director->createLocation());
 }
 

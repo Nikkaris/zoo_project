@@ -33,5 +33,5 @@ void TownLocationBuilder::createLocation(){
 
 void TownLocationBuilder::createSideLocations(){
     //north, east, south, west;
-    m_location->setSideLocations({noDirection, noDirection, noDirection, 1});
+    m_location->setSideLocations({1, 4, noDirection, noDirection});
 }

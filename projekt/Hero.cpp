@@ -173,7 +173,7 @@ void Hero::createHero() {
     }
 
     std::cout << std::endl;
-    std::cout << "You have to be hungry." << std::endl;
+    std::cout << "You must be hungry." << std::endl;
     std::cout << "The old man offered you vegetable stew." << std::endl;
     std::cout << "Anyway, my last question is, how would you dealt with combat situation?" << std::endl;
     std::cout << std::endl;

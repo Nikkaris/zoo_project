@@ -7,9 +7,9 @@
 
 #include "LocationBuilder.h"
 
-class HutTileBuilder: public LocationBuilder {
+class HutLocationBuilder: public LocationBuilder {
 public:
-    HutTileBuilder();
+    HutLocationBuilder();
     void createLocation();
     void createSideLocations();
 };

@@ -9,6 +9,10 @@
 #include "ForestTile.h"
 #include "TownTile.h"
 #include "HutTile.h"
+#include "BogTile.h"
+#include "CavernTile.h"
+#include "TombTile.h"
+#include "NecroTile.h"
 
 struct sideLocations{
     int north, east, south, west;

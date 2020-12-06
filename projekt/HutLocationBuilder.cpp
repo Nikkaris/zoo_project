@@ -4,11 +4,11 @@
 
 #include "HutLocationBuilder.h"
 
-HutTileBuilder::HutTileBuilder(){
+HutLocationBuilder::HutLocationBuilder(){
 }
 
-void HutTileBuilder::createLocation(){
-    m_location = new Location("The Old Mans Hut");
+void HutLocationBuilder::createLocation(){
+    m_location = new Location("The Old Man's Hut");
     m_location->setLocationSize(3);
     std::vector<std::vector<Tile*>> tiles;
 
@@ -31,7 +31,7 @@ void HutTileBuilder::createLocation(){
     m_location->setTiles(tiles);
 }
 
-void HutTileBuilder::createSideLocations(){
+void HutLocationBuilder::createSideLocations(){
     //north, east, south, west;
     m_location->setSideLocations({noDirection, 1, noDirection, noDirection});
 }

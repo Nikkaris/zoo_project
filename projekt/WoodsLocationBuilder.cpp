@@ -1,14 +1,14 @@
 //
-// Created by nikol on 02.12.2020.
+// Created by dalib on 06.12.2020.
 //
 
-#include "ForestLocationBuilder.h"
+#include "WoodsLocationBuilder.h"
 
-ForestLocationBuilder::ForestLocationBuilder(){
+WoodsLocationBuilder::WoodsLocationBuilder(){
 }
 
-void ForestLocationBuilder::createLocation(){
-    m_location = new Location("Whispering Forest");
+void WoodsLocationBuilder::createLocation(){
+    m_location = new Location("Hollow Woods");
     m_location->setLocationSize(4);
     std::vector<std::vector<Tile*>> tiles;
 
@@ -40,7 +40,7 @@ void ForestLocationBuilder::createLocation(){
     m_location->setTiles(tiles);
 }
 
-void ForestLocationBuilder::createSideLocations(){
+void WoodsLocationBuilder::createSideLocations(){
     //north, east, south, west;
-    m_location->setSideLocations({noDirection, 3, 2, 0});
+    m_location->setSideLocations({3, 5, noDirection, 2});
 }

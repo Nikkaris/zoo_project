@@ -8,6 +8,11 @@
 #include "ForestLocationBuilder.h"
 #include "TownLocationBuilder.h"
 #include "HutLocationBuilder.h"
+#include "BogLocationBuilder.h"
+#include "WoodsLocationBuilder.h"
+#include "CavernLocationBuilder.h"
+#include "NecroLocationBuilder.h"
+#include "TombLocationBuilder.h"
 
 class LocationDirector {
     LocationBuilder* m_builder;
