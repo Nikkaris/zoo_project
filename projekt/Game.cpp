@@ -45,10 +45,11 @@ void Game::locationPrintMenu(){
     tileCoordinates coor = m_map->getTileCoordinates();
     Location* currentLocation = m_map->getCurrentLocation();
     while (coor.x < currentLocation->getLocationSize()-1 or coor.y < currentLocation->getLocationSize()-1) {
+        m_hero->printInfo();
         m_map->printLocation();
         std::cout << "What do you want to do? \n";
         std::cout << "\t 1. Move on tile \n";
-        std::cout << "\t 2. View inventory \n";
+        std::cout << "\t 2. Manage inventory \n";
         if (m_map->getEnemy() != nullptr){
             std::cout << "\t 5. Attack Enemy \n";
         }
@@ -66,7 +67,7 @@ void Game::whatToDo2(){
     if (playerInput == '1'){
         m_map->printTileSides();
     } else if (playerInput == '2'){
-        m_hero->printInventory();
+        manageInventory();
     } else if (playerInput == '3') {
         m_map->setTileCoordinatesToExit();
     } else if (playerInput == '4'){
@@ -74,6 +75,39 @@ void Game::whatToDo2(){
     } else if (playerInput == '5'){
         std::cout << "utocim \n";
     }
+}
+
+void Game::manageInventory(){
+    int choice;
+    printManageInventory();
+    char playerInput = getPlayerInput();
+    while (playerInput != '6'){
+        std::cout << "Which one?\n";
+        std::cin >> choice;
+        if (playerInput == '1'){
+            m_hero->equipWeapon(choice-1);
+        } else if (playerInput == '2'){
+            m_hero->equipArmor(choice-1);
+        } else if (playerInput == '3'){
+            m_hero->discardWeapon(choice-1);
+        } else if (playerInput == '4'){
+            m_hero->discardArmor(choice-1);
+        } else if (playerInput == '5'){
+            m_hero->discardPotion(choice-1);
+        }
+        printManageInventory();
+        playerInput = getPlayerInput();
+    }
+}
+
+void Game::printManageInventory(){
+    m_hero->printInventory();
+    std::cout << "1. Equip weapon\n";
+    std::cout << "2. Equip armor\n";
+    std::cout << "3. Discard weapon\n";
+    std::cout << "4. Discard armor\n";
+    std::cout << "5. Discard potion\n";
+    std::cout << "6. Go back\n";
 }
 
 void Game::inspectChest(){

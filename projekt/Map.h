@@ -6,7 +6,6 @@
 #define PROJEKT_MAP_H
 
 #include <vector>
-#include "Location.h"
 #include "LocationDirector.h"
 
 class Map {

@@ -9,14 +9,26 @@ Hero::Hero(){
     m_strenght = 1;
     m_charisma = 1;
     m_name = "looool";
+    m_equippedWeapon = nullptr;
+    m_equippedArmor = nullptr;
+    m_inventory = new Inventory();
 }
 
 void Hero::printInfo(){
     std::cout << std::endl;
-    std::cout << "Name of hero: " << m_name << std::endl;
-    std::cout << "Strength: " << m_strenght << std::endl;
-    std::cout << "Agility: " << m_agility << std::endl;
-    std::cout << "Charisma: " << m_charisma << std::endl;
+    std::cout << "Name of hero: " << m_name << "\n";
+    std::cout << "Strength: " << m_strenght << "\n";
+    std::cout << "Agility: " << m_agility << "\n";
+    std::cout << "Charisma: " << m_charisma << "\n";
+    if (m_equippedWeapon != nullptr){
+        std::cout << "Equipped weapon:\n";
+        m_equippedWeapon->printInfo();
+    }
+    if (m_equippedArmor != nullptr){
+        std::cout << "Armor weapon:\n";
+        m_equippedArmor->printInfo();
+    }
+    std::cout << "\n";
 }
 
 void Hero::setAttributeStrength(int numberOfAttribute){
@@ -36,15 +48,35 @@ void Hero::setHeroName(std::string name){
 }
 
 void Hero::takeWeapon(Weapon* weapon){
-    m_weapons.push_back(weapon);
+    m_inventory->addWeapon(weapon);
 }
 
 void Hero::takeArmor(Armor* armor){
-    m_armors.push_back(armor);
+    m_inventory->addArmor(armor);
 }
 
 void Hero::takePotion(Potion* potion){
-    m_potions.push_back(potion);
+    m_inventory->addPotion(potion);
+}
+
+void Hero::equipWeapon(int choice){
+    m_equippedWeapon = m_inventory->getWeapon(choice);
+}
+
+void Hero::equipArmor(int choice){
+    m_equippedArmor = m_inventory->getArmor(choice);
+}
+
+void Hero::discardWeapon(int choice){
+    m_inventory->discardWeapon(choice);
+}
+
+void Hero::discardArmor(int choice){
+    m_inventory->discardArmor(choice);
+}
+
+void Hero::discardPotion(int choice) {
+    m_inventory->discardPotion(choice);
 }
 
 std::string Hero::getHeroName(){
@@ -64,40 +96,7 @@ int Hero::getHeroCharisma(){
 }
 
 void Hero::printInventory(){
-    std::cout << "+-------------------------+\n";
-    std::cout << "Weapons\n";
-    printInventoryWeapons();
-    std::cout << "+-------------------------+\n";
-    std::cout << "Armors\n";
-    printInventoryArmors();
-    std::cout << "+-------------------------+\n";
-    std::cout << "Potions\n";
-    printInventoryPotions();
-    std::cout << "+-------------------------+\n";
-}
-
-void Hero::printInventoryWeapons(){
-    int itemCounter = 0;
-    for (auto weapon:m_weapons){
-        std::cout << ++itemCounter << ".";
-        weapon->printInfo();
-    }
-}
-
-void Hero::printInventoryArmors(){
-    int itemCounter = 0;
-    for (auto armor:m_armors){
-        std::cout << ++itemCounter << ".";
-        armor->printInfo();
-    }
-}
-
-void Hero::printInventoryPotions(){
-    int itemCounter = 0;
-    for (auto potion:m_potions){
-        std::cout << ++itemCounter << ".";
-        potion->printInfo();
-    }
+    m_inventory->printInventory();
 }
 
 void Hero::setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma){
