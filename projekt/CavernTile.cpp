@@ -13,6 +13,9 @@ CavernTile::CavernTile(Enemy* enemy): Tile(enemy){
 CavernTile::CavernTile(Chest* chest): Tile(chest){
 }
 
+CavernTile::CavernTile(FriendlyCharacter* friendlyCharacter): Tile(friendlyCharacter){
+}
+
 void CavernTile::printTile(bool printHero){
     std::cout << "^^";
     Tile::printCharacter("__", printHero);

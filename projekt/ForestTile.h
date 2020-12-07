@@ -12,6 +12,7 @@ public:
     ForestTile();
     ForestTile(Enemy* enemy);
     ForestTile(Chest* chest);
+    ForestTile(FriendlyCharacter* friendlyCharacter);
     void printTile(bool printHero);
 };
 

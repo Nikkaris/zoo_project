@@ -45,6 +45,7 @@ public:
     int getLocationSize();
     Enemy* getEnemy();
     Chest* getChest();
+    FriendlyCharacter* getFriendlyCharacter();
     void removeChest();
 };
 

@@ -3,11 +3,13 @@
 //
 
 #include "Hero.h"
+#include "Interaction.h"
 
 Hero::Hero(){
     m_agility = 1;
-    m_strenght = 1;
+    m_strength = 1;
     m_charisma = 1;
+    m_coins = 0;
     m_name = "";
     m_equippedWeapon = nullptr;
     m_equippedArmor = nullptr;
@@ -17,9 +19,10 @@ Hero::Hero(){
 void Hero::printInfo(){
     std::cout << std::endl;
     std::cout << "Name of hero: " << m_name << "\n";
-    std::cout << "Strength: " << m_strenght << "\n";
+    std::cout << "Strength: " << m_strength << "\n";
     std::cout << "Agility: " << m_agility << "\n";
     std::cout << "Charisma: " << m_charisma << "\n";
+    std::cout << "Coins: " << m_coins << "\n";
     if (m_equippedWeapon != nullptr){
         std::cout << "Equipped weapon:\n";
         m_equippedWeapon->printInfo();
@@ -51,26 +54,34 @@ void Hero::takePotion(Potion* potion){
     m_inventory->addPotion(potion);
 }
 
-int Hero::getHeroStrength(){
-    return m_strenght;
-}
-
-int Hero::getHeroAgility(){
-    return m_agility;
-}
-
-int Hero::getHeroCharisma(){
-    return m_charisma;
-}
-
-void Hero::printInventory(){
-    m_inventory->printInventory();
+void Hero::addCoins(int howMany){
+    m_coins += howMany;
 }
 
 void Hero::setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma){
-    m_strenght += bonusStrength;
+    m_strength += bonusStrength;
     m_agility += bonusAgility;
     m_charisma += bonusCharisma;
+}
+
+void Hero::makeInteraction(FriendlyCharacter* friendlyCharacter){
+    // print all interactions
+    std::cout << "Choose interaction:\n";
+    for (int i = 0; i < m_interactions.size(); i++){
+        std::cout << "[" << i << "]" << m_interactions.at(i)->getName() << "\n";
+    }
+    // choose from interactions
+    int playerInput = 0;
+    std::cin >> playerInput;
+
+    // call interaction
+    m_interactions.at(playerInput)->makeInteraction(this, friendlyCharacter);
+}
+
+void Hero::learnInteraction(Interaction* interaction){
+    std::cout << m_interactions.size();
+    m_interactions.push_back(interaction);
+    std::cout << m_interactions.size();
 }
 
 void Hero::manageInventory(){

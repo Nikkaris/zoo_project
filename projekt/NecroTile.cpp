@@ -13,6 +13,9 @@ NecroTile::NecroTile(Enemy* enemy): Tile(enemy){
 NecroTile::NecroTile(Chest* chest): Tile(chest){
 }
 
+NecroTile::NecroTile(FriendlyCharacter* friendlyCharacter): Tile(friendlyCharacter){
+}
+
 void NecroTile::printTile(bool printHero){
     std::cout << "^^";
     Tile::printCharacter("__", printHero);

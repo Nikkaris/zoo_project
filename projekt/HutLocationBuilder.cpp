@@ -18,7 +18,7 @@ void HutLocationBuilder::createLocation(){
     row1.push_back(new HutTile(new Chest(new Weapon("shovel", 1))));
 
     row2.push_back(new HutTile(new Chest(new Armor("diamong armor", 80))));
-    row2.push_back(new HutTile());
+    row2.push_back(new HutTile(new FriendlyCharacter("Bohdan", 5, 0, 3, 100)));
     row2.push_back(new HutTile(new Enemy(1)));
 
     row3.push_back(new HutTile());

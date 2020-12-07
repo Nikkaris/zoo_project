@@ -103,6 +103,10 @@ Chest* Map::getChest(){
     return m_locations.at(m_currentLocationIndex)->getChest();
 }
 
+FriendlyCharacter* Map::getFriendlyCharacter(){
+    return m_locations.at(m_currentLocationIndex)->getFriendlyCharacter();
+}
+
 void Map::removeChest(){
     m_locations.at(m_currentLocationIndex)->removeChest();
 }

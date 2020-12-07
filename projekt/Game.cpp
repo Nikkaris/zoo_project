@@ -8,6 +8,7 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
     m_map = map;
     m_hero = hero;
     m_story = story;
+    m_hero->learnInteraction(new StealCoins);
     //printProlog();
     printMenu();
 }
@@ -71,6 +72,9 @@ void Game::locationPrintMenu(){
         if (m_map->getChest() != nullptr){
             std::cout << "\t 4. Open chest \n";
         }
+        if (m_map->getFriendlyCharacter() != nullptr){
+            std::cout << "\t 6. Interact witch NPC \n";
+        }
         std::cout << "\t 3. exit \n";
         whatToDo2();
         coor = m_map->getTileCoordinates();
@@ -89,6 +93,8 @@ void Game::whatToDo2(){
         inspectChest();
     } else if (playerInput == '5'){
         std::cout << "utocim \n";
+    } else if (playerInput == '6'){
+        m_hero->makeInteraction(m_map->getFriendlyCharacter());
     }
 }
 

@@ -106,6 +106,10 @@ Chest* Location::getChest(){
     return m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->getChest();
 }
 
+FriendlyCharacter* Location::getFriendlyCharacter(){
+    return m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->getFriendlyCharacter();
+}
+
 void Location::removeChest(){
     m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->removeChest();
 }

@@ -12,6 +12,7 @@ public:
     NecroTile();
     NecroTile(Enemy* enemy);
     NecroTile(Chest* chest);
+    NecroTile(FriendlyCharacter* friendlyCharacter);
     void printTile(bool printHero);
 };
 

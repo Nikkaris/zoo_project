@@ -12,6 +12,7 @@ public:
     TombTile();
     TombTile(Enemy* enemy);
     TombTile(Chest* chest);
+    TombTile(FriendlyCharacter* friendlyCharacter);
     void printTile(bool printHero);
 };
 

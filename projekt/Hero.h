@@ -8,16 +8,13 @@
 #include <iostream>
 #include <vector>
 
-#include "Inventory.h"
+#include "Character.h"
+#include "FriendlyCharacter.h"
 
-class Hero {
-    std::string m_name;
-    int m_strenght;
-    int m_agility;
-    int m_charisma;
-    Weapon* m_equippedWeapon;
-    Armor* m_equippedArmor;
-    Inventory* m_inventory;
+class Interaction;
+
+class Hero: public Character {
+    std::vector<Interaction*> m_interactions;
 public:
     Hero();
     void printInfo();
@@ -26,11 +23,10 @@ public:
     void takeWeapon(Weapon* weapon);
     void takeArmor(Armor* armor);
     void takePotion(Potion* potion);
-    int getHeroStrength();
-    int getHeroAgility();
-    int getHeroCharisma();
-    void printInventory();
+    void addCoins(int howMany);
     void setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma);
+    void makeInteraction(FriendlyCharacter* friendlyCharacter);
+    void learnInteraction(Interaction* interaction);
     void manageInventory();
 private:
     void printManageInventory();

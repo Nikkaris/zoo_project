@@ -12,6 +12,7 @@ public:
     HutTile();
     HutTile(Enemy* enemy);
     HutTile(Chest* chest);
+    HutTile(FriendlyCharacter* friendlyCharacter);
     void printTile(bool printHero);
 };
 

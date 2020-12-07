@@ -7,23 +7,34 @@
 Tile::Tile(){
     m_enemy = nullptr;
     m_chest = nullptr;
+    m_friendlyCharacter = nullptr;
 }
 
 Tile::Tile(Enemy* enemy){
     m_enemy = enemy;
     m_chest = nullptr;
+    m_friendlyCharacter = nullptr;
 }
 
 Tile::Tile(Chest* chest){
     m_chest = chest;
     m_enemy = nullptr;
+    m_friendlyCharacter = nullptr;
+}
+
+Tile::Tile(FriendlyCharacter* friendlyCharacter){
+    m_friendlyCharacter = friendlyCharacter;
+    m_enemy = nullptr;
+    m_chest = nullptr;
 }
 
 void Tile::printCharacter(std::string tileSymbol, bool printHero){
     if (printHero){
         std::cout << "**";
-    } else if (m_enemy != nullptr){
+    } else if (m_enemy != nullptr) {
         std::cout << "E" << m_enemy->getEnemyLevel();
+    } else if (m_friendlyCharacter != nullptr){
+        std::cout << "FR";
     } else if (m_chest != nullptr){
         std::cout << "CH";
     } else {
@@ -37,6 +48,10 @@ Enemy* Tile::getEnemy(){
 
 Chest* Tile::getChest(){
     return m_chest;
+}
+
+FriendlyCharacter* Tile::getFriendlyCharacter(){
+    return m_friendlyCharacter;
 }
 
 void Tile::removeChest(){
