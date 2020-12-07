@@ -20,8 +20,6 @@ public:
     void whatToDo();
     void locationPrintMenu();
     void whatToDo2();
-    void manageInventory();
-    void printManageInventory();
     void inspectChest();
     void printProlog();
     ~Game();

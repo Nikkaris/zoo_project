@@ -4,12 +4,12 @@
 
 #include "Item.h"
 
-Item::Item(std::string name, std::string itemType){
+Item::Item(std::string name, itemType typeOfItem){
     m_name = name;
-    m_itemType = itemType;
+    m_itemType = typeOfItem;
 }
 
-std::string Item::getItemType(){
+itemType Item::getItemType(){
     return m_itemType;
 }
 

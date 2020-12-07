@@ -8,7 +8,7 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
     m_map = map;
     m_hero = hero;
     m_story = story;
-    printProlog();
+    //printProlog();
     printMenu();
 }
 
@@ -48,8 +48,11 @@ void Game::printMenu(){
 }
 
 void Game::whatToDo(){
-    if (getPlayerInput() == '1'){
+    char playerInput = getPlayerInput();
+    if (playerInput == '1'){
         m_map->printSideLocations();
+    } else if (playerInput == '2'){
+        m_hero->manageInventory();
     }
 }
 
@@ -79,7 +82,7 @@ void Game::whatToDo2(){
     if (playerInput == '1'){
         m_map->printTileSides();
     } else if (playerInput == '2'){
-        manageInventory();
+        m_hero->manageInventory();
     } else if (playerInput == '3') {
         m_map->setTileCoordinatesToExit();
     } else if (playerInput == '4'){
@@ -87,39 +90,6 @@ void Game::whatToDo2(){
     } else if (playerInput == '5'){
         std::cout << "utocim \n";
     }
-}
-
-void Game::manageInventory(){
-    int choice;
-    printManageInventory();
-    char playerInput = getPlayerInput();
-    while (playerInput != '6'){
-        std::cout << "Which one?\n";
-        std::cin >> choice;
-        if (playerInput == '1'){
-            m_hero->equipWeapon(choice-1);
-        } else if (playerInput == '2'){
-            m_hero->equipArmor(choice-1);
-        } else if (playerInput == '3'){
-            m_hero->discardWeapon(choice-1);
-        } else if (playerInput == '4'){
-            m_hero->discardArmor(choice-1);
-        } else if (playerInput == '5'){
-            m_hero->discardPotion(choice-1);
-        }
-        printManageInventory();
-        playerInput = getPlayerInput();
-    }
-}
-
-void Game::printManageInventory(){
-    m_hero->printInventory();
-    std::cout << "1. Equip weapon\n";
-    std::cout << "2. Equip armor\n";
-    std::cout << "3. Discard weapon\n";
-    std::cout << "4. Discard armor\n";
-    std::cout << "5. Discard potion\n";
-    std::cout << "6. Go back\n";
 }
 
 void Game::inspectChest(){
@@ -136,11 +106,11 @@ void Game::inspectChest(){
     std::cout << "Would you like to take it?\n\t1. Yes\n\t2. No\n";
     if (getPlayerInput() == '1'){
         std::cout << m_hero->getHeroName() << " is taking " << item->getName() << " from chest...\n";
-        if (item->getItemType() == "weapon"){
+        if (item->getItemType() == itemType::weapon){
             m_hero->takeWeapon(m_map->getChest()->getWeapon());
-        } else if (item->getItemType() == "armor"){
+        } else if (item->getItemType() == itemType::armor){
             m_hero->takeArmor(m_map->getChest()->getArmor());
-        } else if (item->getItemType() == "potion"){
+        } else if (item->getItemType() == itemType::potion){
             m_hero->takePotion(m_map->getChest()->getPotion());
         }
         m_map->removeChest();

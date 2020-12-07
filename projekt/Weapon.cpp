@@ -4,7 +4,7 @@
 
 #include "Weapon.h"
 
-Weapon::Weapon(std::string name, int damageBonus): Item(name, "weapon"){
+Weapon::Weapon(std::string name, int damageBonus): Item(name, itemType::weapon){
     m_damageBonus = damageBonus;
 }
 

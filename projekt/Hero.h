@@ -26,16 +26,14 @@ public:
     void takeWeapon(Weapon* weapon);
     void takeArmor(Armor* armor);
     void takePotion(Potion* potion);
-    void equipWeapon(int choice);
-    void equipArmor(int choice);
-    void discardWeapon(int choice);
-    void discardArmor(int choice);
-    void discardPotion(int choice);
     int getHeroStrength();
     int getHeroAgility();
     int getHeroCharisma();
     void printInventory();
     void setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma);
+    void manageInventory();
+private:
+    void printManageInventory();
 };
 
 

@@ -4,7 +4,7 @@
 
 #include "Armor.h"
 
-Armor::Armor(std::string name, int armorBonus): Item(name, "armor"){
+Armor::Armor(std::string name, int armorBonus): Item(name, itemType::armor){
     m_armorBonus = armorBonus;
 }
 

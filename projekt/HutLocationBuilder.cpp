@@ -15,9 +15,9 @@ void HutLocationBuilder::createLocation(){
     std::vector<Tile*> row1, row2, row3;
     row1.push_back(new HutTile());
     row1.push_back(new HutTile(new Chest(new Weapon("sword", 10))));
-    row1.push_back(new HutTile());
+    row1.push_back(new HutTile(new Chest(new Weapon("shovel", 1))));
 
-    row2.push_back(new HutTile());
+    row2.push_back(new HutTile(new Chest(new Armor("diamong armor", 80))));
     row2.push_back(new HutTile());
     row2.push_back(new HutTile(new Enemy(1)));
 

@@ -51,26 +51,6 @@ void Hero::takePotion(Potion* potion){
     m_inventory->addPotion(potion);
 }
 
-void Hero::equipWeapon(int choice){
-    m_equippedWeapon = m_inventory->getWeapon(choice);
-}
-
-void Hero::equipArmor(int choice){
-    m_equippedArmor = m_inventory->getArmor(choice);
-}
-
-void Hero::discardWeapon(int choice){
-    m_inventory->discardItem(choice, 0);
-}
-
-void Hero::discardArmor(int choice){
-    m_inventory->discardItem(choice, 1);
-}
-
-void Hero::discardPotion(int choice) {
-    m_inventory->discardItem(choice, 2);
-}
-
 int Hero::getHeroStrength(){
     return m_strenght;
 }
@@ -91,4 +71,50 @@ void Hero::setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCh
     m_strenght += bonusStrength;
     m_agility += bonusAgility;
     m_charisma += bonusCharisma;
+}
+
+void Hero::manageInventory(){
+    int choice;
+    printManageInventory();
+    char playerInput;
+    std::cin >> playerInput;
+    while (playerInput != '6'){
+        std::cout << "Which one?\n";
+        std::cin >> choice;
+        if (playerInput == '1'){
+            Weapon* weapon = m_inventory->getWeapon(choice);
+            if (weapon != nullptr){
+                if (m_equippedWeapon != nullptr){
+                    m_inventory->addWeapon(m_equippedWeapon);
+                }
+                m_equippedWeapon = weapon;
+            }
+        } else if (playerInput == '2'){
+            Armor* armor = m_inventory->getArmor(choice);
+            if (armor != nullptr) {
+                if (m_equippedWeapon != nullptr){
+                    m_inventory->addArmor(m_equippedArmor);
+                }
+                m_equippedArmor = armor;
+            }
+        } else if (playerInput == '3'){
+            m_inventory->discardItem(choice, itemType::weapon);
+        } else if (playerInput == '4'){
+            m_inventory->discardItem(choice, itemType::armor);
+        } else if (playerInput == '5'){
+            m_inventory->discardItem(choice, itemType::potion);
+        }
+        printManageInventory();
+        std::cin >> playerInput;
+    }
+}
+
+void Hero::printManageInventory(){
+    m_inventory->printInventory();
+    std::cout << "1. Equip weapon\n";
+    std::cout << "2. Equip armor\n";
+    std::cout << "3. Discard weapon\n";
+    std::cout << "4. Discard armor\n";
+    std::cout << "5. Discard potion\n";
+    std::cout << "6. Go back\n";
 }

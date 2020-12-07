@@ -4,7 +4,7 @@
 
 #include "Potion.h"
 
-Potion::Potion(std::string name, int healthBonus): Item(name, "potion"){
+Potion::Potion(std::string name, int healthBonus): Item(name, itemType::potion){
     m_healthBonus = healthBonus;
 }
 

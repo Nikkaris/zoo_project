@@ -7,14 +7,18 @@
 
 #include <iostream>
 
+enum class itemType{
+    weapon, armor, potion
+};
+
 class Item {
 protected:
     std::string m_name;
-    std::string m_itemType;
+    itemType m_itemType;
 public:
-    Item(std::string name, std::string itemType);
+    Item(std::string name, itemType itemType);
     std::string getName();
-    std::string getItemType();
+    itemType getItemType();
     virtual void printInfo() = 0;
 };
 
