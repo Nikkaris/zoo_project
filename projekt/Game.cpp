@@ -8,14 +8,23 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
     m_map = map;
     m_hero = hero;
     m_story = story;
-    //printProlog();
+    printProlog();
     printMenu();
 }
 
 void Game::printProlog() {
-    m_story->printChapter(1);
-    m_hero->createHero();
-    m_hero->printInfo();
+    m_story->printChapterOne();
+    //setting name
+    std::string newName;
+    std::cout << "Tell me, what is your name?" << std::endl;
+    std::cin >> newName;
+    m_hero->setHeroName(newName);
+    std::cout << std::endl;
+    std::cout << "Did you say " << m_hero->getHeroName() << "? What a wonderful name!" << std::endl;
+
+    heroAttributes attributes = m_story->chooseHeroAttributes();
+    std::cout << attributes.strength << std::endl;
+    m_hero->setAllHeroAttributes(attributes.strength, attributes.agility, attributes.charisma);
 }
 
 char Game::getPlayerInput(){
@@ -26,6 +35,9 @@ char Game::getPlayerInput(){
 
 void Game::printMenu(){
     while (m_map->getCurrentLocationIndex() < m_map->getLocations().size()-1) {
+        if (m_map->getCurrentLocationIndex() != 0) {
+            m_story->printChapter(m_map->getCurrentLocationIndex() + 1);
+        }
         m_map->printLocationInfo();
         locationPrintMenu();
         std::cout << "What do you want to do?\n     1. Go to next location\n";

@@ -7,10 +7,17 @@
 
 #include <iostream>
 
+struct heroAttributes {
+    int strength;
+    int agility;
+    int charisma;
+};
 
 class StoryTeller {
 public:
     StoryTeller();
+    int getPlayerDialogInput(char min, char max, std::string errorText);
+    heroAttributes chooseHeroAttributes();
     void printChapter(int chapterNumber);
     void printChapterOne();
 };

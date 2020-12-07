@@ -21,10 +21,8 @@ class Hero {
 public:
     Hero();
     void printInfo();
-    void setAttributeStrength(int numberOfAttribute);
-    void setAttributeAgility(int numberOfAttribute);
-    void setAttributeCharisma(int numberOfAttribute);
     void setHeroName(std::string name);
+    std::string getHeroName();
     void takeWeapon(Weapon* weapon);
     void takeArmor(Armor* armor);
     void takePotion(Potion* potion);
@@ -33,14 +31,11 @@ public:
     void discardWeapon(int choice);
     void discardArmor(int choice);
     void discardPotion(int choice);
-    std::string getHeroName();
-    int getHeroStrenght();
+    int getHeroStrength();
     int getHeroAgility();
     int getHeroCharisma();
     void printInventory();
-    void setAllHeroAttributes(int bonusStrenght, int bonusAgility, int bonusCharisma);
-    int getPlayerDialogInput(char min, char max, std::string text);
-    void createHero();
+    void setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma);
 };
 
 
