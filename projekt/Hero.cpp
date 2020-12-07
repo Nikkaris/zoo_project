@@ -60,15 +60,15 @@ void Hero::equipArmor(int choice){
 }
 
 void Hero::discardWeapon(int choice){
-    m_inventory->discardWeapon(choice);
+    m_inventory->discardItem(choice, 0);
 }
 
 void Hero::discardArmor(int choice){
-    m_inventory->discardArmor(choice);
+    m_inventory->discardItem(choice, 1);
 }
 
 void Hero::discardPotion(int choice) {
-    m_inventory->discardPotion(choice);
+    m_inventory->discardItem(choice, 2);
 }
 
 int Hero::getHeroStrength(){

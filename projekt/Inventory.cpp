@@ -14,6 +14,7 @@ void Inventory::addWeapon(Weapon* weapon){
 void Inventory::addArmor(Armor* armor){
     m_armors.push_back(armor);
 }
+
 void Inventory::addPotion(Potion* potion){
     m_potions.push_back(potion);
 }
@@ -40,69 +41,45 @@ Armor* Inventory::getArmor(int choice){
     }
 }
 
-void Inventory::discardWeapon(int choice){
-    if (choice < m_weapons.size()) {
-        delete m_weapons.at(choice);
-        m_weapons.at(choice) = nullptr;
+void Inventory::discardItem(int choice, int which){
+    if (which == 0){
+        discardItem(m_weapons, choice);
+    } else if (which == 1){
+        discardItem(m_armors, choice);
+    } else if (which == 2){
+        discardItem(m_potions, choice);
     }
 }
 
-void Inventory::discardArmor(int choice){
-    if (choice < m_armors.size()) {
-        delete m_armors.at(choice);
-        m_armors.at(choice) = nullptr;
-    }
-}
-
-void Inventory::discardPotion(int choice) {
-    if (choice < m_potions.size()) {
-        delete m_potions.at(choice);
-        m_potions.at(choice) = nullptr;
+template <class T>
+void Inventory::discardItem(T &items, int choice){
+    if (choice < items.size()) {
+        delete items.at(choice);
+        items.at(choice) = nullptr;
     }
 }
 
 void Inventory::printInventory(){
     std::cout << "+-------------------------+\n";
     std::cout << "Weapons\n";
-    printInventoryWeapons();
+    printInventoryItems(m_weapons);
     std::cout << "+-------------------------+\n";
     std::cout << "Armors\n";
-    printInventoryArmors();
+    printInventoryItems(m_armors);
     std::cout << "+-------------------------+\n";
     std::cout << "Potions\n";
-    printInventoryPotions();
+    printInventoryItems(m_potions);
     std::cout << "+-------------------------+\n";
 }
 
-void Inventory::printInventoryWeapons(){
+template <class T>
+void Inventory::printInventoryItems(T items){
     int itemCounter = 0;
-    for (auto weapon:m_weapons){
+    for (auto item:items){
         itemCounter++;
-        if (weapon != nullptr) {
+        if (item != nullptr) {
             std::cout << itemCounter << ".";
-            weapon->printInfo();
-        }
-    }
-}
-
-void Inventory::printInventoryArmors(){
-    int itemCounter = 0;
-    for (auto armor:m_armors){
-        itemCounter++;
-        if (armor != nullptr) {
-            std::cout << itemCounter << ".";
-            armor->printInfo();
-        }
-    }
-}
-
-void Inventory::printInventoryPotions(){
-    int itemCounter = 0;
-    for (auto potion:m_potions){
-        itemCounter++;
-        if (potion != nullptr) {
-            std::cout << itemCounter << ".";
-            potion->printInfo();
+            item->printInfo();
         }
     }
 }
