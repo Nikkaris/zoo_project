@@ -42,6 +42,18 @@ void Tile::printCharacter(std::string tileSymbol, bool printHero){
     }
 }
 
+void Tile::setEnemy(Enemy* enemy){
+    m_enemy = enemy;
+}
+
+void Tile::setChest(Chest* chest){
+    m_chest = chest;
+}
+
+void Tile::setFrendlyCharacter(FriendlyCharacter* friendlyCharacter){
+    m_friendlyCharacter = friendlyCharacter;
+}
+
 Enemy* Tile::getEnemy(){
     return m_enemy;
 }

@@ -21,7 +21,7 @@ void Game::printProlog() {
     std::cin >> newName;
     m_hero->setHeroName(newName);
     std::cout << std::endl;
-    std::cout << "Did you say " << m_hero->getHeroName() << "? What a wonderful name!" << std::endl;
+    std::cout << "Did you say " << m_hero->getName() << "? What a wonderful name!" << std::endl;
 
     heroAttributes attributes = m_story->chooseHeroAttributes();
     std::cout << attributes.strength << std::endl;
@@ -111,7 +111,7 @@ void Game::inspectChest(){
     item->printInfo();
     std::cout << "Would you like to take it?\n\t1. Yes\n\t2. No\n";
     if (getPlayerInput() == '1'){
-        std::cout << m_hero->getHeroName() << " is taking " << item->getName() << " from chest...\n";
+        std::cout << m_hero->getName() << " is taking " << item->getName() << " from chest...\n";
         if (item->getItemType() == itemType::weapon){
             m_hero->takeWeapon(m_map->getChest()->getWeapon());
         } else if (item->getItemType() == itemType::armor){

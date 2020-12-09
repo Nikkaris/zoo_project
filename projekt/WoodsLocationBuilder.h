@@ -11,6 +11,9 @@ class WoodsLocationBuilder: public LocationBuilder {
 public:
     WoodsLocationBuilder();
     void createLocation();
+    void setEnemies();
+    void setChests();
+    void setFriendlyCharacters();
     void createSideLocations();
 };
 

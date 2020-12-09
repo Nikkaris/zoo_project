@@ -9,7 +9,12 @@ StealCoins::StealCoins(): Interaction("Steal coins"){
 
 void StealCoins::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     if (hero->getAgility() > friendlyCharacter->getAgility()){
-        hero->addCoins(friendlyCharacter->getCoins());
+        if (friendlyCharacter->getCoins() > 0){
+            hero->addCoins(friendlyCharacter->getCoins());
+            friendlyCharacter->removeCoins();
+        } else {
+            std::cout << friendlyCharacter->getName() << " does not have any coins :(\n";
+        }
     } else {
         std::cout << "Hey you cant steal from me! Step Back!";
     }

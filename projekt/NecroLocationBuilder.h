@@ -11,6 +11,9 @@ class NecroLocationBuilder: public LocationBuilder {
 public:
     NecroLocationBuilder();
     void createLocation();
+    void setEnemies();
+    void setChests();
+    void setFriendlyCharacters();
     void createSideLocations();
 };
 

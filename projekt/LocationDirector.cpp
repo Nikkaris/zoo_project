@@ -14,6 +14,10 @@ void LocationDirector::setLocationBuilder(LocationBuilder* builder){
 
 Location* LocationDirector::createLocation(){
     m_builder->createLocation();
+    m_builder->setEnemies();
+    m_builder->setChests();
+    m_builder->setFriendlyCharacters();
     m_builder->createSideLocations();
+    m_builder->setTiles();
     return m_builder->getLocation();
 }

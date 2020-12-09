@@ -19,7 +19,6 @@ public:
     Hero();
     void printInfo();
     void setHeroName(std::string name);
-    std::string getHeroName();
     void takeWeapon(Weapon* weapon);
     void takeArmor(Armor* armor);
     void takePotion(Potion* potion);
@@ -28,6 +27,7 @@ public:
     void makeInteraction(FriendlyCharacter* friendlyCharacter);
     void learnInteraction(Interaction* interaction);
     void manageInventory();
+    void inspectChest();
 private:
     void printManageInventory();
 };

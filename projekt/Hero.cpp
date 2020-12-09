@@ -38,10 +38,6 @@ void Hero::setHeroName(std::string name){
     m_name = name;
 }
 
-std::string Hero::getHeroName(){
-    return m_name;
-}
-
 void Hero::takeWeapon(Weapon* weapon){
     m_inventory->addWeapon(weapon);
 }
@@ -66,6 +62,7 @@ void Hero::setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCh
 
 void Hero::makeInteraction(FriendlyCharacter* friendlyCharacter){
     // print all interactions
+    std::cout << "Hi my name is " << friendlyCharacter->getName() << "\n";
     std::cout << "Choose interaction:\n";
     for (int i = 0; i < m_interactions.size(); i++){
         std::cout << "[" << i << "]" << m_interactions.at(i)->getName() << "\n";
@@ -128,4 +125,8 @@ void Hero::printManageInventory(){
     std::cout << "4. Discard armor\n";
     std::cout << "5. Discard potion\n";
     std::cout << "6. Go back\n";
+}
+
+void Hero::inspectChest(){
+
 }

@@ -11,3 +11,7 @@ LocationBuilder::LocationBuilder(){
 Location* LocationBuilder::getLocation(){
     return m_location;
 }
+
+void LocationBuilder::setTiles(){
+    m_location->setTiles(m_tiles);
+}

@@ -23,6 +23,8 @@ public:
     int getAgility();
     int getCharisma();
     int getCoins();
+    void removeCoins();
+    std::string getName();
 };
 
 

@@ -19,3 +19,11 @@ int Character::getCharisma(){
 int Character::getCoins(){
     return m_coins;
 }
+
+void Character::removeCoins(){
+    m_coins = 0;
+}
+
+std::string Character::getName(){
+    return m_name;
+}

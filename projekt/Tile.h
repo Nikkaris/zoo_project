@@ -23,6 +23,9 @@ public:
     virtual void printTile(bool printHero) = 0;
     virtual ~Tile();
     void printCharacter(std::string tileSymbol, bool printHero);
+    void setEnemy(Enemy* enemy);
+    void setChest(Chest* chest);
+    void setFrendlyCharacter(FriendlyCharacter* friendlyCharacter);
     Enemy* getEnemy();
     Chest* getChest();
     FriendlyCharacter* getFriendlyCharacter();

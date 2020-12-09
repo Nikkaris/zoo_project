@@ -10,34 +10,45 @@ ForestLocationBuilder::ForestLocationBuilder(){
 void ForestLocationBuilder::createLocation(){
     m_location = new Location("Whispering Forest");
     m_location->setLocationSize(4);
-    std::vector<std::vector<Tile*>> tiles;
 
     std::vector<Tile*> row1, row2, row3, row4;
     row1.push_back(new ForestTile());
-    row1.push_back(new ForestTile(new Enemy(2)));
-    row1.push_back(new ForestTile(new Chest(new Armor("armor", 5))));
+    row1.push_back(new ForestTile());
+    row1.push_back(new ForestTile());
     row1.push_back(new ForestTile());
 
-    row2.push_back(new ForestTile(new Enemy(1)));
     row2.push_back(new ForestTile());
-    row2.push_back(new ForestTile(new Enemy(2)));
+    row2.push_back(new ForestTile());
+    row2.push_back(new ForestTile());
     row2.push_back(new ForestTile());
 
     row3.push_back(new ForestTile());
-    row3.push_back(new ForestTile(new Chest(new Potion("small HP potion", 20))));
+    row3.push_back(new ForestTile());
     row3.push_back(new ForestTile());
     row3.push_back(new ForestTile());
 
-    row4.push_back(new ForestTile(new Chest(new Weapon("Hammer", 69))));
+    row4.push_back(new ForestTile());
     row4.push_back(new ForestTile());
     row4.push_back(new ForestTile());
     row4.push_back(new ForestTile());
 
-    tiles.push_back(row1);
-    tiles.push_back(row2);
-    tiles.push_back(row3);
-    tiles.push_back(row4);
-    m_location->setTiles(tiles);
+    m_tiles.push_back(row1);
+    m_tiles.push_back(row2);
+    m_tiles.push_back(row3);
+    m_tiles.push_back(row4);
+}
+
+void ForestLocationBuilder::setEnemies(){
+    m_tiles.at(1).at(2)->setEnemy(new Enemy(5));
+    m_tiles.at(2).at(1)->setEnemy(new Enemy(3));
+}
+
+void ForestLocationBuilder::setChests(){
+    m_tiles.at(0).at(1)->setChest(new Chest(new Weapon("Hammer", 10)));
+    m_tiles.at(1).at(0)->setChest(new Chest(new Armor("wooden armor", 5)));
+}
+
+void ForestLocationBuilder::setFriendlyCharacters(){
 }
 
 void ForestLocationBuilder::createSideLocations(){
