@@ -127,6 +127,32 @@ void Hero::printManageInventory(){
     std::cout << "6. Go back\n";
 }
 
-void Hero::inspectChest(){
-
+bool Hero::inspectChest(Chest* chest){
+    Item* item;
+    std::cout << "You have found: \n";
+    if (chest->getWeapon() != nullptr){
+        item = chest->getWeapon();
+    } else if (chest->getArmor() != nullptr){
+        item = chest->getArmor();
+    } else if (chest->getPotion() != nullptr){
+        item = chest->getPotion();
+    }
+    item->printInfo();
+    std::cout << "Would you like to take it?\n\t1. Yes\n\t2. No\n";
+    char playerInput;
+    std::cin >> playerInput;
+    if (playerInput == '1'){
+        std::cout << "You are taking " << item->getName() << " from chest...\n";
+        if (item->getItemType() == itemType::weapon){
+            m_inventory->addWeapon(chest->getWeapon());
+        } else if (item->getItemType() == itemType::armor){
+            m_inventory->addArmor(chest->getArmor());
+        } else if (item->getItemType() == itemType::potion){
+            m_inventory->addPotion(chest->getPotion());
+        }
+        return true;
+    }
+    else {
+        return false;
+    }
 }

@@ -21,7 +21,6 @@ public:
     void whatToDo();
     void locationPrintMenu();
     void whatToDo2();
-    void inspectChest();
     void printProlog();
     ~Game();
 };

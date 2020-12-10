@@ -90,36 +90,14 @@ void Game::whatToDo2(){
     } else if (playerInput == '3') {
         m_map->setTileCoordinatesToExit();
     } else if (playerInput == '4'){
-        inspectChest();
+        bool emptyChest = m_hero->inspectChest(m_map->getChest());
+        if (emptyChest){
+            m_map->removeChest();
+        }
     } else if (playerInput == '5'){
         std::cout << "utocim \n";
     } else if (playerInput == '6'){
         m_hero->makeInteraction(m_map->getFriendlyCharacter());
-    }
-}
-
-void Game::inspectChest(){
-    Item* item;
-    std::cout << "You have found: \n";
-    if (m_map->getChest()->getWeapon() != nullptr){
-        item = m_map->getChest()->getWeapon();
-    } else if (m_map->getChest()->getArmor() != nullptr){
-        item = m_map->getChest()->getArmor();
-    } else if (m_map->getChest()->getPotion() != nullptr){
-        item = m_map->getChest()->getPotion();
-    }
-    item->printInfo();
-    std::cout << "Would you like to take it?\n\t1. Yes\n\t2. No\n";
-    if (getPlayerInput() == '1'){
-        std::cout << m_hero->getName() << " is taking " << item->getName() << " from chest...\n";
-        if (item->getItemType() == itemType::weapon){
-            m_hero->takeWeapon(m_map->getChest()->getWeapon());
-        } else if (item->getItemType() == itemType::armor){
-            m_hero->takeArmor(m_map->getChest()->getArmor());
-        } else if (item->getItemType() == itemType::potion){
-            m_hero->takePotion(m_map->getChest()->getPotion());
-        }
-        m_map->removeChest();
     }
 }
 
