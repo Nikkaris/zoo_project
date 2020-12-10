@@ -8,7 +8,7 @@
 #include "Map.h"
 #include "Hero.h"
 #include "StoryTeller.h"
-#include "StealCoins.h"
+#include "Interactions/StealCoins.h"
 
 class Game {
     Map* m_map;

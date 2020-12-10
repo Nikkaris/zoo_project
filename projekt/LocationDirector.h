@@ -5,14 +5,14 @@
 #ifndef MAIN_CPP_LOCATIONDIRECTOR_H
 #define MAIN_CPP_LOCATIONDIRECTOR_H
 
-#include "ForestLocationBuilder.h"
-#include "TownLocationBuilder.h"
-#include "HutLocationBuilder.h"
-#include "BogLocationBuilder.h"
-#include "WoodsLocationBuilder.h"
-#include "CavernLocationBuilder.h"
-#include "NecroLocationBuilder.h"
-#include "TombLocationBuilder.h"
+#include "LocationBuilders/ForestLocationBuilder.h"
+#include "LocationBuilders/TownLocationBuilder.h"
+#include "LocationBuilders/HutLocationBuilder.h"
+#include "LocationBuilders/BogLocationBuilder.h"
+#include "LocationBuilders/WoodsLocationBuilder.h"
+#include "LocationBuilders/CavernLocationBuilder.h"
+#include "LocationBuilders/NecroLocationBuilder.h"
+#include "LocationBuilders/TombLocationBuilder.h"
 
 class LocationDirector {
     LocationBuilder* m_builder;

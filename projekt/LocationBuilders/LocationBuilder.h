@@ -5,7 +5,7 @@
 #ifndef MAIN_CPP_LOCATIONBUILDER_H
 #define MAIN_CPP_LOCATIONBUILDER_H
 
-#include "Location.h"
+#include "../Location.h"
 
 const int noDirection = -1;
 

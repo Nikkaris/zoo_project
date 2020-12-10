@@ -3,7 +3,7 @@
 //
 
 #include "Hero.h"
-#include "Interaction.h"
+#include "Interactions/Interaction.h"
 
 Hero::Hero(){
     m_agility = 1;

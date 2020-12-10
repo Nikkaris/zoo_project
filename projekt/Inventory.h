@@ -7,9 +7,9 @@
 
 #include <vector>
 
-#include "Weapon.h"
-#include "Armor.h"
-#include "Potion.h"
+#include "Items/Weapon.h"
+#include "Items/Armor.h"
+#include "Items/Potion.h"
 
 class Inventory {
     std::vector<Weapon*> m_weapons;

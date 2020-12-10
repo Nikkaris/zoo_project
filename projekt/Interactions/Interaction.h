@@ -6,8 +6,8 @@
 #define MAIN_CPP_INTERACTION_H
 
 #include <iostream>
-#include "Hero.h"
-#include "FriendlyCharacter.h"
+#include "../Hero.h"
+#include "../FriendlyCharacter.h"
 
 class Interaction {
 protected:

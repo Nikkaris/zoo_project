@@ -6,9 +6,9 @@
 #define MAIN_CPP_TILE_H
 
 #include <iostream>
-#include "Enemy.h"
-#include "FriendlyCharacter.h"
-#include "Chest.h"
+#include "../Enemy.h"
+#include "../FriendlyCharacter.h"
+#include "../Chest.h"
 
 class Tile {
 protected:
