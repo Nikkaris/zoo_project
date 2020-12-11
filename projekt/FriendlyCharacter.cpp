@@ -14,3 +14,7 @@ FriendlyCharacter::FriendlyCharacter(std::string name, int strength, int agility
     m_equippedArmor = nullptr;
     m_inventory = new Inventory();
 }
+
+void FriendlyCharacter::setInventory(Inventory* inventory){
+    m_inventory = inventory;
+}

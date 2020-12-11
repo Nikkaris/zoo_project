@@ -20,9 +20,6 @@ public:
     Hero();
     void printInfo();
     void setHeroName(std::string name);
-    void takeWeapon(Weapon* weapon);
-    void takeArmor(Armor* armor);
-    void takePotion(Potion* potion);
     void addCoins(int howMany);
     void setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma);
     void makeInteraction(FriendlyCharacter* friendlyCharacter);

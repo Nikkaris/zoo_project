@@ -9,6 +9,7 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
     m_hero = hero;
     m_story = story;
     m_hero->learnInteraction(new StealCoins);
+    m_hero->learnInteraction(new Trade);
     //printProlog();
     printMenu();
 }

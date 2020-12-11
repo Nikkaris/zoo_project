@@ -27,3 +27,11 @@ void Character::removeCoins(){
 std::string Character::getName(){
     return m_name;
 }
+
+void Character::printInventory(){
+    m_inventory->printInventory();
+}
+
+Inventory* Character::getInventory(){
+    return m_inventory;
+}

@@ -25,6 +25,8 @@ public:
     int getCoins();
     void removeCoins();
     std::string getName();
+    void printInventory();
+    Inventory* getInventory();
 };
 
 

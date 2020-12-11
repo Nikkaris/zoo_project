@@ -20,6 +20,14 @@ public:
     heroAttributes chooseHeroAttributes();
     void printChapter(int chapterNumber);
     void printChapterOne();
+    void printChapterTwo();
+    void printChapterThree();
+    void printChapterFour();
+    void printChapterFive();
+    void printChapterSix();
+    void printChapterSeven();
+    void printChapterEight();
+
 };
 
 

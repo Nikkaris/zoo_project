@@ -92,6 +92,20 @@ void StoryTeller::printChapter(int chapterNumber){
     switch (chapterNumber){
         case 1: printChapterOne();
                 break;
+        case 2: printChapterTwo();
+                break;
+        case 3: printChapterThree();
+                break;
+        case 4: printChapterFour();
+                break;
+        case 5: printChapterFive();
+                break;
+        case 6: printChapterSix();
+                break;
+        case 7: printChapterSeven();
+                break;
+        case 8: printChapterEight();
+                break;
     }
 }
 
@@ -106,3 +120,40 @@ void StoryTeller::printChapterOne(){
     std::cout << "I do not want to brag, but I have saved your life. I found you in the river. You were cold as ice." << std::endl;
     std::cout << "Now, when you are conscious." << std::endl;
 }
+
+void StoryTeller::printChapterTwo() {
+    /*Není to ani půl den cesty a již jsi spatřil zmiňovaný Šeptající Les. Stařec ti o něm vyprávěl, prý zde byla masakr. Armáda plenící vesnici.
+     * Nebrali zajatce, vraždili všechny starce, ženy i děti. Na pozůstatcích vzrostl tento majestátní les, který je přece jenom něčím zvláštní.
+     * Kolují o něm historky, že prý, když skrze něj procházíš, tak lze stále slyšet nářek vesničanů, kteří v ten soudný den zahynuli.
+     */
+}
+
+void StoryTeller::printChapterThree(){
+    /*Vcházíš do vesnice, jestli se to tak dá nazývat. To co vidíš by se jen těžko dalo srovnávat s vesnicí, čí osadou. Jediné,
+     * co vidíš jsou pár zchátralých dřevěných budovy, které mají střechy porostlé mechem a trávou. Není zde nic, co by lidské oko
+     * potěšilo, pouze bída, bahno a hnijící věci...
+     * */
+}
+
+void StoryTeller::printChapterFour(){
+    /*Bažina...místo, které bych nepřál ani nepříteli. Hemží se to zde ropuchami, krysami a další havětí. Nejhorší na bažině je ta hustá mlha.
+     * Lidské oko skrze ní sotva vidí obrysy, což ještě není tak hrozné, horší je, že bytosti žijící v bažině moc dobře vidí nevítané hosty.*/
+}
+
+void StoryTeller::printChapterFive(){
+    /*Chvíli jsi nedával pozor a ocitl jsi se v Hollow Woods. Na pohled je to čarovné místo v tomto prohnilém světě. Vše hraje barvami a nemálo
+     * stromů bylo nahrazeno*/
+}
+
+void StoryTeller::printChapterSix(){
+
+}
+
+void StoryTeller::printChapterSeven(){
+
+}
+
+void StoryTeller::printChapterEight(){
+
+}
+

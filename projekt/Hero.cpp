@@ -26,28 +26,20 @@ void Hero::printInfo(){
     if (m_equippedWeapon != nullptr){
         std::cout << "Equipped weapon:\n";
         m_equippedWeapon->printInfo();
+    } else {
+        std::cout << "No equipped weapon\n";
     }
     if (m_equippedArmor != nullptr){
         std::cout << "Armor weapon:\n";
         m_equippedArmor->printInfo();
+    } else {
+        std::cout << "No equipped armor\n";
     }
     std::cout << "\n";
 }
 
 void Hero::setHeroName(std::string name){
     m_name = name;
-}
-
-void Hero::takeWeapon(Weapon* weapon){
-    m_inventory->addWeapon(weapon);
-}
-
-void Hero::takeArmor(Armor* armor){
-    m_inventory->addArmor(armor);
-}
-
-void Hero::takePotion(Potion* potion){
-    m_inventory->addPotion(potion);
 }
 
 void Hero::addCoins(int howMany){

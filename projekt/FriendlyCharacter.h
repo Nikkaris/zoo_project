@@ -10,6 +10,7 @@
 class FriendlyCharacter: public Character {
 public:
     FriendlyCharacter(std::string name, int strength, int agility, int charisma, int coins);
+    void setInventory(Inventory* inventory);
 };
 
 

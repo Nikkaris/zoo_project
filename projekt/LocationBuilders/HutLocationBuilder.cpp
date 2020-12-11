@@ -41,7 +41,13 @@ void HutLocationBuilder::setChests(){
 }
 
 void HutLocationBuilder::setFriendlyCharacters(){
-    m_tiles.at(1).at(1)->setFrendlyCharacter(new FriendlyCharacter("Lucas", 5, 0, 3, 50));
+    FriendlyCharacter* lucas = new FriendlyCharacter("Lucas", 5, 0, 3, 50);
+    Inventory* lucasInventory = new Inventory();
+    lucasInventory->addWeapon(new Weapon("katana", 20));
+    lucasInventory->addArmor(new Armor("Wolf armor", 15));
+    lucas->setInventory(lucasInventory);
+
+    m_tiles.at(1).at(1)->setFrendlyCharacter(lucas);
 }
 
 void HutLocationBuilder::createSideLocations(){
