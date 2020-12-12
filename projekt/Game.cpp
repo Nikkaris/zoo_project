@@ -10,7 +10,7 @@ Game::Game(Map* map, Hero* hero, StoryTeller* story){
     m_story = story;
     m_hero->learnInteraction(new StealCoins);
     m_hero->learnInteraction(new Trade);
-    //printProlog();
+    printProlog();
     printMenu();
 }
 
@@ -45,8 +45,9 @@ void Game::printMenu(){
         std::cout << "What do you want to do?\n     1. Go to next location\n";
         whatToDo();
     }
-    std::cout << "You are now in final location.... Final boss is coming....." << std::endl;
-    std::cout << "Oh wait a moment, we dont have fighting system, You died" << std::endl;
+    /*std::cout << "You are now in final location.... Final boss is coming....." << std::endl;
+    std::cout << "Oh wait a moment, we dont have fighting system, You died" << std::endl;*/
+    m_story->printChapter(8);
 }
 
 void Game::whatToDo(){

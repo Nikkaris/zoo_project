@@ -111,7 +111,7 @@ void StoryTeller::printChapter(int chapterNumber){
 
 void StoryTeller::printChapterOne(){
     std::cout << std::endl << std::endl << std::endl;
-    std::cout << "First Chapter: The Old Mans Hut" << std::endl;
+    std::cout << "Chapter One: The Old Man's Hut" << std::endl;
     std::cout << "You are coming back to your senses. You find yourself in a some kind of hut. There is firepit in the middle of room." << std::endl;
     std::cout << "You look to the right and there is person. He looks very old sitting next to the fire. He looked at you and said:" << std::endl;
 
@@ -126,6 +126,13 @@ void StoryTeller::printChapterTwo() {
      * Nebrali zajatce, vraždili všechny starce, ženy i děti. Na pozůstatcích vzrostl tento majestátní les, který je přece jenom něčím zvláštní.
      * Kolují o něm historky, že prý, když skrze něj procházíš, tak lze stále slyšet nářek vesničanů, kteří v ten soudný den zahynuli.
      */
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "Chapter Two: Whispering Woods" << std::endl;
+    std::cout << "It's not even half of the day and you are standing in front of Whispering Woods. Old Man has told you a lot about it, he mentioned massacre." << std::endl;
+    std::cout << "Army pillaging village. They didn't take any prisoners, they were here just for slaughter." << std::endl;
+    std::cout << "On the remains of the village a forest grew up, which is strange in some way." << std::endl;
+    std::cout << "I heard many rumors about people, who travelled through and they heard wailing, moaning and crying, which doesnt belong to human." << std::endl;
+    std::cout << "And now you are standing right in front..." << std::endl;
 }
 
 void StoryTeller::printChapterThree(){
@@ -133,27 +140,50 @@ void StoryTeller::printChapterThree(){
      * co vidíš jsou pár zchátralých dřevěných budovy, které mají střechy porostlé mechem a trávou. Není zde nic, co by lidské oko
      * potěšilo, pouze bída, bahno a hnijící věci...
      * */
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "Chapter Three: Crimson Village" << std::endl;
+    std::cout << "You are entering Crimson Village, if we can call it village. What you see can be with difficulty compared with village or settlement" << std::endl;
+    std::cout << "All you see is a couple of ramshackle buildings, which have roofs covered with moss and grass." << std::endl;
+    std::cout << "There is nothing that would please human eye. There is only misery, mud and rotting things..." << std::endl;
+
 }
 
 void StoryTeller::printChapterFour(){
     /*Bažina...místo, které bych nepřál ani nepříteli. Hemží se to zde ropuchami, krysami a další havětí. Nejhorší na bažině je ta hustá mlha.
      * Lidské oko skrze ní sotva vidí obrysy, což ještě není tak hrozné, horší je, že bytosti žijící v bažině moc dobře vidí nevítané hosty.*/
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "Chapter Four: Twisted Bog" << std::endl;
+    std::cout << "Bog..Swamp, the last place where you wanted to be. " << std::endl;
+    std::cout << "The worst aren't those little frogs, neither snails or other vermin. The worst is fog. Human eye cannot see through." << std::endl;
+    std::cout << "But I warn you, in the bog are many creatures, who can see, and they are not happy about newcomer..." << std::endl;
+    std::cout << "Watch your back..." << std::endl;
 }
 
 void StoryTeller::printChapterFive(){
     /*Chvíli jsi nedával pozor a ocitl jsi se v Hollow Woods. Na pohled je to čarovné místo v tomto prohnilém světě. Vše hraje barvami a nemálo
-     * stromů bylo nahrazeno*/
+     * stromů bylo nahrazeno obřími houbami*/
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "Chapter Five: Hollow Woods" << std::endl;
+    std::cout << "For a moment you were thinking to yourself and forgot to watch out for journey and now you are in the middle of Hollow Woods." << std::endl;
+    std::cout << "At the first sight it looks as magical place in this rotten world of misery. Everything shine in every color and many of tress were replaced by" << std::endl;
+    std::cout << "big mushrooms. But do not get yourself fooled by beauty of this forest." << std::endl;
+    std::cout << "Mushrooms, which are decorating this forest, are also disease of this forest." << std::endl;
 }
 
 void StoryTeller::printChapterSix(){
-
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "Chapter Six: Bandit's Ambush" << std::endl;
+    std::cout << "What were you thinking? Locals did not warn you? And that location name... Good luck with fight, you have been ambushed." << std::endl;
+    std::cout << "Good luck with that." << std::endl;
 }
 
 void StoryTeller::printChapterSeven(){
-
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "Chapter Seven: Ancient Tomb" << std::endl;
 }
 
 void StoryTeller::printChapterEight(){
-
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "Chapter Eight: Dead Man's End" << std::endl;
 }
 
