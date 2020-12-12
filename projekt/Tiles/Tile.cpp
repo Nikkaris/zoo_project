@@ -50,7 +50,7 @@ void Tile::setChest(Chest* chest){
     m_chest = chest;
 }
 
-void Tile::setFrendlyCharacter(FriendlyCharacter* friendlyCharacter){
+void Tile::setFriendlyCharacter(FriendlyCharacter* friendlyCharacter){
     m_friendlyCharacter = friendlyCharacter;
 }
 
@@ -69,6 +69,11 @@ FriendlyCharacter* Tile::getFriendlyCharacter(){
 void Tile::removeChest(){
     delete m_chest;
     m_chest = nullptr;
+}
+
+void Tile::removeEnemy(){
+    delete m_enemy;
+    m_enemy = nullptr;
 }
 
 Tile::~Tile(){

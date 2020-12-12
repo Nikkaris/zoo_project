@@ -11,6 +11,7 @@
 #include "Character.h"
 #include "FriendlyCharacter.h"
 #include "Chest.h"
+#include "Enemy.h"
 
 class Interaction;
 
@@ -26,6 +27,7 @@ public:
     void learnInteraction(Interaction* interaction);
     void manageInventory();
     bool inspectChest(Chest* chest);
+    bool attackEnemy(Enemy* enemy);
 private:
     void printManageInventory();
 };

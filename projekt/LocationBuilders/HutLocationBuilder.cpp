@@ -47,7 +47,7 @@ void HutLocationBuilder::setFriendlyCharacters(){
     lucasInventory->addArmor(new Armor("Wolf armor", 15));
     lucas->setInventory(lucasInventory);
 
-    m_tiles.at(1).at(1)->setFrendlyCharacter(lucas);
+    m_tiles.at(1).at(1)->setFriendlyCharacter(lucas);
 }
 
 void HutLocationBuilder::createSideLocations(){

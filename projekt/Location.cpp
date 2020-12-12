@@ -113,3 +113,7 @@ FriendlyCharacter* Location::getFriendlyCharacter(){
 void Location::removeChest(){
     m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->removeChest();
 }
+
+void Location::removeEnemy(){
+    m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->removeEnemy();
+}

@@ -8,9 +8,14 @@
 
 class Enemy {
     int m_level;
+    int m_physicalDamage;
+    int m_health;
 public:
     Enemy(int level);
     int getEnemyLevel();
+    int getPhysicalDamage();
+    void takeDamage(int howMuch);
+    int getHealth();
 };
 
 

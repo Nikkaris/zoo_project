@@ -97,7 +97,9 @@ void Game::whatToDo2(){
             m_map->removeChest();
         }
     } else if (playerInput == '5'){
-        std::cout << "utocim \n";
+        if(m_hero->attackEnemy(m_map->getEnemy())) {
+            m_map->removeEnemy();
+        }
     } else if (playerInput == '6'){
         m_hero->makeInteraction(m_map->getFriendlyCharacter());
     }

@@ -25,11 +25,12 @@ public:
     void printCharacter(std::string tileSymbol, bool printHero);
     void setEnemy(Enemy* enemy);
     void setChest(Chest* chest);
-    void setFrendlyCharacter(FriendlyCharacter* friendlyCharacter);
+    void setFriendlyCharacter(FriendlyCharacter* friendlyCharacter);
     Enemy* getEnemy();
     Chest* getChest();
     FriendlyCharacter* getFriendlyCharacter();
     void removeChest();
+    void removeEnemy();
 };
 
 

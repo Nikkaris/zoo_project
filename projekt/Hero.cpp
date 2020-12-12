@@ -14,6 +14,7 @@ Hero::Hero(){
     m_equippedWeapon = nullptr;
     m_equippedArmor = nullptr;
     m_inventory = new Inventory();
+    m_physicalDamage = 5;
 }
 
 void Hero::printInfo(){
@@ -147,4 +148,29 @@ bool Hero::inspectChest(Chest* chest){
     else {
         return false;
     }
+}
+
+bool Hero::attackEnemy(Enemy* enemy){
+    int choice = 0;
+    while (getHealth() > 0 and enemy->getHealth() > 0){
+        std::cout << "Enemy hp: " << enemy->getHealth() << std::endl;
+        std::cout << "What do you want to do?" << std::endl;
+        std::cout << "[1] Attack" << std::endl;
+        std::cout << "[2] Manage inventory" << std::endl;
+        std::cin >> choice;
+        if(choice == 1) {
+            enemy->takeDamage(getPhysicalDamage());
+            std::cout << "You dealt: " << getPhysicalDamage() << " damage\n";
+            std::cout << "You suffered: " << takeDamage(enemy->getPhysicalDamage()) << " damage\n";
+        } else if(choice == 2) {
+            printManageInventory();
+        }
+    }
+    if(m_health <= 0) {
+        std::cout << "You died. LMAO -noob\n";
+        exit(0);
+    } else {
+        std::cout << "Enemy is dead. WP\n";
+    }
+    return true;
 }

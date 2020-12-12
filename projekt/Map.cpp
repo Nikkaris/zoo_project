@@ -111,6 +111,10 @@ void Map::removeChest(){
     m_locations.at(m_currentLocationIndex)->removeChest();
 }
 
+void Map::removeEnemy(){
+    m_locations.at(m_currentLocationIndex)->removeEnemy();
+}
+
 Map::~Map(){
     for (auto &location:m_locations){
         delete location;

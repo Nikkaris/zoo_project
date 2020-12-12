@@ -180,6 +180,11 @@ void StoryTeller::printChapterSix(){
 void StoryTeller::printChapterSeven(){
     std::cout << std::endl << std::endl << std::endl;
     std::cout << "Chapter Seven: Ancient Tomb" << std::endl;
+    std::cout << "You have never seen something like this. Long halls with pillars, which were decorated with torches, lighten up with cyan fire" << std::endl;
+    std::cout << "" << std::endl;
+    std::cout << "" << std::endl;
+    std::cout << "" << std::endl;
+    std::cout << "" << std::endl;
 }
 
 void StoryTeller::printChapterEight(){

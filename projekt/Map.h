@@ -28,6 +28,7 @@ public:
     Chest* getChest();
     FriendlyCharacter* getFriendlyCharacter();
     void removeChest();
+    void removeEnemy();
     ~Map();
 };
 
