@@ -163,7 +163,7 @@ bool Hero::attackEnemy(Enemy* enemy){
             std::cout << "You dealt: " << getPhysicalDamage() << " damage\n";
             std::cout << "You suffered: " << takeDamage(enemy->getPhysicalDamage()) << " damage\n";
         } else if(choice == 2) {
-            printManageInventory();
+            manageInventory();
         }
     }
     if(m_health <= 0) {
