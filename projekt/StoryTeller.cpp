@@ -128,10 +128,11 @@ void StoryTeller::printChapterTwo() {
      */
     std::cout << std::endl << std::endl << std::endl;
     std::cout << "Chapter Two: Whispering Woods" << std::endl;
-    std::cout << "It's not even half of the day and you are standing in front of Whispering Woods. Old Man has told you a lot about it, he mentioned massacre." << std::endl;
+    std::cout << "It's not even half of the day and you are standing in front of Whispering Woods." << std::endl;
+    std::cout << "Old Man has told you a lot about it, he mentioned massacre." << std::endl;
     std::cout << "Army pillaging village. They didn't take any prisoners, they were here just for slaughter." << std::endl;
     std::cout << "On the remains of the village a forest grew up, which is strange in some way." << std::endl;
-    std::cout << "I heard many rumors about people, who travelled through and they heard wailing, moaning and crying, which doesnt belong to human." << std::endl;
+    std::cout << "I heard many rumors about people, who travelled through and they heard wailing, moaning and crying, which doesn't belong to human." << std::endl;
     std::cout << "And now you are standing right in front..." << std::endl;
 }
 
@@ -142,7 +143,8 @@ void StoryTeller::printChapterThree(){
      * */
     std::cout << std::endl << std::endl << std::endl;
     std::cout << "Chapter Three: Crimson Village" << std::endl;
-    std::cout << "You are entering Crimson Village, if we can call it village. What you see can be with difficulty compared with village or settlement" << std::endl;
+    std::cout << "You are entering Crimson Village, if we can call it village." << std::endl;
+    std::cout << "What you see can be with difficulty compared with village or settlement" << std::endl;
     std::cout << "All you see is a couple of ramshackle buildings, which have roofs covered with moss and grass." << std::endl;
     std::cout << "There is nothing that would please human eye. There is only misery, mud and rotting things..." << std::endl;
 
@@ -164,31 +166,41 @@ void StoryTeller::printChapterFive(){
      * stromů bylo nahrazeno obřími houbami*/
     std::cout << std::endl << std::endl << std::endl;
     std::cout << "Chapter Five: Hollow Woods" << std::endl;
-    std::cout << "For a moment you were thinking to yourself and forgot to watch out for journey and now you are in the middle of Hollow Woods." << std::endl;
-    std::cout << "At the first sight it looks as magical place in this rotten world of misery. Everything shine in every color and many of tress were replaced by" << std::endl;
-    std::cout << "big mushrooms. But do not get yourself fooled by beauty of this forest." << std::endl;
+    std::cout << "For a moment you were thinking to yourself and forgot to watch out for journey" << std::endl;
+    std::cout << "and now you are in the middle of Hollow Woods." << std::endl;
+    std::cout << "At the first sight it looks as magical place in this rotten world of misery." << std::endl;
+    std::cout << "Everything shine in every color and many of tress were replaced by big mushrooms." << std::endl;
+    std::cout << "But do not get yourself fooled by beauty of this forest." << std::endl;
     std::cout << "Mushrooms, which are decorating this forest, are also disease of this forest." << std::endl;
 }
 
 void StoryTeller::printChapterSix(){
     std::cout << std::endl << std::endl << std::endl;
     std::cout << "Chapter Six: Bandit's Ambush" << std::endl;
-    std::cout << "What were you thinking? Locals did not warn you? And that location name... Good luck with fight, you have been ambushed." << std::endl;
+    std::cout << "What were you thinking? Locals did not warn you? And that location name... Good luck with fight, you have been ambushed.";
     std::cout << "Good luck with that." << std::endl;
 }
 
 void StoryTeller::printChapterSeven(){
     std::cout << std::endl << std::endl << std::endl;
     std::cout << "Chapter Seven: Ancient Tomb" << std::endl;
-    std::cout << "You have never seen something like this. Long halls with pillars, which were decorated with torches, lighten up with cyan fire" << std::endl;
-    std::cout << "" << std::endl;
-    std::cout << "" << std::endl;
-    std::cout << "" << std::endl;
-    std::cout << "" << std::endl;
+    std::cout << "You have never seen something like this. Long halls with pillars, which were decorated with torches," << std::endl;
+    std::cout << "lighten up with cyan fire." << std::endl;
+    std::cout << "Almost as if someone live here, but why wouldb be this place named tomb? " << std::endl;
 }
 
 void StoryTeller::printChapterEight(){
     std::cout << std::endl << std::endl << std::endl;
     std::cout << "Chapter Eight: Dead Man's End" << std::endl;
+    std::cout << "You are entering unknown part of Ancient Tomb. Same feel, but still slightly different." << std::endl;
+    std::cout << "Crimson carpet, throne and library. Everything covered by spider cobwebs." << std::endl;
+    std::cout << "You see that somebody is sitting on the throne, he looks dead." << std::endl;
+    std::cout << "You made few steps forward, you are nearly right in front of him. That cruel laugh." << std::endl;
+    std::cout << "It resonate across the whole tomb. That dead body, is now standing right in front of you." << std::endl;
+    std::cout << "No flesh, just bones, crown and his eyes blue as ice." << std::endl;
+    std::cout << "It's Lich." << std::endl;
+    std::cout << "Human, which spend his whole life searching for immortality and he found it, but at what cost." << std::endl;
+    std::cout << "He is no longer human being." << std::endl;
+    std::cout << "This is end..." << std::endl;
 }
 
