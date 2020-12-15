@@ -8,6 +8,7 @@ Location::Location(std::string name) {
     m_name = name;
     m_currentTileCoor.x = 0;
     m_currentTileCoor.y = 0;
+    m_visited = false;
 }
 
 sideLocations Location::getSideLocations(){
@@ -40,6 +41,14 @@ void Location::resetTileCoordinates(){
     m_currentTileCoor.y = 0;
 }
 
+void Location::setVisited(){
+    m_visited = true;
+}
+
+bool Location::getVisited(){
+    return m_visited;
+}
+
 void Location::printInfo(){
     std::cout << m_name << std::endl;
 }
@@ -59,34 +68,41 @@ void Location::printTiles(){
 }
 
 void Location::printTileSides(){
+    possibleMove move;
     if (m_currentTileCoor.x > 0){
-        std::cout << "You can go (U)p" << std::endl;
+        std::cout << "You can go [U]p" << std::endl;
+        move.north = true;
     }
     if (m_currentTileCoor.y < m_tiles.at(0).size()-1){
-        std::cout << "You can go (R)ight" << std::endl;
+        std::cout << "You can go [R]ight" << std::endl;
+        move.east = true;
     }
     if (m_currentTileCoor.x < m_tiles.size()-1){
-        std::cout << "You can go (D)own" << std::endl;
+        std::cout << "You can go [D]own" << std::endl;
+        move.south = true;
     }
     if (m_currentTileCoor.y > 0){
-        std::cout << "You can go (L)eft" << std::endl;
+        std::cout << "You can go [L]eft" << std::endl;
+        move.west = true;
     }
-    moveTile();
+    switchTile(move);
 }
 
-void Location::moveTile(){
+void Location::switchTile(possibleMove move){
     std::cout << std::endl;
     char playerOption;
     std::cin >> playerOption;
 
-    if (playerOption == 'U'){
+    if (playerOption == 'U' and move.north){
         m_currentTileCoor.x--;
-    } else if (playerOption == 'R'){
+    } else if (playerOption == 'R' and move.east){
         m_currentTileCoor.y++;
-    } else if (playerOption == 'D'){
+    } else if (playerOption == 'D' and move.south){
         m_currentTileCoor.x++;
-    } else if (playerOption == 'L'){
+    } else if (playerOption == 'L' and move.west){
         m_currentTileCoor.y--;
+    } else {
+        std::cout << "You cant go there\n";
     }
 }
 

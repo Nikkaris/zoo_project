@@ -4,7 +4,7 @@
 
 #include "Weapon.h"
 
-Weapon::Weapon(std::string name, int damageBonus): Item(name, itemType::weapon){
+Weapon::Weapon(std::string name, int price, int damageBonus): Item(name, price, itemType::weapon){
     m_damageBonus = damageBonus;
 }
 
@@ -15,4 +15,5 @@ int Weapon::getDamageBonus(){
 void Weapon::printInfo(){
     std::cout << "\tName: " << m_name << "\n";
     std::cout << "\tDamage: " << m_damageBonus << "\n";
+    std::cout << "\tPrice: " << m_price << " C\n";
 }

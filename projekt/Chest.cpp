@@ -4,22 +4,19 @@
 
 #include "Chest.h"
 
-Chest::Chest(Weapon* weapon){
+Chest::Chest(Weapon* weapon, Armor* armor, Potion* potion){
     m_weapon = weapon;
-    m_armor = nullptr;
-    m_potion = nullptr;
-}
-
-Chest::Chest(Armor* armor){
     m_armor = armor;
-    m_weapon = nullptr;
-    m_potion = nullptr;
+    m_potion = potion;
 }
 
-Chest::Chest(Potion* potion){
-    m_potion = potion;
-    m_weapon = nullptr;
-    m_armor = nullptr;
+Chest::Chest(Weapon* weapon): Chest(weapon, nullptr, nullptr){
+}
+
+Chest::Chest(Armor* armor): Chest(nullptr, armor, nullptr){
+}
+
+Chest::Chest(Potion* potion): Chest(nullptr, nullptr, potion){
 }
 
 Weapon* Chest::getWeapon(){
@@ -32,4 +29,26 @@ Armor* Chest::getArmor(){
 
 Potion* Chest::getPotion(){
     return m_potion;
+}
+
+void Chest::removeContent(){
+    if (m_armor != nullptr){
+        m_armor = nullptr;
+    } else if (m_weapon != nullptr){
+        m_weapon = nullptr;
+    } else if (m_potion != nullptr){
+        m_potion = nullptr;
+    }
+}
+
+Chest::~Chest(){
+    if (m_weapon != nullptr){
+        delete m_weapon;
+    }
+    if (m_armor != nullptr){
+        delete m_armor;
+    }
+    if (m_potion != nullptr){
+        delete m_potion;
+    }
 }

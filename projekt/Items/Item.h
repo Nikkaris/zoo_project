@@ -14,10 +14,12 @@ enum class itemType{
 class Item {
 protected:
     std::string m_name;
+    int m_price;
     itemType m_itemType;
 public:
-    Item(std::string name, itemType itemType);
+    Item(std::string name, int price, itemType itemType);
     std::string getName();
+    int getPrice();
     itemType getItemType();
     virtual void printInfo() = 0;
 };

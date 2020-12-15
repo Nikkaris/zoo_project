@@ -9,10 +9,6 @@
 
 class TownTile: public Tile {
 public:
-    TownTile();
-    TownTile(Enemy* enemy);
-    TownTile(Chest* chest);
-    TownTile(FriendlyCharacter* friendlyCharacter);
     void printTile(bool printHero);
 };
 

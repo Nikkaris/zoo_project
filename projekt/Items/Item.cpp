@@ -4,15 +4,20 @@
 
 #include "Item.h"
 
-Item::Item(std::string name, itemType typeOfItem){
+Item::Item(std::string name, int price, itemType typeOfItem){
     m_name = name;
+    m_price = price;
     m_itemType = typeOfItem;
-}
-
-itemType Item::getItemType(){
-    return m_itemType;
 }
 
 std::string Item::getName(){
     return m_name;
+}
+
+int Item::getPrice(){
+    return m_price;
+}
+
+itemType Item::getItemType(){
+    return m_itemType;
 }

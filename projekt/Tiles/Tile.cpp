@@ -4,30 +4,6 @@
 
 #include "Tile.h"
 
-Tile::Tile(){
-    m_enemy = nullptr;
-    m_chest = nullptr;
-    m_friendlyCharacter = nullptr;
-}
-
-Tile::Tile(Enemy* enemy){
-    m_enemy = enemy;
-    m_chest = nullptr;
-    m_friendlyCharacter = nullptr;
-}
-
-Tile::Tile(Chest* chest){
-    m_chest = chest;
-    m_enemy = nullptr;
-    m_friendlyCharacter = nullptr;
-}
-
-Tile::Tile(FriendlyCharacter* friendlyCharacter){
-    m_friendlyCharacter = friendlyCharacter;
-    m_enemy = nullptr;
-    m_chest = nullptr;
-}
-
 void Tile::printCharacter(std::string tileSymbol, bool printHero){
     if (printHero){
         std::cout << "**";
@@ -67,6 +43,7 @@ FriendlyCharacter* Tile::getFriendlyCharacter(){
 }
 
 void Tile::removeChest(){
+    m_chest->removeContent();
     delete m_chest;
     m_chest = nullptr;
 }
@@ -77,5 +54,13 @@ void Tile::removeEnemy(){
 }
 
 Tile::~Tile(){
-
+    if (m_enemy != nullptr){
+        delete m_enemy;
+    }
+    if (m_chest != nullptr){
+        delete m_chest;
+    }
+    if (m_friendlyCharacter != nullptr){
+        delete m_friendlyCharacter;
+    }
 }

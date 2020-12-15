@@ -11,11 +11,11 @@
 class Character {
 protected:
     std::string m_name;
+    int m_physicalDamage;
     int m_strength;
     int m_agility;
     int m_charisma;
     int m_coins;
-    int m_physicalDamage;
     int m_health;
     Weapon* m_equippedWeapon;
     Armor* m_equippedArmor;
@@ -27,12 +27,12 @@ public:
     int getCharisma();
     int getPhysicalDamage();
     int getCoins();
-    void removeCoins();
     std::string getName();
     void printInventory();
     Inventory* getInventory();
     float takeDamage(int howMuch);
     int getHealth();
+    ~Character();
 };
 
 

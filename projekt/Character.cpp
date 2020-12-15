@@ -6,6 +6,7 @@
 
 Character::Character() {
     m_health = 100;
+    m_inventory = new Inventory();
 }
 
 int Character::getStrength(){
@@ -22,10 +23,6 @@ int Character::getCharisma(){
 
 int Character::getCoins(){
     return m_coins;
-}
-
-void Character::removeCoins(){
-    m_coins = 0;
 }
 
 std::string Character::getName(){
@@ -62,4 +59,14 @@ float Character::takeDamage(int howMuch){
 
 int Character::getHealth(){
     return m_health;
+}
+
+Character::~Character(){
+    if (m_equippedArmor != nullptr){
+        delete m_equippedArmor;
+    }
+    if (m_equippedWeapon != nullptr){
+        delete m_equippedWeapon;
+    }
+    delete m_inventory;
 }

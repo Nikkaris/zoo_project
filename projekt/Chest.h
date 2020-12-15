@@ -13,6 +13,8 @@ class Chest {
     Weapon* m_weapon;
     Armor* m_armor;
     Potion* m_potion;
+
+    Chest(Weapon* weapon, Armor* armor, Potion* potion);
 public:
     Chest(Weapon* weapon);
     Chest(Armor* armor);
@@ -20,6 +22,8 @@ public:
     Weapon* getWeapon();
     Armor* getArmor();
     Potion* getPotion();
+    void removeContent();
+    ~Chest();
 };
 
 

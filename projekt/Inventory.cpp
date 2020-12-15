@@ -43,6 +43,18 @@ Armor* Inventory::getArmor(int choice){
     }
 }
 
+Potion* Inventory::getPotion(int choice){
+    choice--;
+    if (choice < m_potions.size()) {
+        Potion* potion = m_potions.at(choice);
+        m_potions.erase(m_potions.begin()+choice);
+        return potion;
+    } else {
+        std::cout << "There is no such potion!\n";
+        return nullptr;
+    }
+}
+
 void Inventory::discardItem(int choice, itemType typeOfItem){
     if (typeOfItem == itemType::weapon){
         discardItem(m_weapons, choice);
@@ -62,16 +74,16 @@ void Inventory::discardItem(T &items, int choice){
 }
 
 void Inventory::printInventory(){
-    std::cout << "+-------------------------+\n";
+    std::cout << "+--------------------------+\n";
     std::cout << "Weapons\n";
     printInventoryItems(m_weapons);
-    std::cout << "+-------------------------+\n";
+    std::cout << "+--------------------------+\n";
     std::cout << "Armors\n";
     printInventoryItems(m_armors);
-    std::cout << "+-------------------------+\n";
+    std::cout << "+--------------------------+\n";
     std::cout << "Potions\n";
     printInventoryItems(m_potions);
-    std::cout << "+-------------------------+\n";
+    std::cout << "+--------------------------+\n";
 }
 
 template <class T>
@@ -84,4 +96,16 @@ void Inventory::printInventoryItems(T items){
             item->printInfo();
         }
     }
+}
+
+Inventory::~Inventory(){
+    for (auto &weapon: m_weapons)
+        if (weapon != nullptr)
+            delete weapon;
+    for (auto &armor: m_armors)
+        if (armor != nullptr)
+            delete armor;
+    for (auto &potion: m_potions)
+        if (potion != nullptr)
+            delete potion;
 }

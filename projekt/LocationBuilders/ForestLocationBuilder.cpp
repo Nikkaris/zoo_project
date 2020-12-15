@@ -14,13 +14,13 @@ void ForestLocationBuilder::createLocation(){
     std::vector<Tile*> row1, row2, row3, row4;
     row1.push_back(new ForestTile());
     row1.push_back(new ForestTile());
-    row1.push_back(new ForestTile());
-    row1.push_back(new ForestTile());
+    row1.push_back(new WaterTile());
+    row1.push_back(new WaterTile());
 
     row2.push_back(new ForestTile());
     row2.push_back(new ForestTile());
     row2.push_back(new ForestTile());
-    row2.push_back(new ForestTile());
+    row2.push_back(new WaterTile());
 
     row3.push_back(new ForestTile());
     row3.push_back(new ForestTile());
@@ -44,8 +44,8 @@ void ForestLocationBuilder::setEnemies(){
 }
 
 void ForestLocationBuilder::setChests(){
-    m_tiles.at(0).at(1)->setChest(new Chest(new Weapon("Hammer", 10)));
-    m_tiles.at(1).at(0)->setChest(new Chest(new Armor("wooden armor", 5)));
+    m_tiles.at(0).at(1)->setChest(new Chest(new Weapon("Hammer", 30, 18)));
+    m_tiles.at(1).at(0)->setChest(new Chest(new Armor("wooden armor", 10, 13)));
 }
 
 void ForestLocationBuilder::setFriendlyCharacters(){

@@ -9,20 +9,21 @@
 #include "Hero.h"
 #include "StoryTeller.h"
 #include "Interactions/StealCoins.h"
-#include "Interactions/Trade.h"
+#include "Interactions/Buy.h"
 
 class Game {
     Map* m_map;
     Hero* m_hero;
     StoryTeller* m_story;
 public:
-    Game(Map* map, Hero* hero, StoryTeller* story);
+    Game();
     char getPlayerInput();
-    void printMenu();
-    void whatToDo();
-    void locationPrintMenu();
-    void whatToDo2();
-    void printProlog();
+    void printMainMenu();
+    void printStart();
+    void printMapMenu();
+    void PrintLocationMenu();
+    void whatToDoMap();
+    void whatToDoLocation();
     ~Game();
 };
 

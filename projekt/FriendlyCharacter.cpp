@@ -18,3 +18,7 @@ FriendlyCharacter::FriendlyCharacter(std::string name, int strength, int agility
 void FriendlyCharacter::setInventory(Inventory* inventory){
     m_inventory = inventory;
 }
+
+void FriendlyCharacter::removeCoins(){
+    m_coins = 0;
+}

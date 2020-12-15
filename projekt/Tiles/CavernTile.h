@@ -9,10 +9,6 @@
 
 class CavernTile: public Tile {
 public:
-    CavernTile();
-    CavernTile(Enemy* enemy);
-    CavernTile(Chest* chest);
-    CavernTile(FriendlyCharacter* friendlyCharacter);
     void printTile(bool printHero);
 };
 

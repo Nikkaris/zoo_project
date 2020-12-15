@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 #include "Character.h"
 #include "FriendlyCharacter.h"
@@ -27,9 +28,13 @@ public:
     void learnInteraction(Interaction* interaction);
     void manageInventory();
     bool inspectChest(Chest* chest);
-    bool attackEnemy(Enemy* enemy);
+    void attackEnemy(Enemy* enemy);
+    void drinkPotion(Potion* potion);
+    ~Hero();
 private:
     void printManageInventory();
+    void equipWeapon(int choice);
+    void equipArmor(int choice);
 };
 
 

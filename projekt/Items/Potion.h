@@ -10,7 +10,7 @@
 class Potion: public Item {
     int m_healthBonus;
 public:
-    Potion(std::string name, int healthBonus);
+    Potion(std::string name, int price, int healthBonus);
     int getHealthBonus();
     void printInfo();
 };

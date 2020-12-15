@@ -5,6 +5,7 @@
 #ifndef PROJEKT_ENEMY_H
 #define PROJEKT_ENEMY_H
 
+#include <iostream>
 
 class Enemy {
     int m_level;

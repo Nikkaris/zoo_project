@@ -16,12 +16,7 @@ protected:
     Chest* m_chest;
     FriendlyCharacter* m_friendlyCharacter;
 public:
-    Tile();
-    Tile(Enemy* enemy);
-    Tile(Chest* chest);
-    Tile(FriendlyCharacter* friendlyCharacter);
     virtual void printTile(bool printHero) = 0;
-    virtual ~Tile();
     void printCharacter(std::string tileSymbol, bool printHero);
     void setEnemy(Enemy* enemy);
     void setChest(Chest* chest);
@@ -31,6 +26,7 @@ public:
     FriendlyCharacter* getFriendlyCharacter();
     void removeChest();
     void removeEnemy();
+    ~Tile();
 };
 
 

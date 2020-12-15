@@ -55,34 +55,41 @@ void Map::printLocationInfo(){
 
 void Map::printSideLocations(){
     sideLocations sides = m_locations.at(m_currentLocationIndex)->getSideLocations();
+    possibleMove move;
     if (sides.north >= 0){
-        std::cout << "(N)orth - " << m_locations.at(sides.north)->getLocationName() << std::endl;
+        std::cout << "[N]orth - " << m_locations.at(sides.north)->getLocationName() << std::endl;
+        move.north = true;
     }
     if (sides.east >= 0) {
-        std::cout << "(E)ast - " << m_locations.at(sides.east)->getLocationName() << std::endl;
+        std::cout << "[E]ast - " << m_locations.at(sides.east)->getLocationName() << std::endl;
+        move.east = true;
     }
     if (sides.south >= 0) {
-        std::cout << "(S)outh - " << m_locations.at(sides.south)->getLocationName() << std::endl;
+        std::cout << "[S]outh - " << m_locations.at(sides.south)->getLocationName() << std::endl;
+        move.south = true;
     }
     if (sides.west >= 0) {
-        std::cout << "(W)est - " << m_locations.at(sides.west)->getLocationName() << std::endl;
+        std::cout << "[W]est - " << m_locations.at(sides.west)->getLocationName() << std::endl;
+        move.west = true;
     }
-    switchLocation();
+    switchLocation(move);
 }
 
-void Map::switchLocation(){
+void Map::switchLocation(possibleMove move){
     char playerOption;
     std::cin >> playerOption;
     sideLocations sides = m_locations.at(m_currentLocationIndex)->getSideLocations();
 
-    if (playerOption == 'N'){
+    if (playerOption == 'N' and move.north){
         m_currentLocationIndex = sides.north;
-    } else if (playerOption == 'E'){
+    } else if (playerOption == 'E' and move.east){
         m_currentLocationIndex = sides.east;
-    } else if (playerOption == 'S'){
+    } else if (playerOption == 'S' and move.south){
         m_currentLocationIndex = sides.south;
-    } else if (playerOption == 'W'){
+    } else if (playerOption == 'W' and move.west){
         m_currentLocationIndex = sides.west;
+    } else {
+        std::cout << "You cant go there\n";
     }
     m_locations.at(m_currentLocationIndex)->resetTileCoordinates();
 }
@@ -93,6 +100,14 @@ void Map::printLocation(){
 
 void Map::printTileSides(){
     m_locations.at(m_currentLocationIndex)->printTileSides();
+}
+
+void Map::setVisited(){
+    m_locations.at(m_currentLocationIndex)->setVisited();
+}
+
+bool Map::getVisited(){
+    return m_locations.at(m_currentLocationIndex)->getVisited();
 }
 
 Enemy* Map::getEnemy(){

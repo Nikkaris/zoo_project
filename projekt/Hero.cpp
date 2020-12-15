@@ -6,6 +6,7 @@
 #include "Interactions/Interaction.h"
 
 Hero::Hero(){
+    m_physicalDamage = 5;
     m_agility = 1;
     m_strength = 1;
     m_charisma = 1;
@@ -13,13 +14,14 @@ Hero::Hero(){
     m_name = "";
     m_equippedWeapon = nullptr;
     m_equippedArmor = nullptr;
-    m_inventory = new Inventory();
-    m_physicalDamage = 5;
 }
 
 void Hero::printInfo(){
     std::cout << std::endl;
-    std::cout << "Name of hero: " << m_name << "\n";
+    std::string separator = "------";
+    std::cout << separator << m_name << separator << "\n";
+    std::cout << "HP: " << m_health << "/100\n";
+    std::cout << "Physical damage: " << getPhysicalDamage() << "\n";
     std::cout << "Strength: " << m_strength << "\n";
     std::cout << "Agility: " << m_agility << "\n";
     std::cout << "Charisma: " << m_charisma << "\n";
@@ -36,7 +38,7 @@ void Hero::printInfo(){
     } else {
         std::cout << "No equipped armor\n";
     }
-    std::cout << "\n";
+    std::cout << std::setw(m_name.length()+(2*separator.length())+1) << std::setfill('-') << "\n";
 }
 
 void Hero::setHeroName(std::string name){
@@ -58,20 +60,34 @@ void Hero::makeInteraction(FriendlyCharacter* friendlyCharacter){
     std::cout << "Hi my name is " << friendlyCharacter->getName() << "\n";
     std::cout << "Choose interaction:\n";
     for (int i = 0; i < m_interactions.size(); i++){
-        std::cout << "[" << i << "]" << m_interactions.at(i)->getName() << "\n";
+        std::cout << "\t[" << i+1 << "]" << m_interactions.at(i)->getName() << "\n";
     }
     // choose from interactions
     int playerInput = 0;
     std::cin >> playerInput;
+    playerInput--;
 
     // call interaction
-    m_interactions.at(playerInput)->makeInteraction(this, friendlyCharacter);
+    if (playerInput < m_interactions.size()) {
+        m_interactions.at(playerInput)->makeInteraction(this, friendlyCharacter);
+    } else {
+        std::cout << "That is not an option\n";
+    }
 }
 
 void Hero::learnInteraction(Interaction* interaction){
-    std::cout << m_interactions.size();
     m_interactions.push_back(interaction);
-    std::cout << m_interactions.size();
+}
+
+void Hero::printManageInventory(){
+    m_inventory->printInventory();
+    std::cout << "\t[1] Equip weapon\n";
+    std::cout << "\t[2] Equip armor\n";
+    std::cout << "\t[3] Drink potion\n";
+    std::cout << "\t[4] Discard weapon\n";
+    std::cout << "\t[5] Discard armor\n";
+    std::cout << "\t[6] Discard potion\n";
+    std::cout << "\t[7] Go back\n";
 }
 
 void Hero::manageInventory(){
@@ -79,45 +95,49 @@ void Hero::manageInventory(){
     printManageInventory();
     char playerInput;
     std::cin >> playerInput;
-    while (playerInput != '6'){
-        std::cout << "Which one?\n";
-        std::cin >> choice;
-        if (playerInput == '1'){
-            Weapon* weapon = m_inventory->getWeapon(choice);
-            if (weapon != nullptr){
-                if (m_equippedWeapon != nullptr){
-                    m_inventory->addWeapon(m_equippedWeapon);
-                }
-                m_equippedWeapon = weapon;
+    while (playerInput != '7'){
+        if (playerInput >= '1' and playerInput <= '6') {
+            std::cout << "Which one?\n";
+            std::cin >> choice;
+            if (playerInput == '1') {
+                equipWeapon(choice);
+            } else if (playerInput == '2') {
+                equipArmor(choice);
+            } else if (playerInput == '3') {
+                drinkPotion(m_inventory->getPotion(choice));
+            } else if (playerInput == '4') {
+                m_inventory->discardItem(choice, itemType::weapon);
+            } else if (playerInput == '5') {
+                m_inventory->discardItem(choice, itemType::armor);
+            } else if (playerInput == '6') {
+                m_inventory->discardItem(choice, itemType::potion);
             }
-        } else if (playerInput == '2'){
-            Armor* armor = m_inventory->getArmor(choice);
-            if (armor != nullptr) {
-                if (m_equippedWeapon != nullptr){
-                    m_inventory->addArmor(m_equippedArmor);
-                }
-                m_equippedArmor = armor;
-            }
-        } else if (playerInput == '3'){
-            m_inventory->discardItem(choice, itemType::weapon);
-        } else if (playerInput == '4'){
-            m_inventory->discardItem(choice, itemType::armor);
-        } else if (playerInput == '5'){
-            m_inventory->discardItem(choice, itemType::potion);
+        } else {
+            std::cout << "That is not an option\n";
         }
         printManageInventory();
         std::cin >> playerInput;
     }
 }
 
-void Hero::printManageInventory(){
-    m_inventory->printInventory();
-    std::cout << "1. Equip weapon\n";
-    std::cout << "2. Equip armor\n";
-    std::cout << "3. Discard weapon\n";
-    std::cout << "4. Discard armor\n";
-    std::cout << "5. Discard potion\n";
-    std::cout << "6. Go back\n";
+void Hero::equipWeapon(int choice){
+    Weapon* weapon = m_inventory->getWeapon(choice);
+    if (weapon != nullptr){
+        if (m_equippedWeapon != nullptr){
+            m_inventory->addWeapon(m_equippedWeapon);
+        }
+        m_equippedWeapon = weapon;
+    }
+}
+
+void Hero::equipArmor(int choice){
+    Armor *armor = m_inventory->getArmor(choice);
+    if (armor != nullptr) {
+        if (m_equippedWeapon != nullptr) {
+            m_inventory->addArmor(m_equippedArmor);
+        }
+        m_equippedArmor = armor;
+    }
 }
 
 bool Hero::inspectChest(Chest* chest){
@@ -131,11 +151,11 @@ bool Hero::inspectChest(Chest* chest){
         item = chest->getPotion();
     }
     item->printInfo();
-    std::cout << "Would you like to take it?\n\t1. Yes\n\t2. No\n";
+    std::cout << "Would you like to take it?\n\t[1] Yes\n\t[2] No\n";
     char playerInput;
     std::cin >> playerInput;
     if (playerInput == '1'){
-        std::cout << "You are taking " << item->getName() << " from chest...\n";
+        std::cout << "You have taken " << item->getName() << " from chest\n";
         if (item->getItemType() == itemType::weapon){
             m_inventory->addWeapon(chest->getWeapon());
         } else if (item->getItemType() == itemType::armor){
@@ -150,13 +170,15 @@ bool Hero::inspectChest(Chest* chest){
     }
 }
 
-bool Hero::attackEnemy(Enemy* enemy){
+void Hero::attackEnemy(Enemy* enemy){
     int choice = 0;
     while (getHealth() > 0 and enemy->getHealth() > 0){
+        printInfo();
         std::cout << "Enemy hp: " << enemy->getHealth() << std::endl;
         std::cout << "What do you want to do?" << std::endl;
-        std::cout << "[1] Attack" << std::endl;
-        std::cout << "[2] Manage inventory" << std::endl;
+        std::cout << "\t[1] Attack\n";
+        std::cout << "\t[2] Manage inventory\n";
+        std::cout << "\t[3] Rest - WIP\n";
         std::cin >> choice;
         if(choice == 1) {
             enemy->takeDamage(getPhysicalDamage());
@@ -167,10 +189,28 @@ bool Hero::attackEnemy(Enemy* enemy){
         }
     }
     if(m_health <= 0) {
-        std::cout << "You died. LMAO -noob\n";
+        std::cout << "You died. GAME OVER\n";
         exit(0);
     } else {
         std::cout << "Enemy is dead. WP\n";
     }
-    return true;
+}
+
+void Hero::drinkPotion(Potion* potion){
+    if (potion != nullptr) {
+        std::cout << "You are drinking: " << potion->getName() << "\n";
+        if ((m_health + potion->getHealthBonus() <= 100)) {
+            m_health += potion->getHealthBonus();
+        } else {
+            m_health = 100;
+        }
+    }
+}
+
+Hero::~Hero(){
+    for (auto &interaction: m_interactions){
+        if (interaction != nullptr){
+            delete interaction;
+        }
+    }
 }

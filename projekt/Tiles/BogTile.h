@@ -9,10 +9,6 @@
 
 class BogTile: public Tile {
 public:
-    BogTile();
-    BogTile(Enemy* enemy);
-    BogTile(Chest* chest);
-    BogTile(FriendlyCharacter* friendlyCharacter);
     void printTile(bool printHero);
 };
 

@@ -21,9 +21,11 @@ public:
     void setTileCoordinatesToExit();
     void printLocationInfo();
     void printSideLocations();
-    void switchLocation();
+    void switchLocation(possibleMove move);
     void printLocation();
     void printTileSides();
+    void setVisited();
+    bool getVisited();
     Enemy* getEnemy();
     Chest* getChest();
     FriendlyCharacter* getFriendlyCharacter();

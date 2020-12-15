@@ -4,7 +4,7 @@
 
 #include "Armor.h"
 
-Armor::Armor(std::string name, int armorBonus): Item(name, itemType::armor){
+Armor::Armor(std::string name, int price, int armorBonus): Item(name, price, itemType::armor){
     m_armorBonus = armorBonus;
 }
 
@@ -15,4 +15,5 @@ int Armor::getArmorBonus(){
 void Armor::printInfo(){
     std::cout << "\tName: " << m_name << "\n";
     std::cout << "\tArmor: " << m_armorBonus << "\n";
+    std::cout << "\tPrice: " << m_price << " C\n";
 }

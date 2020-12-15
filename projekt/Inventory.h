@@ -22,10 +22,12 @@ public:
     void addPotion(Potion* potion);
     Weapon* getWeapon(int choice);
     Armor* getArmor(int choice);
+    Potion* getPotion(int choice);
     void discardItem(int choice, itemType typeOfItem);
     void printInventory();
     template <class T>
     void printInventoryItems(T items);
+    ~Inventory();
 private:
     template <class T>
     void discardItem(T &items, int choice);

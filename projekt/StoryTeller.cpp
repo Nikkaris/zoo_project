@@ -7,7 +7,7 @@
 StoryTeller::StoryTeller(){
 }
 
-int StoryTeller::getPlayerDialogInput(char min, char max, std::string errorText){
+char StoryTeller::getPlayerDialogInput(char min, char max, std::string errorText){
     char playerInput;
     std::cin >> playerInput;
     while (playerInput < min || playerInput > max) {
@@ -21,7 +21,6 @@ heroAttributes StoryTeller::chooseHeroAttributes(){
     heroAttributes attributes;
     attributes.strength = 0; attributes.agility = 0; attributes.charisma = 0;
     char dialogOption;
-    std::cout << std::endl;
     std::cout << "I got a few questions for you." << std::endl;
     std::cout << "Where are you from?" << std::endl;
     std::cout << std::endl;
@@ -84,7 +83,6 @@ heroAttributes StoryTeller::chooseHeroAttributes(){
         std::cout << "I see, that you are really sure about yourself. And that is not in fact wrong, but its double sided edge" << std::endl;
         attributes.charisma++;
     }
-    std::cout << attributes.strength << "\n";
     return attributes;
 }
 
@@ -186,7 +184,7 @@ void StoryTeller::printChapterSeven(){
     std::cout << "Chapter Seven: Ancient Tomb" << std::endl;
     std::cout << "You have never seen something like this. Long halls with pillars, which were decorated with torches," << std::endl;
     std::cout << "lighten up with cyan fire." << std::endl;
-    std::cout << "Almost as if someone live here, but why wouldb be this place named tomb? " << std::endl;
+    std::cout << "Almost as if someone live here, but why would be this place named tomb? " << std::endl;
 }
 
 void StoryTeller::printChapterEight(){

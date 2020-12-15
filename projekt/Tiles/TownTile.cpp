@@ -4,18 +4,6 @@
 
 #include "TownTile.h"
 
-TownTile::TownTile(): Tile(){
-}
-
-TownTile::TownTile(Enemy* enemy): Tile(enemy){
-}
-
-TownTile::TownTile(Chest* chest): Tile(chest){
-}
-
-TownTile::TownTile(FriendlyCharacter* friendlyCharacter): Tile(friendlyCharacter){
-}
-
 void TownTile::printTile(bool printHero){
     std::cout << "__";
     Tile::printCharacter("__", printHero);
