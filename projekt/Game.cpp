@@ -5,6 +5,9 @@
 #include "Game.h"
 
 Game::Game(){
+}
+
+void Game::startGame(){
     m_map = new Map;
     m_hero = new Hero;
     m_story = new StoryTeller;
@@ -21,15 +24,15 @@ void Game::printMainMenu(){
     int choice;
     do {
         std::cin >> choice;
-    } while (choice < 1 or choice > 3);
-    if (choice == 1){
-        printStart();
-        printMapMenu();
-    } else if (choice == 2){
-        //print help
-    } else if (choice == 3){
-        exit(0);
-    }
+        if (choice == 1){
+            printStart();
+            printMapMenu();
+        } else if (choice == 2){
+            //print help
+        } else if (choice == 3){
+            exit(0);
+        }
+    } while (choice != 1);
 }
 
 void Game::printStart() {
@@ -80,9 +83,7 @@ void Game::whatToDoMap(){
 }
 
 void Game::PrintLocationMenu(){
-    tileCoordinates coor = m_map->getTileCoordinates();
-    Location* currentLocation = m_map->getCurrentLocation();
-    while (coor.x < currentLocation->getLocationSize()-1 or coor.y < currentLocation->getLocationSize()-1) {
+    while (m_map->getTileType() != tileType::exit) {
         m_hero->printInfo();
         m_map->printLocation();
         std::cout << "What do you want to do? \n";
@@ -97,9 +98,7 @@ void Game::PrintLocationMenu(){
         if (m_map->getFriendlyCharacter() != nullptr){
             std::cout << "\t[3] Interact witch NPC \n";
         }
-        std::cout << "\t[4] exit - testing \n";
         whatToDoLocation();
-        coor = m_map->getTileCoordinates();
     }
 }
 
@@ -119,8 +118,6 @@ void Game::whatToDoLocation(){
         m_map->removeEnemy();
     } else if (playerInput == '3' and m_map->getFriendlyCharacter() != nullptr){
         m_hero->makeInteraction(m_map->getFriendlyCharacter());
-    } else if (playerInput == '4') {
-        m_map->setTileCoordinatesToExit();
     } else {
         std::cout << "That is not an option\n";
     }

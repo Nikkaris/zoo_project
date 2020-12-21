@@ -4,6 +4,9 @@
 
 #include "ForestTile.h"
 
+ForestTile::ForestTile(): Tile(tileType::accessible){
+}
+
 void ForestTile::printTile(bool printHero){
     std::cout << "/\\";
     Tile::printCharacter("/\\", printHero);

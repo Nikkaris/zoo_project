@@ -15,12 +15,12 @@ void ForestLocationBuilder::createLocation(){
     row1.push_back(new ForestTile());
     row1.push_back(new ForestTile());
     row1.push_back(new WaterTile());
-    row1.push_back(new WaterTile());
+    row1.push_back(new ExitTile());
 
-    row2.push_back(new ForestTile());
     row2.push_back(new ForestTile());
     row2.push_back(new ForestTile());
     row2.push_back(new WaterTile());
+    row2.push_back(new ForestTile());
 
     row3.push_back(new ForestTile());
     row3.push_back(new ForestTile());
@@ -29,7 +29,7 @@ void ForestLocationBuilder::createLocation(){
 
     row4.push_back(new ForestTile());
     row4.push_back(new ForestTile());
-    row4.push_back(new ForestTile());
+    row4.push_back(new WaterTile());
     row4.push_back(new ForestTile());
 
     m_tiles.push_back(row1);
@@ -39,7 +39,7 @@ void ForestLocationBuilder::createLocation(){
 }
 
 void ForestLocationBuilder::setEnemies(){
-    m_tiles.at(1).at(2)->setEnemy(new Enemy(5));
+    m_tiles.at(1).at(3)->setEnemy(new Enemy(5));
     m_tiles.at(2).at(1)->setEnemy(new Enemy(3));
 }
 

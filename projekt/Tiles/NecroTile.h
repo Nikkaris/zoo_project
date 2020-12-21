@@ -9,6 +9,7 @@
 
 class NecroTile: public Tile {
 public:
+    NecroTile();
     void printTile(bool printHero);
 };
 

@@ -17,6 +17,7 @@ class Game {
     StoryTeller* m_story;
 public:
     Game();
+    void startGame();
     char getPlayerInput();
     void printMainMenu();
     void printStart();

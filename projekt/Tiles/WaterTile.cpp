@@ -4,6 +4,9 @@
 
 #include "WaterTile.h"
 
+WaterTile::WaterTile(): Tile(tileType::unAccessible){
+}
+
 void WaterTile::printTile(bool printHero){
     std::cout << "~~";
     Tile::printCharacter("~~", printHero);

@@ -9,6 +9,7 @@
 
 class ForestTile: public Tile {
 public:
+    ForestTile();
     void printTile(bool printHero);
 };
 

@@ -9,6 +9,7 @@
 
 class HutTile: public Tile {
 public:
+    HutTile();
     void printTile(bool printHero);
 };
 

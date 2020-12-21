@@ -36,18 +36,6 @@ std::vector<Location*> Map::getLocations(){
     return m_locations;
 }
 
-Location* Map::getCurrentLocation(){
-    return m_locations.at(m_currentLocationIndex);
-}
-
-tileCoordinates Map::getTileCoordinates(){
-   return m_locations.at(m_currentLocationIndex)->getCurrentCoor();
-}
-
-void Map::setTileCoordinatesToExit(){
-    m_locations.at(m_currentLocationIndex)->setTileCoordinatesToExit();
-}
-
 void Map::printLocationInfo(){
     std::cout << "You are now in location: ";
     m_locations.at(m_currentLocationIndex)->printInfo();
@@ -108,6 +96,10 @@ void Map::setVisited(){
 
 bool Map::getVisited(){
     return m_locations.at(m_currentLocationIndex)->getVisited();
+}
+
+tileType Map::getTileType(){
+    return m_locations.at(m_currentLocationIndex)->getTileType();
 }
 
 Enemy* Map::getEnemy(){

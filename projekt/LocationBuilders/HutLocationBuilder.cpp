@@ -22,7 +22,7 @@ void HutLocationBuilder::createLocation(){
 
     row3.push_back(new HutTile());
     row3.push_back(new HutTile());
-    row3.push_back(new HutTile());
+    row3.push_back(new ExitTile());
 
     m_tiles.push_back(row1);
     m_tiles.push_back(row2);

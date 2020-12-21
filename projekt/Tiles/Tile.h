@@ -10,14 +10,21 @@
 #include "../FriendlyCharacter.h"
 #include "../Chest.h"
 
+enum class tileType{
+    accessible, unAccessible, exit
+};
+
 class Tile {
 protected:
     Enemy* m_enemy;
     Chest* m_chest;
     FriendlyCharacter* m_friendlyCharacter;
+    tileType m_type;
 public:
+    Tile(tileType type);
     virtual void printTile(bool printHero) = 0;
     void printCharacter(std::string tileSymbol, bool printHero);
+    tileType getTileType();
     void setEnemy(Enemy* enemy);
     void setChest(Chest* chest);
     void setFriendlyCharacter(FriendlyCharacter* friendlyCharacter);

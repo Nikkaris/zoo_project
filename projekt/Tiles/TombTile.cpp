@@ -4,6 +4,9 @@
 
 #include "TombTile.h"
 
+TombTile::TombTile(): Tile(tileType::accessible){
+}
+
 void TombTile::printTile(bool printHero){
     std::cout << "^^";
     Tile::printCharacter("__", printHero);

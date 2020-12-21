@@ -8,6 +8,8 @@
 #include "Tile.h"
 
 class WaterTile: public Tile {
+public:
+    WaterTile();
     void printTile(bool printHero);
 };
 

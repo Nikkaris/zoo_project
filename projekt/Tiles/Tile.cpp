@@ -4,6 +4,13 @@
 
 #include "Tile.h"
 
+Tile::Tile(tileType type){
+    m_type = type;
+    m_enemy = nullptr;
+    m_chest = nullptr;
+    m_friendlyCharacter = nullptr;
+}
+
 void Tile::printCharacter(std::string tileSymbol, bool printHero){
     if (printHero){
         std::cout << "**";
@@ -16,6 +23,10 @@ void Tile::printCharacter(std::string tileSymbol, bool printHero){
     } else {
         std::cout << tileSymbol;
     }
+}
+
+tileType Tile::getTileType(){
+    return m_type;
 }
 
 void Tile::setEnemy(Enemy* enemy){

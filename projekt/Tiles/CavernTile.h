@@ -9,6 +9,7 @@
 
 class CavernTile: public Tile {
 public:
+    CavernTile();
     void printTile(bool printHero);
 };
 

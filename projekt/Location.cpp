@@ -15,21 +15,12 @@ sideLocations Location::getSideLocations(){
     return m_sideLocations;
 }
 
-tileCoordinates Location::getCurrentCoor(){
-    return m_currentTileCoor;
-}
-
 void Location::setTiles(std::vector<std::vector<Tile*>> tiles){
     m_tiles = tiles;
 }
 
 void Location::setSideLocations(sideLocations sides){
     m_sideLocations = sides;
-}
-
-void Location::setTileCoordinatesToExit(){
-    m_currentTileCoor.x = m_tiles.size()-1;
-    m_currentTileCoor.y = m_tiles.size()-1;
 }
 
 void Location::setLocationSize(int size){
@@ -70,20 +61,28 @@ void Location::printTiles(){
 void Location::printTileSides(){
     possibleMove move;
     if (m_currentTileCoor.x > 0){
-        std::cout << "You can go [U]p" << std::endl;
-        move.north = true;
+        if (m_tiles.at(m_currentTileCoor.x-1).at(m_currentTileCoor.y)->getTileType() != tileType::unAccessible) {
+            std::cout << "You can go [U]p" << std::endl;
+            move.north = true;
+        }
     }
     if (m_currentTileCoor.y < m_tiles.at(0).size()-1){
-        std::cout << "You can go [R]ight" << std::endl;
-        move.east = true;
+        if (m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y+1)->getTileType() != tileType::unAccessible) {
+            std::cout << "You can go [R]ight" << std::endl;
+            move.east = true;
+        }
     }
     if (m_currentTileCoor.x < m_tiles.size()-1){
-        std::cout << "You can go [D]own" << std::endl;
-        move.south = true;
+        if (m_tiles.at(m_currentTileCoor.x+1).at(m_currentTileCoor.y)->getTileType() != tileType::unAccessible) {
+            std::cout << "You can go [D]own" << std::endl;
+            move.south = true;
+        }
     }
     if (m_currentTileCoor.y > 0){
+        if (m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y-1)->getTileType() != tileType::unAccessible){
         std::cout << "You can go [L]eft" << std::endl;
         move.west = true;
+        }
     }
     switchTile(move);
 }
@@ -112,6 +111,10 @@ std::string Location::getLocationName(){
 
 int Location::getLocationSize(){
     return m_locationSize;
+}
+
+tileType Location::getTileType(){
+    return m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y)->getTileType();
 }
 
 Enemy* Location::getEnemy(){

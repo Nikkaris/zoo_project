@@ -16,9 +16,6 @@ public:
     void createMap();
     int getCurrentLocationIndex();
     std::vector<Location*> getLocations();
-    Location* getCurrentLocation();
-    tileCoordinates getTileCoordinates();
-    void setTileCoordinatesToExit();
     void printLocationInfo();
     void printSideLocations();
     void switchLocation(possibleMove move);
@@ -26,6 +23,7 @@ public:
     void printTileSides();
     void setVisited();
     bool getVisited();
+    tileType getTileType();
     Enemy* getEnemy();
     Chest* getChest();
     FriendlyCharacter* getFriendlyCharacter();

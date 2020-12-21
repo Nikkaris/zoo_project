@@ -14,6 +14,7 @@
 #include "TombTile.h"
 #include "NecroTile.h"
 #include "WaterTile.h"
+#include "ExitTile.h"
 
 struct sideLocations{
     int north, east, south, west;
@@ -37,10 +38,8 @@ class Location {
 public:
     Location(std::string name);
     sideLocations getSideLocations();
-    tileCoordinates getCurrentCoor();
     void setTiles(std::vector<std::vector<Tile*>> tiles);
     void setSideLocations(sideLocations sides);
-    void setTileCoordinatesToExit();
     void setLocationSize(int size);
     void resetTileCoordinates();
     void setVisited();
@@ -51,6 +50,7 @@ public:
     void switchTile(possibleMove move);
     std::string getLocationName();
     int getLocationSize();
+    tileType getTileType();
     Enemy* getEnemy();
     Chest* getChest();
     FriendlyCharacter* getFriendlyCharacter();
