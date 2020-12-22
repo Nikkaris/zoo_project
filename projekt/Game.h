@@ -10,6 +10,7 @@
 #include "StoryTeller.h"
 #include "Interactions/StealCoins.h"
 #include "Interactions/Buy.h"
+#include "Interactions/Sell.h"
 
 class Game {
     Map* m_map;
@@ -19,7 +20,6 @@ public:
     Game();
     void startGame();
     char getPlayerInput();
-    void printMainMenu();
     void printStart();
     void printMapMenu();
     void PrintLocationMenu();

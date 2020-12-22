@@ -5,18 +5,15 @@
 #include "Game.h"
 
 Game::Game(){
-}
-
-void Game::startGame(){
     m_map = new Map;
     m_hero = new Hero;
     m_story = new StoryTeller;
-    m_hero->learnInteraction(new StealCoins);
-    m_hero->learnInteraction(new Buy);
-    printMainMenu();
 }
 
-void Game::printMainMenu(){
+void Game::startGame(){
+    m_hero->learnInteraction(new StealCoins);
+    m_hero->learnInteraction(new Buy);
+    m_hero->learnInteraction(new Sell);
     std::cout << "Main menu\n";
     std::cout << "\t[1] Start game\n";
     std::cout << "\t[2] Print help - WIP\n";

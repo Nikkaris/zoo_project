@@ -18,7 +18,7 @@ Hero::Hero(){
 
 void Hero::printInfo(){
     std::cout << std::endl;
-    std::string separator = "------";
+    std::string separator = "--------";
     std::cout << separator << m_name << separator << "\n";
     std::cout << "HP: " << m_health << "/100\n";
     std::cout << "Physical damage: " << getPhysicalDamage() << "\n";
@@ -33,7 +33,7 @@ void Hero::printInfo(){
         std::cout << "No equipped weapon\n";
     }
     if (m_equippedArmor != nullptr){
-        std::cout << "Armor weapon:\n";
+        std::cout << "Equipped armor:\n";
         m_equippedArmor->printInfo();
     } else {
         std::cout << "No equipped armor\n";
