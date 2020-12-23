@@ -13,6 +13,7 @@ public:
     void makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter);
     void buyWeapon(Hero* hero, FriendlyCharacter* friendlyCharacter);
     void buyArmor(Hero* hero, FriendlyCharacter* friendlyCharacter);
+    void buyKey(Hero* hero, FriendlyCharacter* friendlyCharacter);
 };
 
 

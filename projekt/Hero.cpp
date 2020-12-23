@@ -140,32 +140,47 @@ void Hero::equipArmor(int choice){
     }
 }
 
+bool Hero::unlockChest(Chest* chest){
+    if (chest->getLocked()){
+        std::cout << "Chest is locked\n";
+        if (m_inventory->getKeyToUnlock(chest->getID()) != nullptr){
+            std::cout << "You have key to unlock the chest\n";
+            chest->unlock();
+            return inspectChest(chest);
+        } else {
+            std::cout << "You dont have key to unlock the chest\n";
+            return false;
+        }
+    } else {
+         return inspectChest(chest);
+    }
+}
+
 bool Hero::inspectChest(Chest* chest){
-    Item* item;
+    Item *item;
     std::cout << "You have found: \n";
-    if (chest->getWeapon() != nullptr){
+    if (chest->getWeapon() != nullptr) {
         item = chest->getWeapon();
-    } else if (chest->getArmor() != nullptr){
+    } else if (chest->getArmor() != nullptr) {
         item = chest->getArmor();
-    } else if (chest->getPotion() != nullptr){
+    } else if (chest->getPotion() != nullptr) {
         item = chest->getPotion();
     }
     item->printInfo();
     std::cout << "Would you like to take it?\n\t[1] Yes\n\t[2] No\n";
     char playerInput;
     std::cin >> playerInput;
-    if (playerInput == '1'){
+    if (playerInput == '1') {
         std::cout << "You have taken " << item->getName() << " from chest\n";
-        if (item->getItemType() == itemType::weapon){
+        if (item->getItemType() == itemType::weapon) {
             m_inventory->addWeapon(chest->getWeapon());
-        } else if (item->getItemType() == itemType::armor){
+        } else if (item->getItemType() == itemType::armor) {
             m_inventory->addArmor(chest->getArmor());
-        } else if (item->getItemType() == itemType::potion){
+        } else if (item->getItemType() == itemType::potion) {
             m_inventory->addPotion(chest->getPotion());
         }
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }

@@ -27,6 +27,7 @@ public:
     void makeInteraction(FriendlyCharacter* friendlyCharacter);
     void learnInteraction(Interaction* interaction);
     void manageInventory();
+    bool unlockChest(Chest* chest);
     bool inspectChest(Chest* chest);
     void attackEnemy(Enemy* enemy);
     void drinkPotion(Potion* potion);

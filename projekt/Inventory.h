@@ -10,19 +10,24 @@
 #include "Items/Weapon.h"
 #include "Items/Armor.h"
 #include "Items/Potion.h"
+#include "Items/Key.h"
 
 class Inventory {
     std::vector<Weapon*> m_weapons;
     std::vector<Armor*> m_armors;
     std::vector<Potion*> m_potions;
+    std::vector<Key*> m_keys;
 public:
     Inventory();
     void addWeapon(Weapon* weapon);
     void addArmor(Armor* armor);
     void addPotion(Potion* potion);
+    void addKey(Key* key);
     Weapon* getWeapon(int choice);
     Armor* getArmor(int choice);
     Potion* getPotion(int choice);
+    Key* getKey(int choice);
+    Key* getKeyToUnlock(int chestID);
     void discardItem(int choice, itemType typeOfItem);
     void printInventory();
     template <class T>

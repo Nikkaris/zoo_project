@@ -13,15 +13,21 @@ class Chest {
     Weapon* m_weapon;
     Armor* m_armor;
     Potion* m_potion;
+    static int m_numberOfChests;
+    int m_id;
+    bool m_locked;
 
-    Chest(Weapon* weapon, Armor* armor, Potion* potion);
+    Chest(Weapon* weapon, Armor* armor, Potion* potion, bool locked);
 public:
-    Chest(Weapon* weapon);
-    Chest(Armor* armor);
-    Chest(Potion* potion);
+    Chest(Weapon* weapon, bool locked);
+    Chest(Armor* armor, bool locked);
+    Chest(Potion* potion, bool locked);
     Weapon* getWeapon();
     Armor* getArmor();
     Potion* getPotion();
+    int getID();
+    bool getLocked();
+    void unlock();
     void removeContent();
     ~Chest();
 };

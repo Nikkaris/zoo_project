@@ -19,6 +19,10 @@ void Inventory::addPotion(Potion* potion){
     m_potions.push_back(potion);
 }
 
+void Inventory::addKey(Key* key){
+    m_keys.push_back(key);
+}
+
 Weapon* Inventory::getWeapon(int choice){
     choice--;
     if (choice < m_weapons.size()) {
@@ -55,6 +59,29 @@ Potion* Inventory::getPotion(int choice){
     }
 }
 
+Key* Inventory::getKey(int choice){
+    choice--;
+    if (choice < m_keys.size()) {
+        Key* key = m_keys.at(choice);
+        m_keys.erase(m_keys.begin()+choice);
+        return key;
+    } else {
+        std::cout << "There is no such key!\n";
+        return nullptr;
+    }
+}
+
+Key* Inventory::getKeyToUnlock(int chestID){
+    for (int i = 0; i < m_keys.size(); i++){
+        if (m_keys.at(i)->getChestID() == chestID){
+            Key* key = m_keys.at(i);
+            m_keys.erase(m_keys.begin()+i);
+            return key;
+        }
+    }
+    return nullptr;
+}
+
 void Inventory::discardItem(int choice, itemType typeOfItem){
     if (typeOfItem == itemType::weapon){
         discardItem(m_weapons, choice);
@@ -83,6 +110,9 @@ void Inventory::printInventory(){
     std::cout << "+--------------------------+\n";
     std::cout << "Potions\n";
     printInventoryItems(m_potions);
+    std::cout << "+--------------------------+\n";
+    std::cout << "Keys\n";
+    printInventoryItems(m_keys);
     std::cout << "+--------------------------+\n";
 }
 

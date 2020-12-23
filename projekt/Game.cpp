@@ -5,15 +5,20 @@
 #include "Game.h"
 
 Game::Game(){
+}
+
+
+void Game::startGame(){
     m_map = new Map;
     m_hero = new Hero;
     m_story = new StoryTeller;
-}
-
-void Game::startGame(){
     m_hero->learnInteraction(new StealCoins);
     m_hero->learnInteraction(new Buy);
     m_hero->learnInteraction(new Sell);
+    printMainMenu();
+}
+
+void Game::printMainMenu(){
     std::cout << "Main menu\n";
     std::cout << "\t[1] Start game\n";
     std::cout << "\t[2] Print help - WIP\n";
@@ -90,7 +95,12 @@ void Game::PrintLocationMenu(){
             std::cout << "\t[3] Attack Enemy \n";
         }
         if (m_map->getChest() != nullptr){
-            std::cout << "\t[3] Open chest \n";
+            std::cout << "\t[3] Open chest ";
+            if (m_map->getChest()->getLocked()){
+                std::cout << "- Locked - Key " << m_map->getChest()->getID() << "\n";
+            } else {
+                std::cout << "- Unlocked\n";
+            }
         }
         if (m_map->getFriendlyCharacter() != nullptr){
             std::cout << "\t[3] Interact witch NPC \n";
@@ -106,8 +116,8 @@ void Game::whatToDoLocation(){
     } else if (playerInput == '2'){
         m_hero->manageInventory();
     } else if (playerInput == '3' and m_map->getChest() != nullptr){
-        bool emptyChest = m_hero->inspectChest(m_map->getChest());
-        if (emptyChest){
+        bool emptyChest = m_hero->unlockChest(m_map->getChest());
+        if (emptyChest) {
             m_map->removeChest();
         }
     } else if (playerInput == '3' and m_map->getEnemy() != nullptr){

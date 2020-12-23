@@ -8,7 +8,7 @@
 #include <iostream>
 
 enum class itemType{
-    weapon, armor, potion
+    weapon, armor, potion, key
 };
 
 class Item {

@@ -19,12 +19,13 @@ class Game {
 public:
     Game();
     void startGame();
-    char getPlayerInput();
+    void printMainMenu();
     void printStart();
     void printMapMenu();
     void PrintLocationMenu();
     void whatToDoMap();
     void whatToDoLocation();
+    char getPlayerInput();
     ~Game();
 };
 

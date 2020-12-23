@@ -44,8 +44,8 @@ void ForestLocationBuilder::setEnemies(){
 }
 
 void ForestLocationBuilder::setChests(){
-    m_tiles.at(0).at(1)->setChest(new Chest(new Weapon("Hammer", 30, 18)));
-    m_tiles.at(1).at(0)->setChest(new Chest(new Armor("wooden armor", 10, 13)));
+    m_tiles.at(0).at(1)->setChest(new Chest(new Weapon("Hammer", 30, 18), true));
+    m_tiles.at(1).at(0)->setChest(new Chest(new Armor("wooden armor", 10, 13), false));
 }
 
 void ForestLocationBuilder::setFriendlyCharacters(){

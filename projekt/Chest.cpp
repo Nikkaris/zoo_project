@@ -4,19 +4,23 @@
 
 #include "Chest.h"
 
-Chest::Chest(Weapon* weapon, Armor* armor, Potion* potion){
+int Chest::m_numberOfChests = 0;
+
+Chest::Chest(Weapon* weapon, Armor* armor, Potion* potion, bool locked){
     m_weapon = weapon;
     m_armor = armor;
     m_potion = potion;
+    m_id = ++m_numberOfChests;
+    m_locked = locked;
 }
 
-Chest::Chest(Weapon* weapon): Chest(weapon, nullptr, nullptr){
+Chest::Chest(Weapon* weapon, bool locked): Chest(weapon, nullptr, nullptr, locked){
 }
 
-Chest::Chest(Armor* armor): Chest(nullptr, armor, nullptr){
+Chest::Chest(Armor* armor, bool locked): Chest(nullptr, armor, nullptr, locked){
 }
 
-Chest::Chest(Potion* potion): Chest(nullptr, nullptr, potion){
+Chest::Chest(Potion* potion, bool locked): Chest(nullptr, nullptr, potion, locked){
 }
 
 Weapon* Chest::getWeapon(){
@@ -29,6 +33,18 @@ Armor* Chest::getArmor(){
 
 Potion* Chest::getPotion(){
     return m_potion;
+}
+
+int Chest::getID(){
+    return m_id;
+}
+
+bool Chest::getLocked(){
+    return m_locked;
+}
+
+void Chest::unlock(){
+    m_locked = false;
 }
 
 void Chest::removeContent(){
