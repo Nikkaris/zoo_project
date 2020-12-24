@@ -30,7 +30,7 @@ void TombLocationBuilder::createLocation(){
     row4.push_back(new TombTile());
     row4.push_back(new TombTile());
     row4.push_back(new TombTile());
-    row4.push_back(new TombTile());
+    row4.push_back(new ExitTile());
 
     m_tiles.push_back(row1);
     m_tiles.push_back(row2);

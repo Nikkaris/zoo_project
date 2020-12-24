@@ -122,6 +122,15 @@ void Map::removeEnemy(){
     m_locations.at(m_currentLocationIndex)->removeEnemy();
 }
 
+void Map::changeLocation(){
+    for (int i = 0; i < m_locations.size(); i++){
+        std::cout << "[" << i << "]" << m_locations.at(i)->getLocationName() << "\n";
+    }
+    int indexOfLocation;
+    std::cin >> indexOfLocation;
+    m_currentLocationIndex = indexOfLocation;
+}
+
 Map::~Map(){
     for (auto &location:m_locations){
         delete location;

@@ -7,7 +7,6 @@
 Game::Game(){
 }
 
-
 void Game::startGame(){
     m_map = new Map;
     m_hero = new Hero;
@@ -105,6 +104,7 @@ void Game::PrintLocationMenu(){
         if (m_map->getFriendlyCharacter() != nullptr){
             std::cout << "\t[3] Interact witch NPC \n";
         }
+        std::cout << "\t[L] Change location - testing \n";
         whatToDoLocation();
     }
 }
@@ -123,8 +123,10 @@ void Game::whatToDoLocation(){
     } else if (playerInput == '3' and m_map->getEnemy() != nullptr){
         m_hero->attackEnemy(m_map->getEnemy());
         m_map->removeEnemy();
-    } else if (playerInput == '3' and m_map->getFriendlyCharacter() != nullptr){
+    } else if (playerInput == '3' and m_map->getFriendlyCharacter() != nullptr) {
         m_hero->makeInteraction(m_map->getFriendlyCharacter());
+    } else if (playerInput == 'L'){
+        m_map->changeLocation();
     } else {
         std::cout << "That is not an option\n";
     }

@@ -45,7 +45,7 @@ void HutLocationBuilder::setFriendlyCharacters(){
     Inventory* lucasInventory = new Inventory();
     lucasInventory->addWeapon(new Weapon("Katana", 50, 20));
     lucasInventory->addArmor(new Armor("Wolf armor", 60, 15));
-    lucasInventory->addKey(new Key(8, 3));
+    lucasInventory->addKey(new Key(8, 1));
     lucas->setInventory(lucasInventory);
 
     m_tiles.at(1).at(1)->setFriendlyCharacter(lucas);

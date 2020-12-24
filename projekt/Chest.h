@@ -13,7 +13,7 @@ class Chest {
     Weapon* m_weapon;
     Armor* m_armor;
     Potion* m_potion;
-    static int m_numberOfChests;
+    static int s_numberOfLockedChests;
     int m_id;
     bool m_locked;
 

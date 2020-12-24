@@ -29,6 +29,7 @@ public:
     FriendlyCharacter* getFriendlyCharacter();
     void removeChest();
     void removeEnemy();
+    void changeLocation();
     ~Map();
 };
 

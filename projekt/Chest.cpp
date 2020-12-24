@@ -4,14 +4,18 @@
 
 #include "Chest.h"
 
-int Chest::m_numberOfChests = 0;
+int Chest::s_numberOfLockedChests = 0;
 
 Chest::Chest(Weapon* weapon, Armor* armor, Potion* potion, bool locked){
     m_weapon = weapon;
     m_armor = armor;
     m_potion = potion;
-    m_id = ++m_numberOfChests;
     m_locked = locked;
+    if (m_locked){
+        m_id = ++s_numberOfLockedChests;
+    } else {
+        m_id = 0;
+    }
 }
 
 Chest::Chest(Weapon* weapon, bool locked): Chest(weapon, nullptr, nullptr, locked){
