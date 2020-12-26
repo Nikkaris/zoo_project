@@ -39,9 +39,9 @@ Inventory* Character::getInventory(){
 
 int Character::getPhysicalDamage() {
     if(m_equippedWeapon != nullptr){
-        return m_physicalDamage + (m_strength * 3) + m_equippedWeapon->getDamageBonus();
+        return m_physicalDamage + (m_strength * 5) + m_equippedWeapon->getDamageBonus();
     } else {
-        return m_physicalDamage + (m_strength * 3);
+        return m_physicalDamage + (m_strength * 5);
     }
 }
 

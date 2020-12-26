@@ -9,21 +9,24 @@ Buy::Buy(): Interaction("Buy"){
 
 void Buy::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     int choice;
+    std::cout << "You have: " << hero->getCoins() << " C\n";
     std::cout << "+-----------SHOP-----------+\n";
     friendlyCharacter->printInventory();
-    std::cout << "What do you want to buy?" << std::endl;
-    std::cout << "\t[1] Weapon" << std::endl;
-    std::cout << "\t[2] Armor" << std::endl;
-    std::cout << "\t[3] Key" << std::endl;
-    std::cout << "\t[4] I changed my mind" << std::endl;
-    std::cin >> choice;
-    if (choice == 1) {
-        buyWeapon(hero, friendlyCharacter);
-    } else if (choice == 2){
-        buyArmor(hero, friendlyCharacter);
-    } else if (choice == 3){
-        buyKey(hero, friendlyCharacter);
-    }
+    do {
+        std::cout << "What do you want to buy?" << std::endl;
+        std::cout << "\t[1] Weapon" << std::endl;
+        std::cout << "\t[2] Armor" << std::endl;
+        std::cout << "\t[3] Key" << std::endl;
+        std::cout << "\t[4] Go back" << std::endl;
+        std::cin >> choice;
+        if (choice == 1) {
+            buyWeapon(hero, friendlyCharacter);
+        } else if (choice == 2) {
+            buyArmor(hero, friendlyCharacter);
+        } else if (choice == 3) {
+            buyKey(hero, friendlyCharacter);
+        }
+    } while (choice != 4);
 }
 
 void Buy::buyWeapon(Hero* hero, FriendlyCharacter* friendlyCharacter){
@@ -34,7 +37,7 @@ void Buy::buyWeapon(Hero* hero, FriendlyCharacter* friendlyCharacter){
     Weapon* weapon = friendlyCharacter->getInventory()->getWeapon(choice);
     if (weapon != nullptr) {
         if (weapon->getPrice() <= hero->getCoins()) {
-            std::cout << "You bought: " << weapon->getName();
+            std::cout << "You bought: " << weapon->getName() << "\n";
             hero->getInventory()->addWeapon(weapon);
             hero->addCoins(-weapon->getPrice());
         } else {
@@ -52,7 +55,7 @@ void Buy::buyArmor(Hero* hero, FriendlyCharacter* friendlyCharacter){
     Armor* armor = friendlyCharacter->getInventory()->getArmor(choice);
     if (armor != nullptr){
         if (armor->getPrice() <= hero->getCoins()) {
-            std::cout << "You bought: " << armor->getName();
+            std::cout << "You bought: " << armor->getName() << "\n";
             hero->getInventory()->addArmor(armor);
             hero->addCoins(-armor->getPrice());
         } else {
@@ -70,7 +73,7 @@ void Buy::buyKey(Hero* hero, FriendlyCharacter* friendlyCharacter){
     Key* key = friendlyCharacter->getInventory()->getKey(choice);
     if (key != nullptr){
         if (key->getPrice() <= hero->getCoins()) {
-            std::cout << "You bought: " << key->getName();
+            std::cout << "You bought: " << key->getName() << "\n";
             hero->getInventory()->addKey(key);
             hero->addCoins(-key->getPrice());
         } else {

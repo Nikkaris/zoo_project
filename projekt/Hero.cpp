@@ -6,21 +6,26 @@
 #include "Interactions/Interaction.h"
 
 Hero::Hero(){
+    m_name = "";
+    m_level = 1;
+    m_xp = 0;
+    m_maxXp= 100;
     m_physicalDamage = 5;
     m_agility = 1;
     m_strength = 1;
     m_charisma = 1;
     m_coins = 0;
-    m_name = "";
     m_equippedWeapon = nullptr;
     m_equippedArmor = nullptr;
 }
 
-void Hero::printInfo(){
-    std::cout << std::endl;
+void Hero::printAllInfo(){
+    std::cout << "\n";
     std::string separator = "--------";
     std::cout << separator << m_name << separator << "\n";
     std::cout << "HP: " << m_health << "/100\n";
+    std::cout << "Level: " << m_level << "\n";
+    std::cout << "XP: " << m_xp << "/" << m_maxXp << "\n";
     std::cout << "Physical damage: " << getPhysicalDamage() << "\n";
     std::cout << "Strength: " << m_strength << "\n";
     std::cout << "Agility: " << m_agility << "\n";
@@ -39,6 +44,19 @@ void Hero::printInfo(){
         std::cout << "No equipped armor\n";
     }
     std::cout << std::setw(m_name.length()+(2*separator.length())+1) << std::setfill('-') << "\n";
+    std::cout << "Press any key to continue...\n";
+    std::cin.ignore();
+    std::cin.get();
+}
+
+void Hero::printBasicInfo(){
+    std::cout << "\n";
+    std::string separator = "--------";
+    std::cout << separator << m_name << separator << "\n";
+    std::cout << "HP: " << m_health << "/100\n";
+    std::cout << "Physical damage: " << getPhysicalDamage() << "\n";
+    std::cout << "Coins: " << m_coins << "\n";
+    std::cout << std::setw(m_name.length()+(2*separator.length())+1) << std::setfill('-') << "\n";
 }
 
 void Hero::setHeroName(std::string name){
@@ -56,23 +74,23 @@ void Hero::setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCh
 }
 
 void Hero::makeInteraction(FriendlyCharacter* friendlyCharacter){
-    // print all interactions
     std::cout << "Hi my name is " << friendlyCharacter->getName() << "\n";
-    std::cout << "Choose interaction:\n";
-    for (int i = 0; i < m_interactions.size(); i++){
-        std::cout << "\t[" << i+1 << "]" << m_interactions.at(i)->getName() << "\n";
-    }
-    // choose from interactions
-    int playerInput = 0;
-    std::cin >> playerInput;
-    playerInput--;
+    int playerInput ;
+    do {
+        std::cout << "Choose interaction:\n";
+        for (int i = 0; i < m_interactions.size(); i++){
+            std::cout << "\t[" << i+1 << "] " << m_interactions.at(i)->getName() << "\n";
+        }
+        std::cout << "\t[" << m_interactions.size()+1 << "] " << "Go back" << "\n";
 
-    // call interaction
-    if (playerInput < m_interactions.size()) {
-        m_interactions.at(playerInput)->makeInteraction(this, friendlyCharacter);
-    } else {
-        std::cout << "That is not an option\n";
-    }
+        std::cin >> playerInput;
+        playerInput--;
+        if (playerInput < m_interactions.size()) {
+            m_interactions.at(playerInput)->makeInteraction(this, friendlyCharacter);
+        } else {
+            std::cout << "That is not an option\n";
+        }
+    } while (playerInput != m_interactions.size());
 }
 
 void Hero::learnInteraction(Interaction* interaction){
@@ -92,10 +110,10 @@ void Hero::printManageInventory(){
 
 void Hero::manageInventory(){
     int choice;
-    printManageInventory();
     char playerInput;
-    std::cin >> playerInput;
-    while (playerInput != '7'){
+    do {
+        printManageInventory();
+        std::cin >> playerInput;
         if (playerInput >= '1' and playerInput <= '6') {
             std::cout << "Which one?\n";
             std::cin >> choice;
@@ -115,9 +133,7 @@ void Hero::manageInventory(){
         } else {
             std::cout << "That is not an option\n";
         }
-        printManageInventory();
-        std::cin >> playerInput;
-    }
+    } while (playerInput != '7');
 }
 
 void Hero::equipWeapon(int choice){
@@ -188,7 +204,7 @@ bool Hero::inspectChest(Chest* chest){
 void Hero::attackEnemy(Enemy* enemy){
     int choice = 0;
     while (getHealth() > 0 and enemy->getHealth() > 0){
-        printInfo();
+        printBasicInfo();
         std::cout << "Enemy hp: " << enemy->getHealth() << std::endl;
         std::cout << "What do you want to do?" << std::endl;
         std::cout << "\t[1] Attack\n";
@@ -207,7 +223,10 @@ void Hero::attackEnemy(Enemy* enemy){
         std::cout << "You died. GAME OVER\n";
         exit(0);
     } else {
-        std::cout << "Enemy is dead. WP\n";
+        std::cout << "Enemy is dead. You gain: " << enemy->getXpReward() << " XP\n";
+        gainXp(enemy->getXpReward());
+        std::cout << "Your reward is: " << enemy->getCoinsReward() << " Coins\n";
+        addCoins(enemy->getCoinsReward());
     }
 }
 
@@ -219,6 +238,38 @@ void Hero::drinkPotion(Potion* potion){
         } else {
             m_health = 100;
         }
+    }
+}
+
+void Hero::gainXp(int xp){
+    m_xp += xp;
+    if (m_xp >= m_maxXp){
+        m_xp -= m_maxXp;
+        levelUp();
+    }
+}
+
+void Hero::levelUp(){
+    m_maxXp += 5 + (3 * m_level);
+    m_level++;
+    int choice;
+    std::cout << "What do you want to upgrade?\n";
+    std::cout << "\t[1] Strength\n";
+    std::cout << "\t[2] Agility\n";
+    std::cout << "\t[3] Charisma\n";
+    std::cin >> choice;
+    switch (choice) {
+        case 1:
+            m_strength++;
+            break;
+        case 2:
+            m_agility++;
+            break;
+        case 3:
+            m_charisma++;
+            break;
+        default:
+            levelUp();
     }
 }
 

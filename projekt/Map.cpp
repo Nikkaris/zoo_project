@@ -42,22 +42,23 @@ void Map::printLocationInfo(){
 }
 
 void Map::printSideLocations(){
+    std::cout << "You can go to: ";
     sideLocations sides = m_locations.at(m_currentLocationIndex)->getSideLocations();
     possibleMove move;
     if (sides.north >= 0){
-        std::cout << "[N]orth - " << m_locations.at(sides.north)->getLocationName() << std::endl;
+        std::cout << "\t[N]orth - " << m_locations.at(sides.north)->getLocationName() << std::endl;
         move.north = true;
     }
     if (sides.east >= 0) {
-        std::cout << "[E]ast - " << m_locations.at(sides.east)->getLocationName() << std::endl;
+        std::cout << "\t[E]ast - " << m_locations.at(sides.east)->getLocationName() << std::endl;
         move.east = true;
     }
     if (sides.south >= 0) {
-        std::cout << "[S]outh - " << m_locations.at(sides.south)->getLocationName() << std::endl;
+        std::cout << "\t[S]outh - " << m_locations.at(sides.south)->getLocationName() << std::endl;
         move.south = true;
     }
     if (sides.west >= 0) {
-        std::cout << "[W]est - " << m_locations.at(sides.west)->getLocationName() << std::endl;
+        std::cout << "\t[W]est - " << m_locations.at(sides.west)->getLocationName() << std::endl;
         move.west = true;
     }
     switchLocation(move);

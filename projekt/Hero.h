@@ -18,9 +18,13 @@ class Interaction;
 
 class Hero: public Character {
     std::vector<Interaction*> m_interactions;
+    int m_level;
+    int m_xp;
+    int m_maxXp;
 public:
     Hero();
-    void printInfo();
+    void printAllInfo();
+    void printBasicInfo();
     void setHeroName(std::string name);
     void addCoins(int howMany);
     void setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma);
@@ -31,6 +35,8 @@ public:
     bool inspectChest(Chest* chest);
     void attackEnemy(Enemy* enemy);
     void drinkPotion(Potion* potion);
+    void gainXp(int xp);
+    void levelUp();
     ~Hero();
 private:
     void printManageInventory();

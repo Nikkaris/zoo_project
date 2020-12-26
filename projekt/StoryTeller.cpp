@@ -21,55 +21,52 @@ heroAttributes StoryTeller::chooseHeroAttributes(){
     heroAttributes attributes;
     attributes.strength = 0; attributes.agility = 0; attributes.charisma = 0;
     char dialogOption;
-    std::cout << "I got a few questions for you." << std::endl;
-    std::cout << "Where are you from?" << std::endl;
-    std::cout << std::endl;
-    std::cout << "1. I am from North, i do not know why but I have everything blurred..." << std::endl;
-    std::cout << "2. I am from West, i do not know why but I have everything blurred..." << std::endl;
-    std::cout << "3. I am from East, i do not know why but I have everything blurred..." << std::endl;
+    std::cout << "I got a few questions for you.\n";
+    std::cout << "Where are you from?\n\n";
+    std::cout << "[1] I am from North, i do not know why but I have everything blurred...\n";
+    std::cout << "[2] I am from West, i do not know why but I have everything blurred...\n";
+    std::cout << "[3] I am from East, i do not know why but I have everything blurred...\n";
 
     dialogOption = getPlayerDialogInput('1', '3', "That is not answering my question");
 
     if(dialogOption == '1') {
-        std::cout << "Oh, so you are norseman. You seemed to me kinda muscular..." << std::endl;
+        std::cout << "Oh, so you are norseman. You seemed to me kinda muscular...\n";
         attributes.strength++;
     } else if (dialogOption == '2') {
-        std::cout << "Oh, so you are from West. Western people are very agile and good in sneaking..." << std::endl;
+        std::cout << "Oh, so you are from West. Western people are very agile and good in sneaking...\n";
         attributes.agility++;
     } else if (dialogOption == '3'){
-        std::cout << "Oh, so you are from East. Eastern people are talkative." << std::endl;
+        std::cout << "Oh, so you are from East. Eastern people are talkative.\n";
         attributes.charisma++;
     }
 
-    std::cout << std::endl;
-    std::cout << "I see that you are trying to remember. What is your profession?" << std::endl;
-    std::cout << std::endl;
-    std::cout << "1. I am travelling merchant. I used to have a lot of friends in many towns" << std::endl;
-    std::cout << "2. I think that I was a royal guard" << std::endl;
-    std::cout << "3. I do not like to admit, but i was thief. People hired and I accepted..." << std::endl;
+    std::cout << "\n";
+    std::cout << "I see that you are trying to remember. What is your profession?\n\n";
+    std::cout << "[1] I am travelling merchant. I used to have a lot of friends in many towns\n";
+    std::cout << "[2] I think that I was a royal guard\n";
+    std::cout << "[3] I do not like to admit, but i was thief. People hired and I accepted...\n";
 
     dialogOption = getPlayerDialogInput('1', '3', "That is not answering my question");
 
     if(dialogOption == '1') {
-        std::cout << "That is what I thought. That would explain your personality and temperament." << std::endl;
+        std::cout << "That is what I thought. That would explain your personality and temperament.\n";
         attributes.strength += 2;
     } else if (dialogOption == '2') {
-        std::cout << "That would explain that crest on your armor." << std::endl;
+        std::cout << "That would explain that crest on your armor.\n";
         attributes.agility += 2;
     } else if (dialogOption == '3') {
-        std::cout << "Cape and leather armor, that explain a lot, but do not worry I do not judge you." << std::endl;
-        std::cout << "Living in this world is harder than before..." << std::endl;
+        std::cout << "Cape and leather armor, that explain a lot, but do not worry I do not judge you.\n";
+        std::cout << "Living in this world is harder than before...\n";
         attributes.charisma += 2;
     }
 
-    std::cout << std::endl;
-    std::cout << "You must be hungry." << std::endl;
-    std::cout << "The old man offered you vegetable stew." << std::endl;
-    std::cout << "Anyway, my last question is, how would you dealt with combat situation?" << std::endl;
-    std::cout << std::endl;
-    std::cout << "1. I would not go for face-to-face fight. I would strike from the shadows." << std::endl;
-    std::cout << "2. I hate fights, I always considered myself as peaceful being, even in this cruel world." << std::endl;
-    std::cout << "3. I love the adrenaline in my blood, I would use my full strength to crush my enemy.." << std::endl;
+    std::cout << "\n";
+    std::cout << "You must be hungry.\n";
+    std::cout << "The old man offered you vegetable stew.\n";
+    std::cout << "Anyway, my last question is, how would you dealt with combat situation?\n\n";
+    std::cout << "[1] I would not go for face-to-face fight. I would strike from the shadows.\n";
+    std::cout << "[2] I hate fights, I always considered myself as peaceful being, even in this cruel world.\n";
+    std::cout << "[3] I love the adrenaline in my blood, I would use my full strength to crush my enemy..\n";
 
     dialogOption = getPlayerDialogInput('1', '3', "That is not answering my question");
 
@@ -108,15 +105,15 @@ void StoryTeller::printChapter(int chapterNumber){
 }
 
 void StoryTeller::printChapterOne(){
-    std::cout << std::endl << std::endl << std::endl;
-    std::cout << "Chapter One: The Old Man's Hut" << std::endl;
-    std::cout << "You are coming back to your senses. You find yourself in a some kind of hut. There is firepit in the middle of room." << std::endl;
-    std::cout << "You look to the right and there is person. He looks very old sitting next to the fire. He looked at you and said:" << std::endl;
+    std::cout << "\n";
+    std::cout << "Chapter One: The Old Man's Hut\n";
+    std::cout << "You are coming back to your senses. You find yourself in a some kind of hut. There is firepit in the middle of room.\n";
+    std::cout << "You look to the right and there is person. He looks very old sitting next to the fire. He looked at you and said:\n";
 
-    std::cout << std::endl;
-    std::cout << "You? You are finally awake? I am glad that you made it through. For a moment i thought that I lost you..." << std::endl;
-    std::cout << "I do not want to brag, but I have saved your life. I found you in the river. You were cold as ice." << std::endl;
-    std::cout << "Now, when you are conscious." << std::endl;
+    std::cout << "\n";
+    std::cout << "You? You are finally awake? I am glad that you made it through. For a moment i thought that I lost you...\n";
+    std::cout << "I do not want to brag, but I have saved your life. I found you in the river. You were cold as ice.\n";
+    std::cout << "Now, when you are conscious.\n";
 }
 
 void StoryTeller::printChapterTwo() {
@@ -124,7 +121,7 @@ void StoryTeller::printChapterTwo() {
      * Nebrali zajatce, vraždili všechny starce, ženy i děti. Na pozůstatcích vzrostl tento majestátní les, který je přece jenom něčím zvláštní.
      * Kolují o něm historky, že prý, když skrze něj procházíš, tak lze stále slyšet nářek vesničanů, kteří v ten soudný den zahynuli.
      */
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "\n";
     std::cout << "Chapter Two: Whispering Woods" << std::endl;
     std::cout << "It's not even half of the day and you are standing in front of Whispering Woods." << std::endl;
     std::cout << "Old Man has told you a lot about it, he mentioned massacre." << std::endl;
@@ -139,7 +136,7 @@ void StoryTeller::printChapterThree(){
      * co vidíš jsou pár zchátralých dřevěných budovy, které mají střechy porostlé mechem a trávou. Není zde nic, co by lidské oko
      * potěšilo, pouze bída, bahno a hnijící věci...
      * */
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "\n";
     std::cout << "Chapter Three: Crimson Village" << std::endl;
     std::cout << "You are entering Crimson Village, if we can call it village." << std::endl;
     std::cout << "What you see can be with difficulty compared with village or settlement" << std::endl;
@@ -151,7 +148,7 @@ void StoryTeller::printChapterThree(){
 void StoryTeller::printChapterFour(){
     /*Bažina...místo, které bych nepřál ani nepříteli. Hemží se to zde ropuchami, krysami a další havětí. Nejhorší na bažině je ta hustá mlha.
      * Lidské oko skrze ní sotva vidí obrysy, což ještě není tak hrozné, horší je, že bytosti žijící v bažině moc dobře vidí nevítané hosty.*/
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "\n";
     std::cout << "Chapter Four: Twisted Bog" << std::endl;
     std::cout << "Bog..Swamp, the last place where you wanted to be. " << std::endl;
     std::cout << "The worst aren't those little frogs, neither snails or other vermin. The worst is fog. Human eye cannot see through." << std::endl;
@@ -162,7 +159,7 @@ void StoryTeller::printChapterFour(){
 void StoryTeller::printChapterFive(){
     /*Chvíli jsi nedával pozor a ocitl jsi se v Hollow Woods. Na pohled je to čarovné místo v tomto prohnilém světě. Vše hraje barvami a nemálo
      * stromů bylo nahrazeno obřími houbami*/
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "\n";
     std::cout << "Chapter Five: Hollow Woods" << std::endl;
     std::cout << "For a moment you were thinking to yourself and forgot to watch out for journey" << std::endl;
     std::cout << "and now you are in the middle of Hollow Woods." << std::endl;
@@ -173,14 +170,14 @@ void StoryTeller::printChapterFive(){
 }
 
 void StoryTeller::printChapterSix(){
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "\n";
     std::cout << "Chapter Six: Bandit's Ambush" << std::endl;
     std::cout << "What were you thinking? Locals did not warn you? And that location name... Good luck with fight, you have been ambushed.";
     std::cout << "Good luck with that." << std::endl;
 }
 
 void StoryTeller::printChapterSeven(){
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "\n";
     std::cout << "Chapter Seven: Ancient Tomb" << std::endl;
     std::cout << "You have never seen something like this. Long halls with pillars, which were decorated with torches," << std::endl;
     std::cout << "lighten up with cyan fire." << std::endl;
@@ -188,7 +185,7 @@ void StoryTeller::printChapterSeven(){
 }
 
 void StoryTeller::printChapterEight(){
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "\n";
     std::cout << "Chapter Eight: Dead Man's End" << std::endl;
     std::cout << "You are entering unknown part of Ancient Tomb. Same feel, but still slightly different." << std::endl;
     std::cout << "Crimson carpet, throne and library. Everything covered by spider cobwebs." << std::endl;

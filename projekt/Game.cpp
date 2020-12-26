@@ -4,20 +4,12 @@
 
 #include "Game.h"
 
+int Game::m_difficulty = 0;
+
 Game::Game(){
 }
 
 void Game::startGame(){
-    m_map = new Map;
-    m_hero = new Hero;
-    m_story = new StoryTeller;
-    m_hero->learnInteraction(new StealCoins);
-    m_hero->learnInteraction(new Buy);
-    m_hero->learnInteraction(new Sell);
-    printMainMenu();
-}
-
-void Game::printMainMenu(){
     std::cout << "Main menu\n";
     std::cout << "\t[1] Start game\n";
     std::cout << "\t[2] Print help - WIP\n";
@@ -26,14 +18,37 @@ void Game::printMainMenu(){
     do {
         std::cin >> choice;
         if (choice == 1){
+            chooseDifficulty();
+            setupGame();
             printStart();
-            printMapMenu();
+            mapControl();
         } else if (choice == 2){
             //print help
         } else if (choice == 3){
             exit(0);
         }
     } while (choice != 1);
+}
+
+void Game::chooseDifficulty(){
+    std::cout << "Choose difficulty:\n";
+    std::cout << "\t[1] Easy\n";
+    std::cout << "\t[2] Normal\n";
+    std::cout << "\t[3] Hard\n";
+    int choice;
+    do {
+        std::cin >> choice;
+    } while (choice < 1 or choice > 3);
+    m_difficulty = choice;
+}
+
+void Game::setupGame(){
+    m_hero = new Hero;
+    m_map = new Map;
+    m_story = new StoryTeller;
+    m_hero->learnInteraction(new StealCoins);
+    m_hero->learnInteraction(new Buy);
+    m_hero->learnInteraction(new Sell);
 }
 
 void Game::printStart() {
@@ -55,7 +70,7 @@ char Game::getPlayerInput(){
     return playerInput;
 }
 
-void Game::printMapMenu(){
+void Game::mapControl(){
     while (m_map->getCurrentLocationIndex() < m_map->getLocations().size()-1) {
         if (m_map->getCurrentLocationIndex() != 0 and !m_map->getVisited()) {
             m_story->printChapter(m_map->getCurrentLocationIndex() + 1);
@@ -63,38 +78,23 @@ void Game::printMapMenu(){
         }
         m_map->printLocationInfo();
         PrintLocationMenu();
-        std::cout << "What do you want to do?\n";
-        std::cout << "\t[1] Go to next location\n";
-        std::cout << "\t[2] Manage inventory\n";
-        std::cout << "\t[3] Print map - WIP\n";
-        std::cout << "\t[4] Rest - WIP\n";
-        whatToDoMap();
+        m_map->printSideLocations();
     }
     // ending
     m_story->printChapter(8);
 }
 
-void Game::whatToDoMap(){
-    char playerInput = getPlayerInput();
-    if (playerInput == '1'){
-        m_map->printSideLocations();
-    } else if (playerInput == '2'){
-        m_hero->manageInventory();
-    }
-}
-
 void Game::PrintLocationMenu(){
     while (m_map->getTileType() != tileType::exit) {
-        m_hero->printInfo();
+        m_hero->printBasicInfo();
         m_map->printLocation();
         std::cout << "What do you want to do? \n";
         std::cout << "\t[1] Move on tile \n";
-        std::cout << "\t[2] Manage inventory \n";
         if (m_map->getEnemy() != nullptr){
-            std::cout << "\t[3] Attack Enemy \n";
+            std::cout << "\t[2] Attack Enemy \n";
         }
         if (m_map->getChest() != nullptr){
-            std::cout << "\t[3] Open chest ";
+            std::cout << "\t[2] Open chest ";
             if (m_map->getChest()->getLocked()){
                 std::cout << "- Locked - Key " << m_map->getChest()->getID() << "\n";
             } else {
@@ -102,8 +102,10 @@ void Game::PrintLocationMenu(){
             }
         }
         if (m_map->getFriendlyCharacter() != nullptr){
-            std::cout << "\t[3] Interact witch NPC \n";
+            std::cout << "\t[2] Interact witch NPC \n";
         }
+        std::cout << "\t[H] Print hero statistics \n";
+        std::cout << "\t[I] Manage inventory \n";
         std::cout << "\t[L] Change location - testing \n";
         whatToDoLocation();
     }
@@ -113,18 +115,20 @@ void Game::whatToDoLocation(){
     char playerInput = getPlayerInput();
     if (playerInput == '1'){
         m_map->printTileSides();
-    } else if (playerInput == '2'){
-        m_hero->manageInventory();
-    } else if (playerInput == '3' and m_map->getChest() != nullptr){
+    } else if (playerInput == '2' and m_map->getChest() != nullptr){
         bool emptyChest = m_hero->unlockChest(m_map->getChest());
         if (emptyChest) {
             m_map->removeChest();
         }
-    } else if (playerInput == '3' and m_map->getEnemy() != nullptr){
+    } else if (playerInput == '2' and m_map->getEnemy() != nullptr){
         m_hero->attackEnemy(m_map->getEnemy());
         m_map->removeEnemy();
-    } else if (playerInput == '3' and m_map->getFriendlyCharacter() != nullptr) {
+    } else if (playerInput == '2' and m_map->getFriendlyCharacter() != nullptr) {
         m_hero->makeInteraction(m_map->getFriendlyCharacter());
+    } else if (playerInput == 'H') {
+        m_hero->printAllInfo();
+    } else if (playerInput == 'I'){
+        m_hero->manageInventory();
     } else if (playerInput == 'L'){
         m_map->changeLocation();
     } else {
@@ -132,7 +136,12 @@ void Game::whatToDoLocation(){
     }
 }
 
+int Game::getDifficulty(){
+    return m_difficulty;
+}
+
 Game::~Game(){
     delete m_map;
     delete m_hero;
+    delete m_story;
 }

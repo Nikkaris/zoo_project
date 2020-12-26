@@ -16,16 +16,18 @@ class Game {
     Map* m_map;
     Hero* m_hero;
     StoryTeller* m_story;
+    static int m_difficulty;
 public:
     Game();
     void startGame();
-    void printMainMenu();
+    void chooseDifficulty();
+    void setupGame();
     void printStart();
-    void printMapMenu();
+    void mapControl();
     void PrintLocationMenu();
-    void whatToDoMap();
     void whatToDoLocation();
     char getPlayerInput();
+    static int getDifficulty();
     ~Game();
 };
 

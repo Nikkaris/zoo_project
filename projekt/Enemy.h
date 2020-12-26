@@ -13,10 +13,13 @@ class Enemy {
     int m_health;
 public:
     Enemy(int level);
+    void setPhysicalDamage();
     int getEnemyLevel();
     int getPhysicalDamage();
     void takeDamage(int howMuch);
     int getHealth();
+    int getXpReward();
+    int getCoinsReward();
 };
 
 

@@ -9,18 +9,21 @@ Sell::Sell(): Interaction("Sell"){
 
 void Sell::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     int choice;
+    std::cout << "You have: " << hero->getCoins() << " C\n";
     std::cout << "+--------INVENTORY---------+\n";
     hero->printInventory();
-    std::cout << "What do you want to sell?" << std::endl;
-    std::cout << "\t[1] Weapon" << std::endl;
-    std::cout << "\t[2] Armor" << std::endl;
-    std::cout << "\t[3] I changed my mind" << std::endl;
-    std::cin >> choice;
-    if (choice == 1) {
-        sellWeapon(hero, friendlyCharacter);
-    } else if (choice == 2){
-        sellArmor(hero, friendlyCharacter);
-    }
+    do {
+        std::cout << "What do you want to sell?" << std::endl;
+        std::cout << "\t[1] Weapon" << std::endl;
+        std::cout << "\t[2] Armor" << std::endl;
+        std::cout << "\t[3] Go back" << std::endl;
+        std::cin >> choice;
+        if (choice == 1) {
+            sellWeapon(hero, friendlyCharacter);
+        } else if (choice == 2) {
+            sellArmor(hero, friendlyCharacter);
+        }
+    } while (choice != 3);
 }
 
 void Sell::sellWeapon(Hero *hero, FriendlyCharacter *friendlyCharacter){
@@ -30,7 +33,7 @@ void Sell::sellWeapon(Hero *hero, FriendlyCharacter *friendlyCharacter){
 
     Weapon* weapon = hero->getInventory()->getWeapon(choice);
     if (weapon != nullptr) {
-        std::cout << "You sold: " << weapon->getName();
+        std::cout << "You sold: " << weapon->getName() << "\n";
         friendlyCharacter->getInventory()->addWeapon(weapon);
         hero->addCoins(weapon->getPrice());
     }
@@ -43,7 +46,7 @@ void Sell::sellArmor(Hero *hero, FriendlyCharacter *friendlyCharacter){
 
     Armor* armor = hero->getInventory()->getArmor(choice);
     if (armor != nullptr){
-        std::cout << "You sold: " << armor->getName();
+        std::cout << "You sold: " << armor->getName() << "\n";
         friendlyCharacter->getInventory()->addArmor(armor);
         hero->addCoins(armor->getPrice());
     }
