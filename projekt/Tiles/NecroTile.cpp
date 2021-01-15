@@ -8,7 +8,7 @@ NecroTile::NecroTile(): Tile(tileType::accessible){
 }
 
 void NecroTile::printTile(bool printHero){
-    std::cout << "^^";
+    std::cout << "._";
     Tile::printCharacter("__", printHero);
-    std::cout << "^^";
+    std::cout << "_.";
 }

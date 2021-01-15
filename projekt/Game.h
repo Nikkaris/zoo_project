@@ -5,6 +5,7 @@
 #ifndef PROJEKT_GAME_H
 #define PROJEKT_GAME_H
 
+#include <fstream>
 #include "Map.h"
 #include "Hero.h"
 #include "StoryTeller.h"
@@ -25,6 +26,7 @@ public:
     void whatToDoLocation();
     char getPlayerInput();
     static int getDifficulty();
+    void printWorldMap();
     ~Game();
 };
 

@@ -104,6 +104,7 @@ void Game::PrintLocationMenu(){
         }
         std::cout << "\t[H] Print hero statistics \n";
         std::cout << "\t[I] Manage inventory \n";
+        std::cout << "\t[M] Print World Map \n";
         std::cout << "\t[L] Change location - testing \n";
         whatToDoLocation();
     }
@@ -129,8 +130,22 @@ void Game::whatToDoLocation(){
         m_hero->manageInventory();
     } else if (playerInput == 'L'){
         m_map->changeLocation();
+    } else if (playerInput == 'M') {
+        printWorldMap();
     } else {
         std::cout << "That is not an option\n";
+    }
+}
+
+void Game::printWorldMap(){
+    std::string line;
+    std::ifstream input ("../TextFiles/map.txt");
+    if(input.is_open()) {
+        while(!input.eof()) {
+            std::getline(input, line);
+            std::cout << line << std::endl;
+        }
+        input.close();
     }
 }
 

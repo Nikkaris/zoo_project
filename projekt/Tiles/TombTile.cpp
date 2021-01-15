@@ -8,7 +8,7 @@ TombTile::TombTile(): Tile(tileType::accessible){
 }
 
 void TombTile::printTile(bool printHero){
-    std::cout << "^^";
+    std::cout << "i_";
     Tile::printCharacter("__", printHero);
-    std::cout << "^^";
+    std::cout << "_i";
 }
