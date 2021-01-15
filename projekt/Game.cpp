@@ -46,9 +46,6 @@ void Game::setupGame(){
     m_hero = new Hero;
     m_map = new Map;
     m_story = new StoryTeller;
-    m_hero->learnInteraction(new StealCoins);
-    m_hero->learnInteraction(new Buy);
-    m_hero->learnInteraction(new Sell);
 }
 
 void Game::printStart() {
@@ -62,6 +59,7 @@ void Game::printStart() {
 
     heroAttributes attributes = m_story->chooseHeroAttributes();
     m_hero->setAllHeroAttributes(attributes.strength, attributes.agility, attributes.charisma);
+    m_hero->checkInteractions();
 }
 
 char Game::getPlayerInput(){
@@ -121,7 +119,7 @@ void Game::whatToDoLocation(){
             m_map->removeChest();
         }
     } else if (playerInput == '2' and m_map->getEnemy() != nullptr){
-        m_hero->attackEnemy(m_map->getEnemy());
+        m_hero->fightEnemy(m_map->getEnemy());
         m_map->removeEnemy();
     } else if (playerInput == '2' and m_map->getFriendlyCharacter() != nullptr) {
         m_hero->makeInteraction(m_map->getFriendlyCharacter());

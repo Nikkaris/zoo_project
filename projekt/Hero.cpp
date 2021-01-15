@@ -3,13 +3,16 @@
 //
 
 #include "Hero.h"
-#include "Interactions/Interaction.h"
+#include "Interactions/Buy.h"
+#include "Interactions/Sell.h"
+#include "Interactions/StealCoins.h"
 
 Hero::Hero(){
     m_name = "";
     m_level = 1;
     m_xp = 0;
     m_maxXp= 100;
+    m_stamina = 100;
     m_physicalDamage = 5;
     m_agility = 1;
     m_strength = 1;
@@ -56,6 +59,7 @@ void Hero::printBasicInfo(){
     std::cout << "HP: " << m_health << "/100\n";
     std::cout << "Physical damage: " << getPhysicalDamage() << "\n";
     std::cout << "Coins: " << m_coins << "\n";
+    std::cout << "Stamina: " << m_stamina << "\n";
     std::cout << std::setw(m_name.length()+(2*separator.length())+1) << std::setfill('-') << "\n";
 }
 
@@ -87,8 +91,6 @@ void Hero::makeInteraction(FriendlyCharacter* friendlyCharacter){
         playerInput--;
         if (playerInput < m_interactions.size()) {
             m_interactions.at(playerInput)->makeInteraction(this, friendlyCharacter);
-        } else {
-            std::cout << "That is not an option\n";
         }
     } while (playerInput != m_interactions.size());
 }
@@ -201,21 +203,24 @@ bool Hero::inspectChest(Chest* chest){
     }
 }
 
-void Hero::attackEnemy(Enemy* enemy){
-    int choice = 0;
+void Hero::fightEnemy(Enemy* enemy){
+    char choice = 0;
     while (getHealth() > 0 and enemy->getHealth() > 0){
         printBasicInfo();
         std::cout << "Enemy hp: " << enemy->getHealth() << std::endl;
         std::cout << "What do you want to do?" << std::endl;
-        std::cout << "\t[1] Attack\n";
-        std::cout << "\t[2] Manage inventory\n";
+        std::cout << "\t[1] Light Attack\n";
+        std::cout << "\t[2] Heavy Attack\n";
         std::cout << "\t[3] Rest - WIP\n";
+        std::cout << "\t[I] Manage inventory\n";
         std::cin >> choice;
-        if(choice == 1) {
-            enemy->takeDamage(getPhysicalDamage());
-            std::cout << "You dealt: " << getPhysicalDamage() << " damage\n";
-            std::cout << "You suffered: " << takeDamage(enemy->getPhysicalDamage()) << " damage\n";
-        } else if(choice == 2) {
+        if (choice == '1') {
+            attackEnemy(enemy, 30);
+        } else if(choice == '2') {
+            attackEnemy(enemy, 50);
+        } else if (choice == '3') {
+            restToGainStamina(enemy);
+        } else if (choice == 'I'){
             manageInventory();
         }
     }
@@ -227,6 +232,36 @@ void Hero::attackEnemy(Enemy* enemy){
         gainXp(enemy->getXpReward());
         std::cout << "Your reward is: " << enemy->getCoinsReward() << " Coins\n";
         addCoins(enemy->getCoinsReward());
+    }
+    m_stamina = 100;
+}
+
+void Hero::attackEnemy(Enemy* enemy, int attackStamina) {
+    int heroDamage;
+    if (attackStamina == 30){
+        heroDamage = getPhysicalDamage();
+    } else if (attackStamina == 50){
+        heroDamage = getPhysicalDamage() * 1.8;
+    }
+    float staminaToReduce = attackStamina - (2 * m_agility);
+    if (staminaToReduce < 5){
+        staminaToReduce = 5;
+    }
+    if (m_stamina >= staminaToReduce) {
+        enemy->takeDamage(heroDamage);
+        m_stamina -= staminaToReduce;
+        std::cout << "You dealt: " << heroDamage << " damage\n";
+        std::cout << "You suffered: " << takeDamage(enemy->getPhysicalDamage()) << " damage\n";
+    } else {
+        std::cout << "You dont have enough stamina to attack\n";
+    }
+}
+
+void Hero::restToGainStamina(Enemy* enemy){
+    std::cout << "You suffered: " << takeDamage(enemy->getPhysicalDamage()) << " damage\n";
+    m_stamina += 50;
+    if (m_stamina > 100){
+        m_stamina = 100;
     }
 }
 
@@ -271,6 +306,26 @@ void Hero::levelUp(){
         default:
             levelUp();
     }
+    checkInteractions();
+}
+
+void Hero::checkInteractions(){
+    if (m_agility >= 3 and !learntInteraction.stealCoin){
+        learnInteraction(new StealCoins);
+        learntInteraction.stealCoin = true;
+        std::cout << "You have learnt new interaction: Steal Coins\n";
+    }
+    if (m_agility >= 2 and !learntInteraction.buy){
+        learnInteraction(new Buy);
+        learntInteraction.buy = true;
+        std::cout << "You have learnt new interaction: Buy items\n";
+    }
+    if (m_agility >= 4 and !learntInteraction.sell){
+        learnInteraction(new Sell);
+        learntInteraction.sell = true;
+        std::cout << "You have learnt new interaction: Sell items\n";
+    }
+    //flirt
 }
 
 Hero::~Hero(){

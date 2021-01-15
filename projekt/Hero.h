@@ -14,6 +14,14 @@
 #include "Chest.h"
 #include "Enemy.h"
 
+struct LearntInteraction{
+    bool buy = false;
+    bool sell = false;
+    bool stealCoin = false;
+    bool fight = false;
+    bool flirt = false;
+};
+
 class Interaction;
 
 class Hero: public Character {
@@ -21,6 +29,8 @@ class Hero: public Character {
     int m_level;
     int m_xp;
     int m_maxXp;
+    int m_stamina;
+    LearntInteraction learntInteraction;
 public:
     Hero();
     void printAllInfo();
@@ -33,10 +43,13 @@ public:
     void manageInventory();
     bool unlockChest(Chest* chest);
     bool inspectChest(Chest* chest);
-    void attackEnemy(Enemy* enemy);
+    void fightEnemy(Enemy* enemy);
+    void attackEnemy(Enemy* enemy, int attackStamina);
+    void restToGainStamina(Enemy* enemy);
     void drinkPotion(Potion* potion);
     void gainXp(int xp);
     void levelUp();
+    void checkInteractions();
     ~Hero();
 private:
     void printManageInventory();
