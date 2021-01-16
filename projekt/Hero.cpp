@@ -211,7 +211,7 @@ void Hero::fightEnemy(Enemy* enemy){
         std::cout << "What do you want to do?" << std::endl;
         std::cout << "\t[1] Light Attack\n";
         std::cout << "\t[2] Heavy Attack\n";
-        std::cout << "\t[3] Rest - WIP\n";
+        std::cout << "\t[3] Rest\n";
         std::cout << "\t[I] Manage inventory\n";
         std::cin >> choice;
         if (choice == '1') {

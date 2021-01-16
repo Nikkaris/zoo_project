@@ -26,7 +26,9 @@ public:
     void whatToDoLocation();
     char getPlayerInput();
     static int getDifficulty();
-    void printWorldMap();
+    void printFromFile(std::string fileLocation);
+    void printHelp();
+    void pauseMenu();
     ~Game();
 };
 

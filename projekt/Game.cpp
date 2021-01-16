@@ -12,22 +12,46 @@ Game::Game(){
 void Game::startGame(){
     std::cout << "Main menu\n";
     std::cout << "\t[1] Start game\n";
-    std::cout << "\t[2] Print help - WIP\n";
+    std::cout << "\t[2] Print help\n";
     std::cout << "\t[3] Exit game\n";
     int choice;
-    do {
-        std::cin >> choice;
-        if (choice == 1){
-            chooseDifficulty();
-            setupGame();
-            printStart();
-            mapControl();
-        } else if (choice == 2){
-            //print help
-        } else if (choice == 3){
-            exit(0);
-        }
-    } while (choice != 1);
+
+    std::cin >> choice;
+    if (choice == 1){
+        chooseDifficulty();
+        setupGame();
+        printStart();
+        mapControl();
+    } else if (choice == 2){
+        printHelp();
+        startGame();
+    } else if (choice == 3){
+        exit(0);
+    } else {
+        startGame();
+    }
+}
+
+void Game::pauseMenu(){
+    std::cout << "Pause menu\n";
+    std::cout << "\t[1] Resume\n";
+    std::cout << "\t[2] Print help\n";
+    std::cout << "\t[3] Exit game\n";
+    int choice;
+
+    std::cin >> choice;
+    if (choice == 1){
+        return;
+    } else if (choice == 2){
+        printHelp();
+        pauseMenu();
+    } else if (choice == 3){
+        std::cout << "Thank you for playing" << std::endl;
+        exit(0);
+    } else {
+        std::cout << "That is not an option\n";
+        pauseMenu();
+    }
 }
 
 void Game::chooseDifficulty(){
@@ -105,6 +129,7 @@ void Game::PrintLocationMenu(){
         std::cout << "\t[H] Print hero statistics \n";
         std::cout << "\t[I] Manage inventory \n";
         std::cout << "\t[M] Print World Map \n";
+        std::cout << "\t[P] Pause game \n";
         std::cout << "\t[L] Change location - testing \n";
         whatToDoLocation();
     }
@@ -131,15 +156,17 @@ void Game::whatToDoLocation(){
     } else if (playerInput == 'L'){
         m_map->changeLocation();
     } else if (playerInput == 'M') {
-        printWorldMap();
+        printFromFile("../TextFiles/map.txt");
+    } else if (playerInput == 'P'){
+        pauseMenu();
     } else {
         std::cout << "That is not an option\n";
     }
 }
 
-void Game::printWorldMap(){
+void Game::printFromFile(std::string fileLocation){
     std::string line;
-    std::ifstream input ("../TextFiles/map.txt");
+    std::ifstream input (fileLocation);
     if(input.is_open()) {
         while(!input.eof()) {
             std::getline(input, line);
@@ -151,6 +178,32 @@ void Game::printWorldMap(){
 
 int Game::getDifficulty(){
     return m_difficulty;
+}
+
+void Game::printHelp(){
+
+    std::cout << "Help menu\n";
+    std::cout << "For what help do you search?" << std::endl;
+    std::cout << "\t[1] Prologue \n";
+    std::cout << "\t[2] Action menu \n";
+    std::cout << "\t[3] Location map \n";
+    std::cout << "\t[4] Fighting system \n";
+
+
+    char playerInput = getPlayerInput();
+    while (playerInput > '4' || playerInput < '1') {
+        std::cout << "That is not an option" << std::endl;
+        playerInput = getPlayerInput();
+    }
+    if (playerInput == '1') {
+        printFromFile("../TextFiles/Help/Prologue.txt");
+    } else if (playerInput == '2') {
+        printFromFile("../TextFiles/Help/ActionMenu.txt");
+    } else if (playerInput == '3') {
+        printFromFile("../TextFiles/Help/LocationMap.txt");
+    } else if (playerInput == '4') {
+        printFromFile("../TextFiles/Help/FightingSystem.txt");
+    }
 }
 
 Game::~Game(){
