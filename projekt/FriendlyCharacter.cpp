@@ -10,8 +10,6 @@ FriendlyCharacter::FriendlyCharacter(std::string name, int strength, int agility
     m_agility = agility;
     m_charisma = charisma;
     m_coins = coins;
-    m_equippedWeapon = nullptr;
-    m_equippedArmor = nullptr;
     m_inventory = new Inventory();
 }
 

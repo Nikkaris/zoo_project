@@ -9,6 +9,7 @@
 
 Hero::Hero(){
     m_name = "";
+    m_health = 100;
     m_level = 1;
     m_xp = 0;
     m_maxXp= 100;
@@ -69,6 +70,30 @@ void Hero::setHeroName(std::string name){
 
 void Hero::addCoins(int howMany){
     m_coins += howMany;
+}
+
+int Hero::getHealth(){
+    return m_health;
+}
+
+int Hero::getPhysicalDamage() {
+    if(m_equippedWeapon != nullptr){
+        return m_physicalDamage + (m_strength * 5) + m_equippedWeapon->getDamageBonus();
+    } else {
+        return m_physicalDamage + (m_strength * 5);
+    }
+}
+
+float Hero::takeDamage(int howMuch){
+    float damage;
+    if (m_equippedArmor != nullptr) {
+        damage = howMuch - (m_equippedArmor->getArmorBonus() / 2);
+        m_health -= damage;
+    } else {
+        damage = howMuch;
+        m_health -= damage;
+    }
+    return damage;
 }
 
 void Hero::setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma){
@@ -224,7 +249,7 @@ void Hero::fightEnemy(Enemy* enemy){
             manageInventory();
         }
     }
-    if(m_health <= 0) {
+    if (m_health <= 0) {
         std::cout << "You died. GAME OVER\n";
         exit(0);
     } else {
@@ -278,17 +303,17 @@ void Hero::drinkPotion(Potion* potion){
 
 void Hero::gainXp(int xp){
     m_xp += xp;
-    if (m_xp >= m_maxXp){
+    while (m_xp >= m_maxXp){
         m_xp -= m_maxXp;
         levelUp();
     }
 }
 
 void Hero::levelUp(){
-    m_maxXp += 5 + (3 * m_level);
+    m_maxXp += 5 + (2 * m_level);
     m_level++;
     int choice;
-    std::cout << "What do you want to upgrade?\n";
+    std::cout << "You have leveled up!\n What do you want to upgrade?\n";
     std::cout << "\t[1] Strength\n";
     std::cout << "\t[2] Agility\n";
     std::cout << "\t[3] Charisma\n";
@@ -310,17 +335,17 @@ void Hero::levelUp(){
 }
 
 void Hero::checkInteractions(){
+    if (m_charisma >= 1 and !learntInteraction.buy){
+        learnInteraction(new Buy);
+        learntInteraction.buy = true;
+        std::cout << "You have learnt new interaction: Buy items\n";
+    }
     if (m_agility >= 3 and !learntInteraction.stealCoin){
         learnInteraction(new StealCoins);
         learntInteraction.stealCoin = true;
         std::cout << "You have learnt new interaction: Steal Coins\n";
     }
-    if (m_agility >= 2 and !learntInteraction.buy){
-        learnInteraction(new Buy);
-        learntInteraction.buy = true;
-        std::cout << "You have learnt new interaction: Buy items\n";
-    }
-    if (m_agility >= 4 and !learntInteraction.sell){
+    if (m_charisma >= 2 and !learntInteraction.sell){
         learnInteraction(new Sell);
         learntInteraction.sell = true;
         std::cout << "You have learnt new interaction: Sell items\n";
@@ -329,6 +354,12 @@ void Hero::checkInteractions(){
 }
 
 Hero::~Hero(){
+    if (m_equippedArmor != nullptr){
+        delete m_equippedArmor;
+    }
+    if (m_equippedWeapon != nullptr){
+        delete m_equippedWeapon;
+    }
     for (auto &interaction: m_interactions){
         if (interaction != nullptr){
             delete interaction;

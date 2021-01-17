@@ -12,18 +12,18 @@ void Sell::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     std::cout << "You have: " << hero->getCoins() << " C\n";
     std::cout << "+--------INVENTORY---------+\n";
     hero->printInventory();
-    do {
-        std::cout << "What do you want to sell?" << std::endl;
-        std::cout << "\t[1] Weapon" << std::endl;
-        std::cout << "\t[2] Armor" << std::endl;
-        std::cout << "\t[3] Go back" << std::endl;
-        std::cin >> choice;
-        if (choice == 1) {
-            sellWeapon(hero, friendlyCharacter);
-        } else if (choice == 2) {
-            sellArmor(hero, friendlyCharacter);
-        }
-    } while (choice != 3);
+    std::cout << "What do you want to sell?" << std::endl;
+    std::cout << "\t[1] Weapon" << std::endl;
+    std::cout << "\t[2] Armor" << std::endl;
+    std::cout << "\t[3] Go back" << std::endl;
+    std::cin >> choice;
+    if (choice == 1) {
+        sellWeapon(hero, friendlyCharacter);
+    } else if (choice == 2) {
+        sellArmor(hero, friendlyCharacter);
+    } else {
+        makeInteraction(hero, friendlyCharacter);
+    }
 }
 
 void Sell::sellWeapon(Hero *hero, FriendlyCharacter *friendlyCharacter){

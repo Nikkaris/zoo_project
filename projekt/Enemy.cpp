@@ -39,7 +39,7 @@ int Enemy::getHealth(){
 }
 
 int Enemy::getXpReward(){
-    return 100 + (3 * m_level);
+    return 30 + (3 * m_level);
 }
 
 int Enemy::getCoinsReward(){

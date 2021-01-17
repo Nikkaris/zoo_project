@@ -26,10 +26,14 @@ class Interaction;
 
 class Hero: public Character {
     std::vector<Interaction*> m_interactions;
+    int m_health;
     int m_level;
     int m_xp;
     int m_maxXp;
     int m_stamina;
+    int m_physicalDamage;
+    Weapon* m_equippedWeapon;
+    Armor* m_equippedArmor;
     LearntInteraction learntInteraction;
 public:
     Hero();
@@ -37,6 +41,9 @@ public:
     void printBasicInfo();
     void setHeroName(std::string name);
     void addCoins(int howMany);
+    int getHealth();
+    int getPhysicalDamage();
+    float takeDamage(int howMuch);
     void setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma);
     void makeInteraction(FriendlyCharacter* friendlyCharacter);
     void learnInteraction(Interaction* interaction);

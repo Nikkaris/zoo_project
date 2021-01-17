@@ -12,21 +12,21 @@ void Buy::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     std::cout << "You have: " << hero->getCoins() << " C\n";
     std::cout << "+-----------SHOP-----------+\n";
     friendlyCharacter->printInventory();
-    do {
-        std::cout << "What do you want to buy?" << std::endl;
-        std::cout << "\t[1] Weapon" << std::endl;
-        std::cout << "\t[2] Armor" << std::endl;
-        std::cout << "\t[3] Key" << std::endl;
-        std::cout << "\t[4] Go back" << std::endl;
-        std::cin >> choice;
-        if (choice == 1) {
-            buyWeapon(hero, friendlyCharacter);
-        } else if (choice == 2) {
-            buyArmor(hero, friendlyCharacter);
-        } else if (choice == 3) {
-            buyKey(hero, friendlyCharacter);
-        }
-    } while (choice != 4);
+    std::cout << "What do you want to buy?" << std::endl;
+    std::cout << "\t[1] Weapon" << std::endl;
+    std::cout << "\t[2] Armor" << std::endl;
+    std::cout << "\t[3] Key" << std::endl;
+    std::cout << "\t[4] Go back" << std::endl;
+    std::cin >> choice;
+    if (choice == 1) {
+        buyWeapon(hero, friendlyCharacter);
+    } else if (choice == 2) {
+        buyArmor(hero, friendlyCharacter);
+    } else if (choice == 3) {
+        buyKey(hero, friendlyCharacter);
+    } else {
+        makeInteraction(hero, friendlyCharacter);
+    }
 }
 
 void Buy::buyWeapon(Hero* hero, FriendlyCharacter* friendlyCharacter){

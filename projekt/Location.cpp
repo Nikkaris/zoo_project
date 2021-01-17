@@ -62,25 +62,25 @@ void Location::printTileSides(){
     possibleMove move;
     if (m_currentTileCoor.x > 0){
         if (m_tiles.at(m_currentTileCoor.x-1).at(m_currentTileCoor.y)->getTileType() != tileType::unAccessible) {
-            std::cout << "You can go [U]p" << std::endl;
+            std::cout << "You can go [U]p\n";
             move.north = true;
         }
     }
     if (m_currentTileCoor.y < m_tiles.at(0).size()-1){
         if (m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y+1)->getTileType() != tileType::unAccessible) {
-            std::cout << "You can go [R]ight" << std::endl;
+            std::cout << "You can go [R]ight\n";
             move.east = true;
         }
     }
     if (m_currentTileCoor.x < m_tiles.size()-1){
         if (m_tiles.at(m_currentTileCoor.x+1).at(m_currentTileCoor.y)->getTileType() != tileType::unAccessible) {
-            std::cout << "You can go [D]own" << std::endl;
+            std::cout << "You can go [D]own\n";
             move.south = true;
         }
     }
     if (m_currentTileCoor.y > 0){
         if (m_tiles.at(m_currentTileCoor.x).at(m_currentTileCoor.y-1)->getTileType() != tileType::unAccessible){
-        std::cout << "You can go [L]eft" << std::endl;
+        std::cout << "You can go [L]eft\n";
         move.west = true;
         }
     }
@@ -88,7 +88,6 @@ void Location::printTileSides(){
 }
 
 void Location::switchTile(possibleMove move){
-    std::cout << std::endl;
     char playerOption;
     std::cin >> playerOption;
 

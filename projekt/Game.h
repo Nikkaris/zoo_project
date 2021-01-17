@@ -22,8 +22,8 @@ public:
     void setupGame();
     void printStart();
     void mapControl();
-    void PrintLocationMenu();
-    void whatToDoLocation();
+    void printActionMenu();
+    void chooseAction();
     char getPlayerInput();
     static int getDifficulty();
     void printFromFile(std::string fileLocation);
