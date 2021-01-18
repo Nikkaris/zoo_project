@@ -39,13 +39,13 @@ void ForestLocationBuilder::createLocation(){
 }
 
 void ForestLocationBuilder::setEnemies(){
-    m_tiles.at(1).at(3)->setEnemy(new Enemy(5));
-    m_tiles.at(2).at(1)->setEnemy(new Enemy(3));
+    m_tiles.at(2).at(2)->setEnemy(new Enemy(2));
+    m_tiles.at(2).at(0)->setEnemy(new Enemy(1));
 }
 
 void ForestLocationBuilder::setChests(){
-    m_tiles.at(0).at(1)->setChest(new Chest(new Weapon("Hammer", 30, 18), true));
-    m_tiles.at(1).at(0)->setChest(new Chest(new Armor("wooden armor", 10, 13), false));
+    m_tiles.at(3).at(0)->setChest(new Chest(new Potion("Small Healing Potion", 12, 15), true));
+    m_tiles.at(3).at(3)->setChest(new Chest(new Armor("Leather Armor", 10, 10), false));
 }
 
 void ForestLocationBuilder::setFriendlyCharacters(){

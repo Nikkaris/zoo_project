@@ -25,7 +25,7 @@ void Buy::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     } else if (choice == 3) {
         buyKey(hero, friendlyCharacter);
     } else {
-        makeInteraction(hero, friendlyCharacter);
+        return;
     }
 }
 

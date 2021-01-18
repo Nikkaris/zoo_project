@@ -18,11 +18,11 @@ void HutLocationBuilder::createLocation(){
 
     row2.push_back(new HutTile());
     row2.push_back(new HutTile());
-    row2.push_back(new HutTile());
+    row2.push_back(new ExitTile());
 
     row3.push_back(new HutTile());
     row3.push_back(new HutTile());
-    row3.push_back(new ExitTile());
+    row3.push_back(new HutTile());
 
     m_tiles.push_back(row1);
     m_tiles.push_back(row2);
@@ -30,25 +30,23 @@ void HutLocationBuilder::createLocation(){
 }
 
 void HutLocationBuilder::setEnemies(){
-    m_tiles.at(1).at(2)->setEnemy(new Enemy(2));
-    m_tiles.at(2).at(1)->setEnemy(new Enemy(1));
+    m_tiles.at(2).at(2)->setEnemy(new Enemy(1));
 }
 
 void HutLocationBuilder::setChests(){
-    m_tiles.at(0).at(1)->setChest(new Chest(new Weapon("Sword", 7, 10), false));
-    m_tiles.at(0).at(2)->setChest(new Chest(new Weapon("Shovel", 3, 5), false));
-    m_tiles.at(1).at(0)->setChest(new Chest(new Potion("Small HP", 5, 15), true));
+    m_tiles.at(0).at(2)->setChest(new Chest(new Weapon("Broken Sword", 7, 10), false));
+    //m_tiles.at(1).at(0)->setChest(new Chest(new Potion("Small HP", 5, 15), true));
 }
 
 void HutLocationBuilder::setFriendlyCharacters(){
-    FriendlyCharacter* lucas = new FriendlyCharacter("Lucas", 5, 0, 3, 50);
+    FriendlyCharacter* oldMan = new FriendlyCharacter("Viggo", 5, 0, 3, 50);
     Inventory* lucasInventory = new Inventory();
-    lucasInventory->addWeapon(new Weapon("Katana", 50, 20));
-    lucasInventory->addArmor(new Armor("Wolf armor", 60, 15));
+    lucasInventory->addWeapon(new Weapon("Axe of wolves", 78, 45));
+    lucasInventory->addArmor(new Armor("Wolf armor", 60, 45));
     lucasInventory->addKey(new Key(8, 1));
-    lucas->setInventory(lucasInventory);
+    oldMan->setInventory(lucasInventory);
 
-    m_tiles.at(1).at(1)->setFriendlyCharacter(lucas);
+    m_tiles.at(2).at(0)->setFriendlyCharacter(oldMan);
 }
 
 void HutLocationBuilder::createSideLocations(){

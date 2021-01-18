@@ -22,7 +22,7 @@ void Sell::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     } else if (choice == 2) {
         sellArmor(hero, friendlyCharacter);
     } else {
-        makeInteraction(hero, friendlyCharacter);
+        return;
     }
 }
 

@@ -13,11 +13,11 @@ Enemy::Enemy(int level){
 
 void Enemy::setPhysicalDamage(){
     switch (Game::getDifficulty()) {
-        case 1: m_physicalDamage = 10 + (3 * m_level);
+        case 1: m_physicalDamage = 5 + (3 * m_level);
                 break;
-        case 2: m_physicalDamage = 15 + (4 * m_level);
+        case 2: m_physicalDamage = 12 + (4 * m_level);
                 break;
-        case 3: m_physicalDamage = 20 + (5 * m_level);
+        case 3: m_physicalDamage = 15 + (5 * m_level);
                 break;
     }
 }
