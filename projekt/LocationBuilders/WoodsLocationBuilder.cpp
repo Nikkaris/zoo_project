@@ -9,21 +9,20 @@ WoodsLocationBuilder::WoodsLocationBuilder(){
 
 void WoodsLocationBuilder::createLocation(){
     m_location = new Location("Hollow Woods");
-    m_location->setLocationSize(4);
 
     std::vector<Tile*> row1, row2, row3, row4;
     row1.push_back(new ForestTile());
-    row1.push_back(new ForestTile());
+    row1.push_back(new TownTile());
     row1.push_back(new ForestTile());
     row1.push_back(new ForestTile());
 
     row2.push_back(new ForestTile());
+    row2.push_back(new TownTile());
     row2.push_back(new ForestTile());
-    row2.push_back(new ForestTile());
-    row2.push_back(new ForestTile());
+    row2.push_back(new ExitTile());
 
     row3.push_back(new ForestTile());
-    row3.push_back(new ForestTile());
+    row3.push_back(new WaterTile());
     row3.push_back(new ForestTile());
     row3.push_back(new ForestTile());
 
@@ -39,9 +38,14 @@ void WoodsLocationBuilder::createLocation(){
 }
 
 void WoodsLocationBuilder::setEnemies(){
+    m_tiles.at(2).at(0)->setEnemy(new Enemy(1));
+    m_tiles.at(3).at(1)->setEnemy(new Enemy(1));
+    m_tiles.at(0).at(2)->setEnemy(new Enemy(5));
 }
 
 void WoodsLocationBuilder::setChests(){
+    m_tiles.at(0).at(3)->setChest(new Chest(new Weapon("Ancient Bow", 35, 40), false));
+    m_tiles.at(3).at(0)->setChest(new Chest(new Potion("Medium Healing Potion", 20, 30), false));
 }
 
 void WoodsLocationBuilder::setFriendlyCharacters(){

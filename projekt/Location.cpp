@@ -23,10 +23,6 @@ void Location::setSideLocations(sideLocations sides){
     m_sideLocations = sides;
 }
 
-void Location::setLocationSize(int size){
-    m_locationSize = size;
-}
-
 void Location::resetTileCoordinates(){
     m_currentTileCoor.x = 0;
     m_currentTileCoor.y = 0;
@@ -106,10 +102,6 @@ void Location::switchTile(possibleMove move){
 
 std::string Location::getLocationName(){
     return m_name;
-}
-
-int Location::getLocationSize(){
-    return m_locationSize;
 }
 
 tileType Location::getTileType(){

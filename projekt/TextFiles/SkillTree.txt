@@ -1,0 +1,14 @@
+
+-----------------------------------------------Skill Tree------------------------------------------------
+Welcome to your skill tree. You can find here abilities, which you can acquire through level ups.
+
+Agility:
+
+3 - stealing of coins
+
+Charisma:
+
+1 - buy items
+3- sell items
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

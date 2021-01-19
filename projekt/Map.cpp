@@ -42,7 +42,7 @@ void Map::printLocationInfo(){
 }
 
 void Map::printSideLocations(){
-    std::cout << "You can go to: ";
+    std::cout << "You can go to: \n";
     sideLocations sides = m_locations.at(m_currentLocationIndex)->getSideLocations();
     possibleMove move;
     if (sides.north >= 0){

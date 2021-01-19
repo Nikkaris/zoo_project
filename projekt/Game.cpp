@@ -83,38 +83,46 @@ void Game::mapControl(){
         printActionMenu();
         m_map->printSideLocations();
     }
-    // ending
+    gameEnding();
+}
+
+void Game::gameEnding(){
     m_story->printChapter(8);
+    Enemy* lich = new Enemy(1);
+    m_hero->fightEnemy(lich);
+    printFromFile("../TextFiles/Epilog.txt");
 }
 
 void Game::printActionMenu(){
     while (m_map->getTileType() != tileType::exit) {
         m_hero->printBasicInfo();
         m_map->printLocation();
-        std::cout << "What do you want to do? \n";
-        std::cout << "\t[1] Move on tile \n";
         if (m_map->getEnemy() != nullptr){
             std::cout << "You have been attacked! \n";
             m_hero->fightEnemy(m_map->getEnemy());
             m_map->removeEnemy();
-        }
-        if (m_map->getChest() != nullptr){
-            std::cout << "\t[2] Open chest ";
-            if (m_map->getChest()->getLocked()){
-                std::cout << "- Locked - Key " << m_map->getChest()->getID() << "\n";
-            } else {
-                std::cout << "- Unlocked\n";
+        } else {
+            std::cout << "What do you want to do? \n";
+            std::cout << "\t[1] Move on tile \n";
+            if (m_map->getChest() != nullptr){
+                std::cout << "\t[2] Open chest ";
+                if (m_map->getChest()->getLocked()){
+                    std::cout << "- Locked - Key " << m_map->getChest()->getID() << "\n";
+                } else {
+                    std::cout << "- Unlocked\n";
+                }
             }
+            if (m_map->getFriendlyCharacter() != nullptr){
+                std::cout << "\t[2] Interact witch NPC \n";
+            }
+            std::cout << "\t[H] Print hero statistics \n";
+            std::cout << "\t[I] Manage inventory \n";
+            std::cout << "\t[S] Skill Tree \n";
+            std::cout << "\t[M] Print World Map \n";
+            std::cout << "\t[P] Pause game \n";
+            std::cout << "\t[L] Change location - testing \n";
+            chooseAction();
         }
-        if (m_map->getFriendlyCharacter() != nullptr){
-            std::cout << "\t[2] Interact witch NPC \n";
-        }
-        std::cout << "\t[H] Print hero statistics \n";
-        std::cout << "\t[I] Manage inventory \n";
-        std::cout << "\t[M] Print World Map \n";
-        std::cout << "\t[P] Pause game \n";
-        std::cout << "\t[L] Change location - testing \n";
-        chooseAction();
     }
 }
 
@@ -136,9 +144,11 @@ void Game::chooseAction(){
     } else if (playerInput == 'L'){
         m_map->changeLocation();
     } else if (playerInput == 'M') {
-        printFromFile("../TextFiles/map.txt");
+        printFromFile("../TextFiles/Map.txt");
     } else if (playerInput == 'P'){
         pauseMenu();
+    } else if (playerInput == 'S'){
+        printFromFile("../TextFiles/SkillTree.txt");
     } else {
         std::cout << "That is not an option\n";
     }

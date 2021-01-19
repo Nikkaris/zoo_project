@@ -29,6 +29,7 @@ public:
     void printFromFile(std::string fileLocation);
     void printHelp();
     void pauseMenu();
+    void gameEnding();
     ~Game();
 };
 

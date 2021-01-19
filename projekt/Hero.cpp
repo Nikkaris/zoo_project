@@ -48,7 +48,7 @@ void Hero::printAllInfo(){
         std::cout << "No equipped armor\n";
     }
     std::cout << std::setw(m_name.length()+(2*separator.length())+1) << std::setfill('-') << "\n";
-    std::cout << "Press any key to continue...\n";
+    std::cout << "Press enter to continue...\n";
     std::cin.ignore();
     std::cin.get();
 }
@@ -345,7 +345,7 @@ void Hero::checkInteractions(){
         learntInteraction.stealCoin = true;
         std::cout << "You have learnt new interaction: Steal Coins\n";
     }
-    if (m_charisma >= 2 and !learntInteraction.sell){
+    if (m_charisma >= 3 and !learntInteraction.sell){
         learnInteraction(new Sell);
         learntInteraction.sell = true;
         std::cout << "You have learnt new interaction: Sell items\n";

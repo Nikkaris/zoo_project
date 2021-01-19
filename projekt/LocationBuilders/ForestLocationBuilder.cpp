@@ -9,7 +9,6 @@ ForestLocationBuilder::ForestLocationBuilder(){
 
 void ForestLocationBuilder::createLocation(){
     m_location = new Location("Whispering Forest");
-    m_location->setLocationSize(4);
 
     std::vector<Tile*> row1, row2, row3, row4;
     row1.push_back(new ForestTile());

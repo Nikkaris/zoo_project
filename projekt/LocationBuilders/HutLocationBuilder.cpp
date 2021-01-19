@@ -9,7 +9,6 @@ HutLocationBuilder::HutLocationBuilder(){
 
 void HutLocationBuilder::createLocation(){
     m_location = new Location("The Old Man's Hut");
-    m_location->setLocationSize(3);
 
     std::vector<Tile*> row1, row2, row3;
     row1.push_back(new HutTile());
@@ -17,7 +16,7 @@ void HutLocationBuilder::createLocation(){
     row1.push_back(new HutTile());
 
     row2.push_back(new HutTile());
-    row2.push_back(new HutTile());
+    row2.push_back(new FireTile());
     row2.push_back(new ExitTile());
 
     row3.push_back(new HutTile());
@@ -40,11 +39,13 @@ void HutLocationBuilder::setChests(){
 
 void HutLocationBuilder::setFriendlyCharacters(){
     FriendlyCharacter* oldMan = new FriendlyCharacter("Viggo", 5, 0, 3, 50);
-    Inventory* lucasInventory = new Inventory();
-    lucasInventory->addWeapon(new Weapon("Axe of wolves", 78, 45));
-    lucasInventory->addArmor(new Armor("Wolf armor", 60, 45));
-    lucasInventory->addKey(new Key(8, 1));
-    oldMan->setInventory(lucasInventory);
+    Inventory* oldManInventory = new Inventory();
+    oldManInventory->addWeapon(new Weapon("Wolf axe", 78, 45));
+    oldManInventory->addArmor(new Armor("Wolf armor", 60, 45));
+    oldManInventory->addKey(new Key(8, 1));
+    oldManInventory->addPotion(new Potion("Small Healing Potion", 0, 15));
+    oldManInventory->addPotion(new Potion("Small Healing Potion", 0, 15));
+    oldMan->setInventory(oldManInventory);
 
     m_tiles.at(2).at(0)->setFriendlyCharacter(oldMan);
 }

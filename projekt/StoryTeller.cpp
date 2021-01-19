@@ -50,14 +50,14 @@ heroAttributes StoryTeller::chooseHeroAttributes(){
 
     if(dialogOption == '1') {
         std::cout << "That is what I thought. That would explain your personality and temperament.\n";
-        attributes.strength += 2;
+        attributes.charisma += 2;
     } else if (dialogOption == '2') {
         std::cout << "That would explain that crest on your armor.\n";
-        attributes.agility += 2;
+        attributes.strength += 2;
     } else if (dialogOption == '3') {
         std::cout << "Cape and leather armor, that explain a lot, but do not worry I do not judge you.\n";
         std::cout << "Living in this world is harder than before...\n";
-        attributes.charisma += 2;
+        attributes.agility += 2;
     }
 
     std::cout << "\n";
@@ -72,13 +72,13 @@ heroAttributes StoryTeller::chooseHeroAttributes(){
 
     if(dialogOption == '1') {
         std::cout << "I agree, when you catch your enemy off-guard. It makes your fight a lot easier." << std::endl;
-        attributes.strength++;
+        attributes.agility++;
     } else if (dialogOption == '2') {
         std::cout << "Nowdays is hard to not fight. Sometimes you just have to. But your answer is not wrong." << std::endl;
-        attributes.agility++;
+        attributes.charisma++;
     } else if (dialogOption == '3') {
         std::cout << "I see, that you are really sure about yourself. And that is not in fact wrong, but its double sided edge" << std::endl;
-        attributes.charisma++;
+        attributes.strength++;
     }
     return attributes;
 }
@@ -117,10 +117,6 @@ void StoryTeller::printChapterOne(){
 }
 
 void StoryTeller::printChapterTwo() {
-    /*Není to ani půl den cesty a již jsi spatřil zmiňovaný Šeptající Les. Stařec ti o něm vyprávěl, prý zde byla masakr. Armáda plenící vesnici.
-     * Nebrali zajatce, vraždili všechny starce, ženy i děti. Na pozůstatcích vzrostl tento majestátní les, který je přece jenom něčím zvláštní.
-     * Kolují o něm historky, že prý, když skrze něj procházíš, tak lze stále slyšet nářek vesničanů, kteří v ten soudný den zahynuli.
-     */
     std::cout << "\n";
     std::cout << "Chapter Two: Whispering Woods" << std::endl;
     std::cout << "It's not even half of the day and you are standing in front of Whispering Woods." << std::endl;
@@ -132,10 +128,6 @@ void StoryTeller::printChapterTwo() {
 }
 
 void StoryTeller::printChapterThree(){
-    /*Vcházíš do vesnice, jestli se to tak dá nazývat. To co vidíš by se jen těžko dalo srovnávat s vesnicí, čí osadou. Jediné,
-     * co vidíš jsou pár zchátralých dřevěných budovy, které mají střechy porostlé mechem a trávou. Není zde nic, co by lidské oko
-     * potěšilo, pouze bída, bahno a hnijící věci...
-     * */
     std::cout << "\n";
     std::cout << "Chapter Three: Crimson Village" << std::endl;
     std::cout << "You are entering Crimson Village, if we can call it village." << std::endl;
@@ -146,8 +138,6 @@ void StoryTeller::printChapterThree(){
 }
 
 void StoryTeller::printChapterFour(){
-    /*Bažina...místo, které bych nepřál ani nepříteli. Hemží se to zde ropuchami, krysami a další havětí. Nejhorší na bažině je ta hustá mlha.
-     * Lidské oko skrze ní sotva vidí obrysy, což ještě není tak hrozné, horší je, že bytosti žijící v bažině moc dobře vidí nevítané hosty.*/
     std::cout << "\n";
     std::cout << "Chapter Four: Twisted Bog" << std::endl;
     std::cout << "Bog..Swamp, the last place where you wanted to be. " << std::endl;
@@ -157,8 +147,6 @@ void StoryTeller::printChapterFour(){
 }
 
 void StoryTeller::printChapterFive(){
-    /*Chvíli jsi nedával pozor a ocitl jsi se v Hollow Woods. Na pohled je to čarovné místo v tomto prohnilém světě. Vše hraje barvami a nemálo
-     * stromů bylo nahrazeno obřími houbami*/
     std::cout << "\n";
     std::cout << "Chapter Five: Hollow Woods" << std::endl;
     std::cout << "For a moment you were thinking to yourself and forgot to watch out for journey" << std::endl;

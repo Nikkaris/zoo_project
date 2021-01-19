@@ -9,7 +9,6 @@ TownLocationBuilder::TownLocationBuilder(){
 
 void TownLocationBuilder::createLocation(){
     m_location = new Location("Town");
-    m_location->setLocationSize(4);
 
     std::vector<Tile*> row1, row2, row3, row4;
     row1.push_back(new TownTile());
@@ -80,6 +79,7 @@ void TownLocationBuilder::setFriendlyCharacters(){
     alchemistInventory->addPotion(new Potion("Medium Healing Potion", 20, 30));
     alchemistInventory->addPotion(new Potion("Medium Healing Potion", 20, 30));
     alchemistInventory->addPotion(new Potion("Large Healing Potion", 50, 65));
+    alchemistInventory->addKey(new Key(35, 3));
     alchemist->setInventory(alchemistInventory);
 
     m_tiles.at(0).at(2)->setFriendlyCharacter(alchemist);
