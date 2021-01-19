@@ -18,7 +18,6 @@ struct LearntInteraction{
     bool buy = false;
     bool sell = false;
     bool stealCoin = false;
-    bool fight = false;
     bool flirt = false;
 };
 
@@ -38,11 +37,12 @@ class Hero: public Character {
 public:
     Hero();
     void printAllInfo();
-    void printBasicInfo();
+    void printBasicInfo(std::string infoType);
     void setHeroName(std::string name);
     void addCoins(int howMany);
     int getHealth();
     int getPhysicalDamage();
+    void addStrength(int howMuch);
     float takeDamage(int howMuch);
     void setAllHeroAttributes(int bonusStrength, int bonusAgility, int bonusCharisma);
     void makeInteraction(FriendlyCharacter* friendlyCharacter);
@@ -50,8 +50,7 @@ public:
     void manageInventory();
     bool unlockChest(Chest* chest);
     bool inspectChest(Chest* chest);
-    void fightEnemy(Enemy* enemy);
-    void attackEnemy(Enemy* enemy, int attackStamina);
+    bool fightEnemy(Enemy* enemy);
     void restToGainStamina(Enemy* enemy);
     void drinkPotion(Potion* potion);
     void gainXp(int xp);
@@ -59,6 +58,7 @@ public:
     void checkInteractions();
     ~Hero();
 private:
+    void attackEnemy(Enemy* enemy, std::string typeOfAttack);
     void printManageInventory();
     void equipWeapon(int choice);
     void equipArmor(int choice);

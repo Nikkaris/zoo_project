@@ -3,16 +3,17 @@
 //
 
 #include "Hero.h"
-#include "Interactions/Buy.h"
-#include "Interactions/Sell.h"
-#include "Interactions/StealCoins.h"
+#include "Buy.h"
+#include "Sell.h"
+#include "StealCoins.h"
+#include "Flirt.h"
 
 Hero::Hero(){
     m_name = "";
     m_health = 100;
     m_level = 1;
     m_xp = 0;
-    m_maxXp= 100;
+    m_maxXp = 100;
     m_stamina = 100;
     m_physicalDamage = 5;
     m_agility = 1;
@@ -53,14 +54,17 @@ void Hero::printAllInfo(){
     std::cin.get();
 }
 
-void Hero::printBasicInfo(){
+void Hero::printBasicInfo(std::string infoType){
     std::cout << "\n";
     std::string separator = "--------";
     std::cout << separator << m_name << separator << "\n";
     std::cout << "HP: " << m_health << "/100\n";
     std::cout << "Physical damage: " << getPhysicalDamage() << "\n";
-    std::cout << "Coins: " << m_coins << "\n";
-    std::cout << "Stamina: " << m_stamina << "\n";
+    if (infoType == "location") {
+        std::cout << "Coins: " << m_coins << "\n";
+    } else if (infoType == "combat") {
+        std::cout << "Stamina: " << m_stamina << "\n";
+    }
     std::cout << std::setw(m_name.length()+(2*separator.length())+1) << std::setfill('-') << "\n";
 }
 
@@ -84,10 +88,17 @@ int Hero::getPhysicalDamage() {
     }
 }
 
+void Hero::addStrength(int howMuch){
+    m_strength += howMuch;
+}
+
 float Hero::takeDamage(int howMuch){
     float damage;
     if (m_equippedArmor != nullptr) {
-        damage = howMuch - (m_equippedArmor->getArmorBonus() / 2);
+        damage = howMuch - (m_equippedArmor->getArmorBonus() / 3);
+        if (damage < 5) {
+            damage = 5;
+        }
         m_health -= damage;
     } else {
         damage = howMuch;
@@ -157,7 +168,7 @@ void Hero::manageInventory(){
             } else if (playerInput == '6') {
                 m_inventory->discardItem(choice, itemType::potion);
             }
-        } else {
+        } else if (playerInput > '7') {
             std::cout << "That is not an option\n";
         }
     } while (playerInput != '7');
@@ -228,10 +239,10 @@ bool Hero::inspectChest(Chest* chest){
     }
 }
 
-void Hero::fightEnemy(Enemy* enemy){
+bool Hero::fightEnemy(Enemy* enemy){
     char choice = 0;
     while (getHealth() > 0 and enemy->getHealth() > 0){
-        printBasicInfo();
+        printBasicInfo("combat");
         std::cout << "Enemy hp: " << enemy->getHealth() << std::endl;
         std::cout << "What do you want to do?" << std::endl;
         std::cout << "\t[1] Light Attack\n";
@@ -240,9 +251,9 @@ void Hero::fightEnemy(Enemy* enemy){
         std::cout << "\t[I] Manage inventory\n";
         std::cin >> choice;
         if (choice == '1') {
-            attackEnemy(enemy, 30);
+            attackEnemy(enemy, "light");
         } else if(choice == '2') {
-            attackEnemy(enemy, 50);
+            attackEnemy(enemy, "heavy");
         } else if (choice == '3') {
             restToGainStamina(enemy);
         } else if (choice == 'I'){
@@ -250,8 +261,7 @@ void Hero::fightEnemy(Enemy* enemy){
         }
     }
     if (m_health <= 0) {
-        std::cout << "You died. GAME OVER\n";
-        exit(0);
+        return 0;
     } else {
         std::cout << "Enemy is dead. You gain: " << enemy->getXpReward() << " XP\n";
         gainXp(enemy->getXpReward());
@@ -259,16 +269,22 @@ void Hero::fightEnemy(Enemy* enemy){
         addCoins(enemy->getCoinsReward());
     }
     m_stamina = 100;
+    if (m_health < 50){
+        m_health = 50;
+    }
+    return 1;
 }
 
-void Hero::attackEnemy(Enemy* enemy, int attackStamina) {
+void Hero::attackEnemy(Enemy* enemy, std::string typeOfAttack) {
     int heroDamage;
-    if (attackStamina == 30){
+    float staminaToReduce;
+    if (typeOfAttack == "light"){
         heroDamage = getPhysicalDamage();
-    } else if (attackStamina == 50){
-        heroDamage = getPhysicalDamage() * 1.8;
+        staminaToReduce = 30 - (3 * m_agility);
+    } else if (typeOfAttack == "heavy"){
+        heroDamage = getPhysicalDamage() * 1.5;
+        staminaToReduce = 65 - (3 * m_agility);
     }
-    float staminaToReduce = attackStamina - (2 * m_agility);
     if (staminaToReduce < 5){
         staminaToReduce = 5;
     }
@@ -277,6 +293,7 @@ void Hero::attackEnemy(Enemy* enemy, int attackStamina) {
         m_stamina -= staminaToReduce;
         std::cout << "You dealt: " << heroDamage << " damage\n";
         std::cout << "You suffered: " << takeDamage(enemy->getPhysicalDamage()) << " damage\n";
+        std::cout << "You lost: " << staminaToReduce << " stamina\n";
     } else {
         std::cout << "You dont have enough stamina to attack\n";
     }
@@ -310,10 +327,10 @@ void Hero::gainXp(int xp){
 }
 
 void Hero::levelUp(){
-    m_maxXp += 5 + (2 * m_level);
+    m_maxXp += 5 + (3 * m_level);
     m_level++;
     int choice;
-    std::cout << "You have leveled up!\n What do you want to upgrade?\n";
+    std::cout << "You have leveled up!\nWhat do you want to upgrade?\n";
     std::cout << "\t[1] Strength\n";
     std::cout << "\t[2] Agility\n";
     std::cout << "\t[3] Charisma\n";
@@ -340,7 +357,7 @@ void Hero::checkInteractions(){
         learntInteraction.buy = true;
         std::cout << "You have learnt new interaction: Buy items\n";
     }
-    if (m_agility >= 3 and !learntInteraction.stealCoin){
+    if (m_agility >= 5 and !learntInteraction.stealCoin){
         learnInteraction(new StealCoins);
         learntInteraction.stealCoin = true;
         std::cout << "You have learnt new interaction: Steal Coins\n";
@@ -350,7 +367,11 @@ void Hero::checkInteractions(){
         learntInteraction.sell = true;
         std::cout << "You have learnt new interaction: Sell items\n";
     }
-    //flirt
+    if (m_charisma >= 4 and !learntInteraction.flirt){
+        learnInteraction(new Flirt);
+        learntInteraction.flirt = true;
+        std::cout << "You have learnt new interaction: Flirt\n";
+    }
 }
 
 Hero::~Hero(){

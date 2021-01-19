@@ -14,6 +14,7 @@ public:
     void buyWeapon(Hero* hero, FriendlyCharacter* friendlyCharacter);
     void buyArmor(Hero* hero, FriendlyCharacter* friendlyCharacter);
     void buyKey(Hero* hero, FriendlyCharacter* friendlyCharacter);
+    void buyPotion(Hero* hero, FriendlyCharacter* friendlyCharacter);
 };
 
 

@@ -15,17 +15,22 @@ void Buy::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
     std::cout << "What do you want to buy?" << std::endl;
     std::cout << "\t[1] Weapon" << std::endl;
     std::cout << "\t[2] Armor" << std::endl;
-    std::cout << "\t[3] Key" << std::endl;
-    std::cout << "\t[4] Go back" << std::endl;
+    std::cout << "\t[3] Potion" << std::endl;
+    std::cout << "\t[4] Key" << std::endl;
+    std::cout << "\t[5] Go back" << std::endl;
     std::cin >> choice;
     if (choice == 1) {
         buyWeapon(hero, friendlyCharacter);
     } else if (choice == 2) {
         buyArmor(hero, friendlyCharacter);
     } else if (choice == 3) {
+        buyPotion(hero, friendlyCharacter);
+    } else if (choice == 4) {
         buyKey(hero, friendlyCharacter);
-    } else {
+    } else if (choice == 5){
         return;
+    } else {
+        makeInteraction(hero, friendlyCharacter);
     }
 }
 
@@ -79,6 +84,24 @@ void Buy::buyKey(Hero* hero, FriendlyCharacter* friendlyCharacter){
         } else {
             std::cout << "You dont have enough coins\n";
             friendlyCharacter->getInventory()->addKey(key);
+        }
+    }
+}
+
+void Buy::buyPotion(Hero* hero, FriendlyCharacter* friendlyCharacter){
+    int choice;
+    std::cout << "Which one?" <<std::endl;
+    std::cin >> choice;
+
+    Potion* potion = friendlyCharacter->getInventory()->getPotion(choice);
+    if (potion != nullptr){
+        if (potion->getPrice() <= hero->getCoins()) {
+            std::cout << "You bought: " << potion->getName() << "\n";
+            hero->getInventory()->addPotion(potion);
+            hero->addCoins(-potion->getPrice());
+        } else {
+            std::cout << "You dont have enough coins\n";
+            friendlyCharacter->getInventory()->addPotion(potion);
         }
     }
 }

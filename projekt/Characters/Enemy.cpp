@@ -3,11 +3,11 @@
 //
 
 #include "Enemy.h"
-#include "Game.h"
+#include "../Game.h"
 
 Enemy::Enemy(int level){
     m_level = level;
-    m_health = 100;
+    m_health = 100 + (m_level * 10);
     setPhysicalDamage();
 }
 
@@ -15,9 +15,9 @@ void Enemy::setPhysicalDamage(){
     switch (Game::getDifficulty()) {
         case 1: m_physicalDamage = 5 + (3 * m_level);
                 break;
-        case 2: m_physicalDamage = 12 + (4 * m_level);
+        case 2: m_physicalDamage = 9 + (4 * m_level);
                 break;
-        case 3: m_physicalDamage = 15 + (5 * m_level);
+        case 3: m_physicalDamage = 14 + (5 * m_level);
                 break;
     }
 }
@@ -39,9 +39,9 @@ int Enemy::getHealth(){
 }
 
 int Enemy::getXpReward(){
-    return 30 + (3 * m_level);
+    return 35 + (10 * m_level);
 }
 
 int Enemy::getCoinsReward(){
-    return 10 + (2 * m_level);
+    return 15 + (2 * m_level);
 }

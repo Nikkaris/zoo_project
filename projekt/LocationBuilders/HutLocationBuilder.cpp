@@ -38,7 +38,7 @@ void HutLocationBuilder::setChests(){
 }
 
 void HutLocationBuilder::setFriendlyCharacters(){
-    FriendlyCharacter* oldMan = new FriendlyCharacter("Viggo", 5, 0, 3, 50);
+    FriendlyCharacter* oldMan = new FriendlyCharacter("Viggo", 5, 0, 10, 50);
     Inventory* oldManInventory = new Inventory();
     oldManInventory->addWeapon(new Weapon("Wolf axe", 78, 45));
     oldManInventory->addArmor(new Armor("Wolf armor", 60, 45));

@@ -7,7 +7,7 @@
 
 #include <fstream>
 #include "Map.h"
-#include "Hero.h"
+#include "Characters/Hero.h"
 #include "StoryTeller.h"
 
 class Game {

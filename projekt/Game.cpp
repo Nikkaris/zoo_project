@@ -88,18 +88,23 @@ void Game::mapControl(){
 
 void Game::gameEnding(){
     m_story->printChapter(8);
-    Enemy* lich = new Enemy(1);
-    m_hero->fightEnemy(lich);
+    Enemy* lich = new Enemy(10);
+    if (!m_hero->fightEnemy(lich)){
+        printFromFile("../TextFiles/Death.txt");
+    }
     printFromFile("../TextFiles/Epilog.txt");
 }
 
 void Game::printActionMenu(){
     while (m_map->getTileType() != tileType::exit) {
-        m_hero->printBasicInfo();
+        m_hero->printBasicInfo("location");
         m_map->printLocation();
         if (m_map->getEnemy() != nullptr){
             std::cout << "You have been attacked! \n";
-            m_hero->fightEnemy(m_map->getEnemy());
+            if (!m_hero->fightEnemy(m_map->getEnemy())){
+                printFromFile("../TextFiles/Death.txt");
+                exit(0);
+            }
             m_map->removeEnemy();
         } else {
             std::cout << "What do you want to do? \n";
@@ -120,7 +125,6 @@ void Game::printActionMenu(){
             std::cout << "\t[S] Skill Tree \n";
             std::cout << "\t[M] Print World Map \n";
             std::cout << "\t[P] Pause game \n";
-            std::cout << "\t[L] Change location - testing \n";
             chooseAction();
         }
     }
@@ -141,8 +145,6 @@ void Game::chooseAction(){
         m_hero->printAllInfo();
     } else if (playerInput == 'I'){
         m_hero->manageInventory();
-    } else if (playerInput == 'L'){
-        m_map->changeLocation();
     } else if (playerInput == 'M') {
         printFromFile("../TextFiles/Map.txt");
     } else if (playerInput == 'P'){

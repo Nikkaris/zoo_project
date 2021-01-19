@@ -5,9 +5,9 @@
 #ifndef MAIN_CPP_CHEST_H
 #define MAIN_CPP_CHEST_H
 
-#include "Items/Weapon.h"
-#include "Items/Armor.h"
-#include "Items/Potion.h"
+#include "Weapon.h"
+#include "Armor.h"
+#include "Potion.h"
 
 class Chest {
     Weapon* m_weapon;

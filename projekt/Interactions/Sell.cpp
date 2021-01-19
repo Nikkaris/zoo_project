@@ -21,8 +21,10 @@ void Sell::makeInteraction(Hero* hero, FriendlyCharacter* friendlyCharacter){
         sellWeapon(hero, friendlyCharacter);
     } else if (choice == 2) {
         sellArmor(hero, friendlyCharacter);
-    } else {
+    } else if (choice == 3){
         return;
+    } else {
+        makeInteraction(hero, friendlyCharacter);
     }
 }
 

@@ -36,7 +36,6 @@ Inventory* Character::getInventory(){
     return m_inventory;
 }
 
-
 Character::~Character(){
     delete m_inventory;
 }

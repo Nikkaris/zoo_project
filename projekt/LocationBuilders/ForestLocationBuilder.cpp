@@ -43,8 +43,8 @@ void ForestLocationBuilder::setEnemies(){
 }
 
 void ForestLocationBuilder::setChests(){
-    m_tiles.at(3).at(0)->setChest(new Chest(new Potion("Small Healing Potion", 12, 15), true));
-    m_tiles.at(3).at(3)->setChest(new Chest(new Armor("Leather Armor", 10, 10), false));
+    m_tiles.at(3).at(0)->setChest(new Chest(new Armor("Leather Armor", 10, 10), true));
+    m_tiles.at(3).at(3)->setChest(new Chest(new Potion("Small Healing Potion", 12, 15), false));
 }
 
 void ForestLocationBuilder::setFriendlyCharacters(){
