@@ -58,7 +58,9 @@ void Game::printStart() {
     m_story->printChapterOne();
     std::string heroName;
     std::cout << "Tell me, what is your name?\n";
-    std::cin >> heroName;
+    std::cin.ignore();
+    getline(std::cin,heroName);
+    //std::cin >> heroName;
     m_hero->setHeroName(heroName);
     std::cout << "\nDid you say " << m_hero->getName() << "? What a wonderful name!\n";
 

@@ -39,11 +39,11 @@ void CavernLocationBuilder::createLocation(){
 }
 
 void CavernLocationBuilder::setEnemies(){
-    m_tiles.at(0).at(2)->setEnemy(new Enemy(1));
-    m_tiles.at(0).at(4)->setEnemy(new Enemy(3));
-    m_tiles.at(1).at(2)->setEnemy(new Enemy(1));
-    m_tiles.at(1).at(4)->setEnemy(new Enemy(1));
-    m_tiles.at(2).at(1)->setEnemy(new Enemy(2));
+    m_tiles.at(0).at(2)->setEnemy(new Enemy(3));
+    m_tiles.at(0).at(4)->setEnemy(new Enemy(4));
+    m_tiles.at(1).at(2)->setEnemy(new Enemy(3));
+    m_tiles.at(1).at(4)->setEnemy(new Enemy(3));
+    m_tiles.at(2).at(1)->setEnemy(new Enemy(4));
 }
 
 void CavernLocationBuilder::setChests(){

@@ -42,12 +42,12 @@ void TombLocationBuilder::createLocation(){
 }
 
 void TombLocationBuilder::setEnemies(){
-    m_tiles.at(0).at(2)->setEnemy(new Enemy(5));
-    m_tiles.at(0).at(4)->setEnemy(new Enemy(4));
-    m_tiles.at(1).at(2)->setEnemy(new Enemy(2));
-    m_tiles.at(1).at(3)->setEnemy(new Enemy(4));
-    m_tiles.at(2).at(1)->setEnemy(new Enemy(2));
-    m_tiles.at(3).at(1)->setEnemy(new Enemy(2));
+    m_tiles.at(0).at(2)->setEnemy(new Enemy(6));
+    m_tiles.at(0).at(4)->setEnemy(new Enemy(5));
+    m_tiles.at(1).at(2)->setEnemy(new Enemy(4));
+    m_tiles.at(1).at(3)->setEnemy(new Enemy(6));
+    m_tiles.at(2).at(1)->setEnemy(new Enemy(4));
+    m_tiles.at(3).at(1)->setEnemy(new Enemy(4));
 }
 
 void TombLocationBuilder::setChests(){
