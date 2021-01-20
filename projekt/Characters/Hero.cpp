@@ -187,7 +187,7 @@ void Hero::equipWeapon(int choice){
 void Hero::equipArmor(int choice){
     Armor *armor = m_inventory->getArmor(choice);
     if (armor != nullptr) {
-        if (m_equippedWeapon != nullptr) {
+        if (m_equippedArmor != nullptr) {
             m_inventory->addArmor(m_equippedArmor);
         }
         m_equippedArmor = armor;

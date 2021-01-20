@@ -56,15 +56,15 @@ void TombLocationBuilder::setChests(){
 }
 
 void TombLocationBuilder::setFriendlyCharacters(){
-    FriendlyCharacter* wizzardTim = new FriendlyCharacter("Tim The Wizzard", 25, 7, 15, 75);
-    Inventory* wizzardTimInventory = new Inventory();
-    wizzardTimInventory->addPotion(new Potion("Large Healing Potion", 45, 65));
-    wizzardTimInventory->addPotion(new Potion("Large Healing Potion", 45, 65));
-    wizzardTimInventory->addPotion(new Potion("Large Healing Potion", 45, 65));
-    wizzardTimInventory->addKey(new Key(35, 4));
-    wizzardTim->setInventory(wizzardTimInventory);
+    FriendlyCharacter* witchAmaryllis = new FriendlyCharacter("Amaryllis The Witch", 25, 7, 15, 120);
+    Inventory* amaryllisInventory = new Inventory();
+    amaryllisInventory->addPotion(new Potion("Large Healing Potion", 45, 65));
+    amaryllisInventory->addPotion(new Potion("Large Healing Potion", 45, 65));
+    amaryllisInventory->addPotion(new Potion("Large Healing Potion", 45, 65));
+    amaryllisInventory->addKey(new Key(35, 4));
+    witchAmaryllis->setInventory(amaryllisInventory);
 
-    m_tiles.at(3).at(4)->setFriendlyCharacter(wizzardTim);
+    m_tiles.at(3).at(4)->setFriendlyCharacter(witchAmaryllis);
 }
 
 void TombLocationBuilder::createSideLocations(){

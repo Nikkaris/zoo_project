@@ -63,10 +63,11 @@ void BogLocationBuilder::setChests(){
 }
 
 void BogLocationBuilder::setFriendlyCharacters(){
-    FriendlyCharacter* weasel = new FriendlyCharacter("Colter the Weasel", 3, 18, 3, 200);
+    FriendlyCharacter* weasel = new FriendlyCharacter("Allyssa the Weasel", 3, 7, 5, 200);
     Inventory* weaselInventory = new Inventory();
     weaselInventory->addArmor(new Armor("Thief Leather Armor", 27, 26));
     weaselInventory->addWeapon(new Weapon("Thief Dagger", 12, 17));
+    weaselInventory->addPotion(new Potion("Large Healing Potion", 45, 65));
     weaselInventory->addKey(new Key(35, 2));
     weasel->setInventory(weaselInventory);
 

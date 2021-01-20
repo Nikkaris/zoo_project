@@ -5,6 +5,12 @@ with something you have to get on the proper tile.
 
 Location legend:
  Tile(ex. |____| ) - smallest piece of location, there is variety of tiles and most of them are accesible
+
+ Unaccesible tiles:
+ _{##}_ - Fire
+ ~~~~~~ - Water
+
+ Legend:
  ** - your actual position
  FR - NPC (non-player character)
  E1 - enemy and level of the enemy (in this particular we have enemy with level 1)
