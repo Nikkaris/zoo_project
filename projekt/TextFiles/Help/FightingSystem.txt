@@ -12,9 +12,9 @@ in action menu. In this case enemy will still perform his attack.
 Your two or your stats are directly helping during the battle.
 
 Agility - makes your stamina much more effective during fight (your attacks cost less stamina)
-Strenght - your attacks dealing more damage
+Strenght - your attacks are dealing more damage
 
-Last one is little bit tricky. Flirt give you romaance option for NPCs. If you have higher stamina then 
-Npc, you will get lasting damage bonus based on their stamina.
+Last one is little bit tricky. Flirt give you romance option for NPCs. If you have higher charisma then 
+NPC, you will get lasting damage bonus based on their stamina.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
