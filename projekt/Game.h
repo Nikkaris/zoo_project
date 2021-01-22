@@ -18,6 +18,7 @@ class Game {
 public:
     Game();
     void startGame();
+private:
     void chooseDifficulty();
     void setupGame();
     void printStart();
@@ -30,6 +31,7 @@ public:
     void printHelp();
     void pauseMenu();
     void gameEnding();
+public:
     ~Game();
 };
 
