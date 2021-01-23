@@ -26,12 +26,12 @@ private:
     void printActionMenu();
     void chooseAction();
     char getPlayerInput();
-    static int getDifficulty();
     void printFromFile(std::string fileLocation);
     void printHelp();
     void pauseMenu();
     void gameEnding();
 public:
+    static int getDifficulty();
     ~Game();
 };
 
