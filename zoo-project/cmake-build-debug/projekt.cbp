@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="projekt"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="projekt">
+				<Option output="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/projekt.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles"/>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders"/>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items"/>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 projekt"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="projekt/fast">
+				<Option output="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/projekt.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles"/>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders"/>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items"/>
+					<Add directory="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 projekt/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-W/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/Character.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/Character.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/Enemy.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/Enemy.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/FriendlyCharacter.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/FriendlyCharacter.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/Hero.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Characters/Hero.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Game.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Game.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Buy.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Buy.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Flirt.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Flirt.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Interaction.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Interaction.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Sell.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/Sell.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/StealCoins.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Interactions/StealCoins.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Armor.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Armor.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Chest.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Chest.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Inventory.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Inventory.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Item.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Item.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Key.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Key.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Potion.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Potion.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Weapon.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Items/Weapon.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Location.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Location.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/BogLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/BogLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/CavernLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/CavernLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/ForestLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/ForestLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/HutLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/HutLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/LocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/LocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/LocationDirector.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/LocationDirector.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/NecroLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/NecroLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/TombLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/TombLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/TownLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/TownLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/WoodsLocationBuilder.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/LocationBuilders/WoodsLocationBuilder.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Map.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Map.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/StoryTeller.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/StoryTeller.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/BogTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/BogTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/CavernTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/CavernTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/ExitTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/ExitTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/FireTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/FireTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/ForestTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/ForestTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/HutTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/HutTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/NecroTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/NecroTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/Tile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/Tile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/TombTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/TombTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/TownTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/TownTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/WaterTile.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/Tiles/WaterTile.h">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/main.cpp">
+			<Option target="projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

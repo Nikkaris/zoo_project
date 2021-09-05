@@ -1,0 +1,3 @@
+C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/CMakeFiles/projekt.dir
+C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/nikol/Desktop/GIT/zoozs2020_xpaseka/projekt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
